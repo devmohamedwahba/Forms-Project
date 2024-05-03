@@ -1,0 +1,483 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Trafic Log" %}{% endblock %}
+
+
+{% block content %}
+
+<div class="pt-4">
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <div class="py-3" style="background-color: white; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans "Trafic Log" %}</h2>
+                <hr>
+
+    <form id="create_employee_form" method="post" action="#" class="container-fluid mt-4">
+    {% csrf_token %}
+    <div class="row">
+
+    <div class="col-md-10">
+    <div class="mb-3">
+    <label for="request" class="form-label pb-1">{% trans "Requests" %}:</label>
+
+    <div class="dropdown">
+    <input type="text" class="form-control py-2" id="request" name="request" placeholder="{% trans 'Requests' %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <small id="worklocation_error" class="error text-danger" style="display: none;">{% trans 'Request is required' %}</small>
+    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
+    </svg>
+
+    <ul id="worklocation_modal_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+    <input class="w-100 dropdown-item" type="text" id="worklocation-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+    {% for custom_request in custom_requests %}
+    <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{custom_request}}', 'request', 'request_id', '{{custom_request.id}}')">
+    {{custom_request}}
+    </li>
+    {% endfor %}
+
+    <input value="" type="hidden" id="request_id" name="request_id">
+    </ul>
+                                </div>
+                            </div>
+    </div>
+
+    <div class="col-md-10">
+    <div>
+        <p>{% trans "Attach Images" %} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path  d="M7.7414 17.4998C7.05292 17.4965 6.37197 17.3563 5.73819 17.0873C5.10441 16.8184 4.53045 16.426 4.04973 15.9331C3.57262 15.4809 3.18936 14.9391 2.92188 14.3386C2.65441 13.7381 2.50796 13.0908 2.49094 12.4337C2.47391 11.7765 2.58663 11.1225 2.82265 10.5089C3.05866 9.89541 3.41335 9.33444 3.8664 8.85814L9.99973 2.66647C10.3273 2.33953 10.7177 2.08237 11.1473 1.91049C11.577 1.73862 12.0371 1.65561 12.4997 1.66647C12.9953 1.66816 13.4856 1.7685 13.942 1.96165C14.3984 2.1548 14.8118 2.43689 15.1581 2.79147C15.8472 3.455 16.2469 4.36357 16.2703 5.31995C16.2937 6.27634 15.9389 7.20336 15.2831 7.8998L9.1164 14.0915C8.91888 14.2903 8.68384 14.448 8.42492 14.5553C8.16599 14.6625 7.88834 14.7173 7.60807 14.7165C7.3053 14.7169 7.00551 14.6566 6.72641 14.5392C6.44732 14.4219 6.19456 14.2498 5.98307 14.0331C5.56034 13.6239 5.31621 13.0643 5.30373 12.476C5.29124 11.8877 5.51142 11.3183 5.9164 10.8915L11.6081 5.1748C11.7701 5.06722 11.9646 5.01968 12.1579 5.0404C12.3513 5.06112 12.5313 5.14881 12.6668 5.28827C12.8023 5.42774 12.8847 5.6102 12.8999 5.80406C12.9151 5.99792 12.8619 6.19098 12.7497 6.3498L7.05807 12.0665C6.96316 12.1808 6.91696 12.3279 6.92943 12.4759C6.9419 12.624 7.01204 12.7613 7.12473 12.8581C7.24199 12.9762 7.40007 13.0448 7.5664 13.0498C7.62801 13.0507 7.68919 13.0394 7.7464 13.0165C7.80361 12.9936 7.85573 12.9596 7.89973 12.9165L14.0581 6.7248C14.4037 6.34079 14.5844 5.83616 14.561 5.32001C14.5376 4.80386 14.3121 4.31765 13.9331 3.96647C13.5811 3.601 13.1024 3.38436 12.5955 3.3611C12.0886 3.33785 11.5921 3.50977 11.2081 3.84147L5.04973 9.9998C4.75027 10.3214 4.51737 10.6991 4.36442 11.1111C4.21148 11.5231 4.14151 11.9613 4.15855 12.4004C4.17559 12.8396 4.2793 13.271 4.4637 13.6699C4.64811 14.0688 4.90958 14.4273 5.23307 14.7248C5.55746 15.0611 5.94562 15.3294 6.37487 15.5139C6.80411 15.6985 7.26584 15.7957 7.73307 15.7998C8.13591 15.8031 8.53544 15.7267 8.90869 15.5751C9.28195 15.4235 9.62158 15.1997 9.90807 14.9165L16.0664 8.7248C16.1436 8.64711 16.2353 8.58536 16.3363 8.5431C16.4373 8.50084 16.5456 8.47889 16.6551 8.47851C16.7646 8.47812 16.8731 8.4993 16.9744 8.54085C17.0757 8.58239 17.1679 8.64349 17.2456 8.72064C17.3233 8.79779 17.385 8.88949 17.4273 8.9905C17.4695 9.09152 17.4915 9.19986 17.4919 9.30936C17.4923 9.41885 17.4711 9.52735 17.4295 9.62866C17.388 9.72997 17.3269 9.82211 17.2497 9.8998L11.0914 16.0915C10.6542 16.5364 10.1328 16.8901 9.55775 17.1319C8.98265 17.3736 8.36525 17.4987 7.7414 17.4998Z" fill="#7D8592" />
+            </svg></p>
+
+        <div class="row pb-4">
+            <div class="">
+                <input id="information_form_file" class="w-100 ps-3 pe-3 pt-3"
+                    name="information_form_file" type="file"
+                    placeholder="Drop your image here.browser"
+                    style="border-radius: 14px; border: 1px dashed #7D8592; height: 144px; text-align: center;" multiple>
+                <input type="hidden" id="information_form_user" name="information_form_user">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="36" height="34"
+                    viewBox="0 0 36 34" fill="none"
+                    style="position: relative; margin-left: -400px; top: 31px;">
+                    <g clip-path="url(#clip0_316_2723)">
+                        <path
+                            d="M30.1232 27.498V28.5557C30.1232 30.308 28.8179 31.7285 27.2078 31.7285H3.88507C2.27495 31.7285 0.969727 30.308 0.969727 28.5557V11.6338C0.969727 9.88145 2.27495 8.46094 3.88507 8.46094H4.85685V22.21C4.85685 25.1258 7.03656 27.498 9.71576 27.498H30.1232ZM35.9539 22.21V5.28809C35.9539 3.53575 34.6486 2.11523 33.0385 2.11523H9.71576C8.10564 2.11523 6.80041 3.53575 6.80041 5.28809V22.21C6.80041 23.9623 8.10564 25.3828 9.71576 25.3828H33.0385C34.6486 25.3828 35.9539 23.9623 35.9539 22.21ZM16.5182 8.46094C16.5182 10.2133 15.213 11.6338 13.6029 11.6338C11.9928 11.6338 10.6875 10.2133 10.6875 8.46094C10.6875 6.7086 11.9928 5.28809 13.6029 5.28809C15.213 5.28809 16.5182 6.7086 16.5182 8.46094ZM10.6875 17.9795L14.0593 14.3099C14.3439 14.0001 14.8054 14.0001 15.0901 14.3099L17.49 16.9219L25.7207 7.96419C26.0053 7.65444 26.4668 7.65444 26.7514 7.96419L32.0667 13.749V21.1523H10.6875V17.9795Z"
+                            fill="#7D8592" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_316_2723">
+                            <rect width="34.9841" height="33.8438" fill="white"
+                                transform="translate(0.969727)" />
+                        </clipPath>
+                    </defs>
+                </svg> -->
+            </div>
+            <ul id="information-form_ul" class="container-fluid pt-3 ps-4">
+            </ul>
+        </div>
+    </div>
+    </div>
+
+                    </div>
+                    <div class="py-4">
+                        {% for error_message in error_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                        {% endfor %}
+
+                        {% for success_message in success_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}" style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+    
+                    <!-- Confirmation Popup -->
+                <div id="submitSucessModal">
+                    <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+    <button id="employee_modal_close_btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    </div>
+    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <script>
+                        function updateInput(role, first_input, second_input, id) {
+                            document.getElementById(first_input).value = role;
+                            document.getElementById(second_input).value = id;
+                        }
+                    </script>
+            </div>
+            </form>
+
+
+            <!-- User Modal -->
+            <form id="user_modal" action="#" method="post">
+                {% csrf_token %}
+                <div class="modal fade" id="usermodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" style="max-width: 720px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Users" %}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="first_name" class="form-label pb-1">{% trans "First Name" %}:</label>
+                                                <input type="text" class="form-control py-2" id="first_name"
+                                                    name="first_name" placeholder="{% trans "First Name" %}"
+                                                    style="border-radius: 13px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="last_name" class="form-label pb-1">{% trans "Last Name" %}:</label>
+                                                <input type="text" class="form-control py-2" id="last_name"
+                                                    name="last_name" placeholder="{% trans "Last Name" %}"
+                                                    style="border-radius: 13px;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label pb-1">{% trans "Username" %}:</label>
+                                                <input type="text" class="form-control py-2" id="username"
+                                                    name="username" placeholder="{% trans "Username" %}" style="border-radius: 13px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label pb-1">{% trans "Email" %}:</label>
+                                                <input type="email" class="form-control py-2" id="email" name="email"
+                                                    placeholder="{% trans "Email" %}" style="border-radius: 13px;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3" style="position: relative;">
+                                                <label for="user_password" class="form-label pb-1">{% trans "Password" %}:</label>
+                                                <input type="password" class="form-control py-2" id="user_password"
+                                                    name="user_password" placeholder="{% trans "Password" %}"
+                                                    style="border-radius: 13px;">
+                                                <svg class="user-select-none" id="password-toggle"
+                                                    xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                                    viewBox="0 0 22 22" fill="none"
+                                                    style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 20px; {% else %}right: 20px; {% endif %} top: 45px; cursor: pointer;"
+                                                    onclick="passwordVisibility('user_password', 'lineThrough')">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M11 2.75C7.90185 2.75 5.18953 4.24645 2.88334 6.70639C2.09103 7.55152 1.40296 8.45391 0.819808 9.35685L0.601313 9.70281C0.365565 10.085 0.196995 10.3896 0.0967751 10.5901C-0.0322584 10.8481 -0.0322584 11.1519 0.0967751 11.4099L0.199389 11.6066C0.338571 11.8644 0.545767 12.2188 0.819808 12.6431C1.40296 13.5461 2.09103 14.4485 2.88334 15.2936C5.18953 17.7536 7.90185 19.25 11 19.25C14.0982 19.25 16.8105 17.7536 19.1167 15.2936C19.909 14.4485 20.597 13.5461 21.1802 12.6431L21.3987 12.2972C21.6344 11.915 21.803 11.6104 21.9032 11.4099C22.0323 11.1519 22.0323 10.8481 21.9032 10.5901L21.8006 10.3934C21.6614 10.1356 21.4542 9.78117 21.1802 9.35685C20.597 8.45391 19.909 7.55152 19.1167 6.70639C16.8105 4.24645 14.0982 2.75 11 2.75ZM11 4.58333C13.5164 4.58333 15.7885 5.83688 17.7792 7.96028C18.4908 8.71932 19.1132 9.53568 19.6401 10.3515L19.7732 10.5608L19.8966 10.7616L20.0365 11L19.8966 11.2384C19.8176 11.3692 19.732 11.5062 19.6401 11.6485C19.1132 12.4643 18.4908 13.2807 17.7792 14.0397C15.7885 16.1631 13.5164 17.4167 11 17.4167C8.48357 17.4167 6.21151 16.1631 4.22083 14.0397C3.50923 13.2807 2.88675 12.4643 2.35988 11.6485L2.22682 11.4392L2.10339 11.2384L1.96258 11L2.10339 10.7616C2.18245 10.6308 2.26797 10.4938 2.35988 10.3515C2.88675 9.53568 3.50923 8.71932 4.22083 7.96028C6.21151 5.83688 8.48357 4.58333 11 4.58333ZM11 7.33333C8.97496 7.33333 7.33333 8.97496 7.33333 11C7.33333 13.025 8.97496 14.6667 11 14.6667C13.025 14.6667 14.6667 13.025 14.6667 11C14.6667 8.97496 13.025 7.33333 11 7.33333ZM11 9.16667C12.0125 9.16667 12.8333 9.98748 12.8333 11C12.8333 12.0125 12.0125 12.8333 11 12.8333C9.98748 12.8333 9.16667 12.0125 9.16667 11C9.16667 9.98748 9.98748 9.16667 11 9.16667Z"
+                                                        fill="#7D8592" />
+                                                    <!-- Line through the eye -->
+                                                    <line style="display: none;" id="lineThrough" x1="3" y1="3" x2="19"
+                                                        y2="19" stroke="#7D8592" stroke-width="2" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Department Modal -->
+            <form id="department_modal" action="#" method="post">
+                {% csrf_token %}
+                <div class="modal fade" id="departmentmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create Department</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="department_name">Name:</label>
+                                    <input type="text" name="department_name" class="form-control" id="department_name"
+                                        required>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- WorkLocations Modal -->
+            <form id="worklocation_modal" action="#" method="post">
+                <input type="hidden" name="redirect_to" value="create_employee_worklocation">
+                {% csrf_token %}
+                <div class="modal fade" id="workmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Work Locations" %}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="worklocation_name">{% trans "Name" %}:</label>
+                                    <input type="text" name="worklocation_name" class="form-control"
+                                        id="worklocation_name" required>
+                                </div>
+                                <div class="form-group" style="position: relative;">
+                                    <label for="worklocation_address">{% trans "Address" %}:</label>
+                                    <input type="text" name="worklocation_address" class="form-control"
+                                        id="worklocation_address" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+    function passwordVisibility(iconID, lineID) {
+        var Input = document.getElementById(iconID);
+        var lineThrough = document.getElementById(lineID);
+        if (Input.type === "password") {
+            Input.type = "text";
+            lineThrough.style.display = "block"
+        } else {
+            Input.type = "password";
+            lineThrough.style.display = "none"
+        }
+    }
+</script>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+
+
+    $("#create_employee_form").submit(function (event) {
+        event.preventDefault();
+    
+        var formData = new FormData();
+        var files = $('#information_form_file')[0].files;
+        var uploaded_by = '{{request.user.id}}';
+        var request_id = $('#request_id').val();
+        var csrf_token = '{{ csrf_token }}';
+    
+        for (var i = 0; i < files.length; i++) {
+            formData.append('file_name', files[i]);
+            formData.append('uploaded_by', uploaded_by);
+            formData.append('request_id', request_id);
+            formData.append('csrfmiddlewaretoken', csrf_token);
+    
+            $.ajax({
+                url: "/information_form_api",
+                type: 'POST',
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (response) {
+                    var responseObject = JSON.parse(response);
+                    var fileName = responseObject.file_name;
+                    $('#information-form_ul').append(`<li id="information_${responseObject.id}" style="cursor:pointer;">File: ${fileName} <a class="" onclick="deleteInformation(${responseObject.id})"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7" stroke="#BA3316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a>
+                    </li>
+                    `);
+                    document.getElementById('information_form_file').value = "";
+                    console.log(response);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+    
+            formData = new FormData();
+        }
+    
+        return false;
+    });
+    
+    function deleteInformation(id) {
+        $.ajax({
+            type: "DELETE",
+            url: `information_form_api_delete/${id}/`,
+            success: function(response) {
+                $(`#information_${id}`).remove();
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error deleting attachment:", error);
+            }
+        });
+    }
+
+    // Worklocaion Modal
+    $("#worklocation_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/worklocation_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('worklocation_name').value,
+                address: document.getElementById('worklocation_address').value
+            },
+            success: function (response) {
+                $('#worklocation_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('${response.address}', 'worklocations_id', 'employee_worklocations_id', '${response.id}')"> ${response.address} </li>`);
+
+                document.getElementById('worklocations_id').value = response.address;
+                document.getElementById('employee_worklocations_id').value = response.id;
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // Department Modal
+    $("#department_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/department_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('department_name').value,
+            },
+            success: function (response) {
+                $('#department_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('${response.name}', 'routine_routine', 'employee_department_id', '${response.id}')"> ${response.name} </li>`);
+
+                document.getElementById('routine_routine').value = response.name;
+                document.getElementById('employee_department_id').value = response.id;
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // User Modal
+    $("#user_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/user_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                first_name: document.getElementById('first_name').value,
+                last_name: document.getElementById('last_name').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('user_password').value,
+                is_active: "True",
+            },
+            success: function (response) {
+                $('#user_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('${response.username}', 'employee_routine', 'create_user_id', '${response.id}')"> ${response.username} </li>`);
+
+                document.getElementById('employee_routine').value = response.username;
+                document.getElementById('create_user_id').value = response.id;
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $(document).ready(function () {
+        $("#user-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#user_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#worklocation-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#worklocation_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+
+        $('#create_employee_form').submit(function(event) {
+            var readonlyValue = $('#employee_routine').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#employee_error').css('display', 'block');
+                $("#employee_modal_close_btn").trigger("click");
+            }
+            else{
+                $('#employee_error').css('display', 'none');
+            }
+        });
+        $('#create_employee_form').submit(function(event) {
+            var readonlyValue = $('#request').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#worklocation_error').css('display', 'block');
+                $("#employee_modal_close_btn").trigger("click");
+            }
+            else{
+                $('#worklocation_error').css('display', 'none');
+            }
+        });
+    });
+
+</script>
+{% endblock %}

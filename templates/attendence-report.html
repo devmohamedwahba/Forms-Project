@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Attendence Report" %}{% endblock %}
+
+{% block content %}
+
+<style>
+    .dashboard-box {
+        height: 160px;
+    }
+
+    .dashboard-box p {
+        color: #0A1629 !important;
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-family: Nunito-Sans-regular !important;
+        line-height: 21px !important;
+        padding-top: 5px;
+    }
+
+    .dashboard-box h5 {
+        color: #0A1629 !important;
+        font-size: 20px !important;
+        font-style: normal !important;
+        font-family: Nunito-Sans-bold !important;
+        line-height: 16px !important;
+    }
+
+    .attendance-heading h5 {
+        color: #0A1629;
+        font-size: 24px;
+        font-style: normal;
+        font-family: Nunito-Sans-bold;
+        line-height: normal;
+    }
+
+    .exporting {
+        width: 200px !important;
+    }
+
+    @media (max-width: 590px) {
+        .export-heading {
+            flex-direction: column;
+        }
+
+        .exporting {
+            margin-top: 10px !important;
+            width: 100% !important;
+        }
+
+        .attendence-tab-head {
+            padding-right: 10px !important;
+            padding-left: 10px !important;
+        }
+
+        .attendence-search-div h5 {
+            text-align: center !important;
+            font-size: 17px !important;
+        }
+    }
+</style>
+
+<div class="pt-4">
+    <div class="main">
+        <div class="colors-box">
+
+            <div class="employee-reports-content pt-4 pb-3">
+                <!-- <div class="main-head d-flex flex-column flex-md-row justify-content-between mb-3 align-items-center">
+                    <div class="attendance-heading">
+                        <h5 class="main-heading">Month of January 2024</h5>
+                    </div>
+                    <div class="attendance schedule d-flex">
+                        <div class="year-div d-flex align-items-center me-2 me-md-3">
+                            <div class="year-text me-2 me-md-3">{% trans "Year" %}</div>
+                            <div class="nav-item dropdown bg-white" style="border-radius: 13px;" bis_skin_checked="1">
+                                <a style="color: #7D8592; font-weight: light;" class="nav-link dropdown-toggle" href="#"
+                                    id="year" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    2024
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="year">
+                                    <li><a class="dropdown-item" href="#">2025</a></li>
+                                    <li><a class="dropdown-item" href="#">2026</a></li>
+                                    <li><a class="dropdown-item" href="#">2027</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="month-div d-flex align-items-center">
+                            <div class="month-text me-2 me-md-3">{% trans "Month" %}</div>
+                            <div class="nav-item dropdown bg-white" style="border-radius: 13px;" bis_skin_checked="1">
+                                <a style="color: #7D8592; font-weight: light;" class="nav-link dropdown-toggle" href=""
+                                    id="month" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    January
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="month">
+                                    <li><a class="dropdown-item" href="#">January</a></li>
+                                    <li><a class="dropdown-item" href="#">February</a></li>
+                                    <li><a class="dropdown-item" href="#">March</a></li>
+                                    <li><a class="dropdown-item" href="#">April</a></li>
+                                    <li><a class="dropdown-item" href="#">May</a></li>
+                                    <li><a class="dropdown-item" href="#">June</a></li>
+                                    <li><a class="dropdown-item" href="#">July</a></li>
+                                    <li><a class="dropdown-item" href="#">August</a></li>
+                                    <li><a class="dropdown-item" href="#">September</a></li>
+                                    <li><a class="dropdown-item" href="#">October</a></li>
+                                    <li><a class="dropdown-item" href="#">November</a></li>
+                                    <li><a class="dropdown-item" href="#">December</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="row">
+                    <div class="col-12 col-xl-6 col-md-6">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+
+                                <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34" height="34" rx="7.1579" fill="#4365D0" fill-opacity="0.2" />
+                                    <path
+                                        d="M9.85274 21.2383C9.57836 21.0818 9.35014 20.8558 9.19115 20.5829C9.03216 20.31 8.94803 19.9999 8.94727 19.6841V10.7367C8.94727 9.75253 9.75253 8.94727 10.7367 8.94727H19.6841C20.3552 8.94727 20.7202 9.29174 21.0262 9.842M16.1052 18.7894L17.8946 20.5788L21.4736 16.9999M12.5262 14.9125C12.5262 14.2796 12.7776 13.6726 13.2251 13.2251C13.6726 12.7776 14.2796 12.5262 14.9125 12.5262H22.6663C22.9796 12.5262 23.2899 12.5879 23.5794 12.7079C23.869 12.8278 24.132 13.0035 24.3536 13.2251C24.5752 13.4467 24.751 13.7098 24.8709 13.9993C24.9908 14.2888 25.0525 14.5991 25.0525 14.9125V22.6663C25.0525 22.9796 24.9908 23.2899 24.8709 23.5794C24.751 23.869 24.5752 24.132 24.3536 24.3536C24.132 24.5752 23.869 24.751 23.5794 24.8709C23.2899 24.9908 22.9796 25.0525 22.6663 25.0525H14.9125C14.5991 25.0525 14.2888 24.9908 13.9993 24.8709C13.7098 24.751 13.4467 24.5752 13.2251 24.3536C13.0035 24.132 12.8278 23.869 12.7079 23.5794C12.5879 23.2899 12.5262 22.9796 12.5262 22.6663V14.9125Z"
+                                        stroke="#4365D0" stroke-width="1.78947" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <p class="mt-3 text-primary"
+                                style="font-size: 22px !important; font-weight: bold !important; color:#4365D0 !important;">
+                                {% trans "Checked In" %}</p>
+                            <h5 class="mt-1" style="margin-top: 20px !important;">{{ check_in_count }}</h5>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12 col-xl-4 col-md-4">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34.8947" height="34.8947" rx="7.1579" fill="#E34320"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M17.5 15.3748V18.2082M17.5 20.3332H17.5071M16.3404 11.5436L10.5987 21.1302C10.4803 21.3352 10.4177 21.5676 10.417 21.8043C10.4163 22.041 10.4776 22.2737 10.5948 22.4794C10.712 22.685 10.881 22.8564 11.085 22.9765C11.289 23.0966 11.5208 23.1611 11.7575 23.1638H23.2424C23.479 23.1611 23.7108 23.0965 23.9146 22.9764C24.1185 22.8564 24.2874 22.6851 24.4046 22.4795C24.5218 22.274 24.5831 22.0414 24.5825 21.8048C24.5819 21.5682 24.5195 21.3358 24.4013 21.1309L18.6595 11.5429C18.5387 11.3435 18.3685 11.1786 18.1654 11.0642C17.9623 10.9498 17.7331 10.8896 17.5 10.8896C17.2668 10.8896 17.0376 10.9498 16.8345 11.0642C16.6314 11.1786 16.4612 11.3435 16.3404 11.5429V11.5436Z"
+                                        stroke="#E34320" stroke-width="1.79" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                            </div>
+                            <p class="text-white mt-2">Not Checked In</p>
+                            <h5 class="text-white">90<h5>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-12 col-xl-2 col-md-4">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34.8947" height="34.8947" rx="7.1579" fill="#E9AC10"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M17.4474 17.4469V21.6969C17.4474 22.0727 17.5967 22.433 17.8624 22.6987C18.128 22.9644 18.4884 23.1136 18.8641 23.1136C19.2398 23.1136 19.6002 22.9644 19.8658 22.6987C20.1315 22.433 20.2808 22.0727 20.2808 21.6969M11.7808 17.4469C11.7808 15.944 12.3778 14.5027 13.4405 13.44C14.5032 12.3773 15.9445 11.7803 17.4474 11.7803C18.9503 11.7803 20.3917 12.3773 21.4544 13.44C22.5171 14.5027 23.1141 15.944 23.1141 17.4469H11.7808Z"
+                                        stroke="#E9AC10" stroke-width="1.79" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <p class="text-white mt-2">On Leave</p>
+                            <h5 class="text-white">09</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-2 col-md-4">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34.8947" height="34.8947" rx="7.1579" fill="#9243D0"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M17.4473 14.6143V23.8226M17.4473 14.6143C17.191 13.5584 16.7499 12.6557 16.1813 12.024C15.6127 11.3922 14.9431 11.0607 14.2598 11.0726C13.7901 11.0726 13.3397 11.2591 13.0076 11.5912C12.6755 11.9233 12.4889 12.3738 12.4889 12.8434C12.4889 13.3131 12.6755 13.7635 13.0076 14.0956C13.3397 14.4277 13.7901 14.6142 14.2598 14.6142M17.4473 14.6143C17.7035 13.5584 18.1447 12.6557 18.7132 12.024C19.2818 11.3922 19.9514 11.0607 20.6348 11.0726C21.1044 11.0726 21.5548 11.2591 21.8869 11.5912C22.219 11.9233 22.4056 12.3738 22.4056 12.8434C22.4056 13.3131 22.219 13.7635 21.8869 14.0956C21.5548 14.4277 21.1044 14.6142 20.6348 14.6142M22.4056 17.4476V22.4059C22.4056 22.7817 22.2563 23.142 21.9907 23.4077C21.725 23.6734 21.3647 23.8226 20.9889 23.8226H13.9056C13.5299 23.8226 13.1695 23.6734 12.9039 23.4077C12.6382 23.142 12.4889 22.7817 12.4889 22.4059V17.4476M11.0723 15.3226C11.0723 15.1348 11.1469 14.9546 11.2797 14.8217C11.4126 14.6889 11.5927 14.6143 11.7806 14.6143H23.1139C23.3018 14.6143 23.482 14.6889 23.6148 14.8217C23.7476 14.9546 23.8223 15.1348 23.8223 15.3226V16.7393C23.8223 16.9271 23.7476 17.1073 23.6148 17.2401C23.482 17.373 23.3018 17.4476 23.1139 17.4476H11.7806C11.5927 17.4476 11.4126 17.373 11.2797 17.2401C11.1469 17.1073 11.0723 16.9271 11.0723 16.7393V15.3226Z"
+                                        stroke="#9243D0" stroke-width="1.79" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <p class="text-white mt-2">Holiday</p>
+                            <h5 class="text-white">21</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-2 col-md-4">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34.8947" height="34.8947" rx="7.1579" fill="#1897F3"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M20.2803 11.0723V13.9056M14.6136 11.0723V13.9056M11.7803 16.7389H23.1136M11.7803 13.9056C11.7803 13.5299 11.9295 13.1695 12.1952 12.9039C12.4609 12.6382 12.8212 12.4889 13.1969 12.4889H21.6969C22.0727 12.4889 22.433 12.6382 22.6987 12.9039C22.9644 13.1695 23.1136 13.5299 23.1136 13.9056V22.4056C23.1136 22.7813 22.9644 23.1417 22.6987 23.4073C22.433 23.673 22.0727 23.8223 21.6969 23.8223H13.1969C12.8212 23.8223 12.4609 23.673 12.1952 23.4073C11.9295 23.1417 11.7803 22.7813 11.7803 22.4056V13.9056ZM14.6136 19.5723H16.0303V20.9889H14.6136V19.5723Z"
+                                        stroke="#1897F3" stroke-width="1.79" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                            </div>
+                            <p class="text-white mt-2">Weekly Off</p>
+                            <h5 class="text-white">152</h5>
+                        </div>
+                    </div> -->
+                    <div class="col-12 col-xl-6 col-md-6">
+                        <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34.8947" height="34.8947" rx="7.1579" fill="#27B410"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M18.8639 14.6136V13.1969C18.8639 12.8212 18.7147 12.4609 18.449 12.1952C18.1833 11.9295 17.823 11.7803 17.4473 11.7803H12.4889C12.1132 11.7803 11.7529 11.9295 11.4872 12.1952C11.2215 12.4609 11.0723 12.8212 11.0723 13.1969V21.6969C11.0723 22.0727 11.2215 22.433 11.4872 22.6987C11.7529 22.9644 12.1132 23.1136 12.4889 23.1136H17.4473C17.823 23.1136 18.1833 22.9644 18.449 22.6987C18.7147 22.433 18.8639 22.0727 18.8639 21.6969V20.2803M15.3223 17.4469H23.8223M23.8223 17.4469L21.6973 15.3219M23.8223 17.4469L21.6973 19.5719"
+                                        stroke="#27B410" stroke-width="1.79" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                            </div>
+                            <p class="mt-3 text-primary"
+                                style="font-size: 22px !important; font-weight: bold !important; color:#27B410 !important;">
+                                {% trans "Checked Out" %}</p>
+                            <h5 class="mt-1" style="margin-top: 20px !important;">{{ check_out_count }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- attendance sheet -->
+        <div style="background-color: white; border-radius: 18px;">
+            <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+                style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                <h5 class="me-3 mb-0 text-white">{% trans "All Employees Monthly Attendance" %}</h5>
+            </div>
+            <div class="attendence-table container-fluid" style="overflow-x:auto;">
+                <table class="table table-hover table-borderless" id="attendanceReportTable">
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        let data_url = '/month_attendence_api';
+
+        $.ajax({
+            url: data_url,
+            type: 'GET',
+            success: function (response) {
+                let attendanceData = response.data;
+                let tbody = $('#attendanceReportTable tbody');
+                let dates = [];
+                let employeeAttendanceMap = {};
+
+                attendanceData.forEach(function (item) {
+                    item.attendances.forEach(function (attendance) {
+                        if (!dates.includes(attendance.today_date)) {
+                            dates.push(attendance.today_date);
+                        }
+                        let employeeName = attendance.employee_routine.employee.name;
+                        if (!employeeAttendanceMap[employeeName]) {
+                            employeeAttendanceMap[employeeName] = {};
+                        }
+                        employeeAttendanceMap[employeeName][attendance.today_date] = attendance.status === 'p' ? 'Present' : 'Absent';
+                    });
+                });
+
+                dates.sort();
+
+                let tableHeader = '<thead><tr><th>{% trans "Name" %}</th>';
+                dates.forEach(function (date) {
+                    tableHeader += `<th>${date}</th>`;
+                });
+                tableHeader += '</tr></thead>';
+                $('#attendanceReportTable').append(tableHeader);
+
+                Object.keys(employeeAttendanceMap).forEach(function (employeeName) {
+                    let row = `<tr><td>${employeeName}</td>`;
+                    dates.forEach(function (date) {
+                        let attendanceStatus = employeeAttendanceMap[employeeName][date] || 'Absent';
+                        row += `<td>${attendanceStatus}</td>`;
+                    });
+                    row += '</tr>';
+                    tbody.append(row);
+                });
+
+                $('#attendanceReportTable').DataTable(
+                    {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'pdfHtml5',
+                        'csvHtml5',
+                        'excelHtml5'
+                    ],
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    language: {
+                        url: '{% static 'jquery/jquery-datatables-arabic.json' %}',
+                    },
+                    {% endif %}
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
+
+
+{% endblock %}

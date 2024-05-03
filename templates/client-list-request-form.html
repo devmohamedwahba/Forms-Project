@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Request{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+    <div style="background-color: white; border-radius: 18px;">
+        <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+            style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+            <h5 class="me-3 mb-0 text-white">List Request Forms</h5>
+        </div>
+        <div class="attendence-table container-fluid" style="overflow-x:auto;">
+            <table class="table table-hover table-borderless" id="requestFormTable">
+                <thead>
+                    <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
+                        <th scope="col" class="" style="padding: 1rem 0.5rem;">ID
+                        </th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Client</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Duty</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Department</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Note</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Request Method</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Request Reason</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Request Date</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">Request Time</th>
+                    </tr>
+                </thead>
+                <tbody>    
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        let data_url = '/client_request_form_api';
+        
+        $.ajax({
+            url: data_url,
+            type: 'GET',
+            success: function (response) {
+                let requests = response.data;
+                let tbody = $('#requestFormTable tbody');
+
+                requests.forEach(function (request) {
+                    let row = `<tr>
+                        <td><a href="/request/${request.id}">${request.id}</a></td>
+                        <td><a href="/request/${request.id}">${request.client_auto_id.name}</a></td>
+                        <td><a href="/request/${request.id}">${request.duty.title}</a></td>
+                        <td><a href="/request/${request.id}">${request.department.name}</a></td>
+                        <td><a href="/request/${request.id}">${request.notes.content}</a></td>
+                        <td><a href="/request/${request.id}">${request.request_method.name}</a></td>
+                        <td><a href="/request/${request.id}">${request.request_reason.name}</a></td>
+                        <td><a href="/request/${request.id}">${request.request_date}</a></td>
+                        <td><a href="/request/${request.id}">${request.request_time}</a></td>
+                    </tr>`;
+                    tbody.append(row);
+                });
+
+                $('#requestFormTable').DataTable();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "List All" %} {% trans "Attachment Form" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+    <div style="background-color: white; border-radius: 18px;">
+        <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+            style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+            <h5 class="me-3 mb-0 text-white">{% trans "List All" %} {% trans "Attachment Form" %}</h5>
+        </div>
+        <div class="attendence-table container-fluid" style="overflow-x:auto;">
+            <table class="table table-hover table-borderless" id="requestFormTable">
+                <thead>
+                    <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
+                        <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans "ID" %}
+                        </th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Added By" %}</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans "File" %} {% trans "Name" %}</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Requests" %} {% trans "ID" %}</th>
+                    </tr>
+                </thead>
+                <tbody>    
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        let data_url = '/information_form_api';
+        
+        $.ajax({
+            url: data_url,
+            type: 'GET',
+            success: function (response) {
+                let requests = response.data;
+                let tbody = $('#requestFormTable tbody');
+
+                requests.forEach(function (request) {
+                    let row = `<tr>
+                        <td><a>${request.id}</a></td>
+                        <td><a>${request.uploaded_by.username}</a></td>
+                        <td><a href="${request.file_name}" download>${request.file_name}</a></td>
+                        <td><a href="/request/${request.id}/">${request.request_id.id}</a></td>
+                    </tr>`;
+                    tbody.append(row);
+                });
+
+                $('#requestFormTable').DataTable(
+                    {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'pdfHtml5',
+                        'csvHtml5',
+                        'excelHtml5'
+                    ],
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    language: {
+                        url: '{% static 'jquery/jquery-datatables-arabic.json' %}',
+                    },
+                    {% endif %}
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
+{% endblock %}

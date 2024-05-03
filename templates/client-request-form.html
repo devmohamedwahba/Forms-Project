@@ -1,0 +1,823 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Client Request Form{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+
+    <ul class="nav nav-pills user_management mb-3" id="pills-tab" style="width: 45%;" role="tablist">
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link active px-3 active-link" id="pills-role-tab" data-bs-toggle="pill" href="#pills-role"
+                role="tab" aria-controls="pills-role" aria-selected="true" style="border-radius: 20px;">Client</a>
+        </li>
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link user-management px-3" id="pills-permission-tab" data-bs-toggle="pill"
+                href="#pills-permission" role="tab" aria-controls="pills-permission" aria-selected="false"
+                style="border-radius: 20px;">Information Form</a>
+        </li>
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link user-management px-3" id="pills-role-permission-tab" data-bs-toggle="pill"
+                href="#pills-roles-permission" role="tab" aria-controls="pills-role-permission" aria-selected="false"
+                style="border-radius: 20px;">Attachment Form</a>
+        </li>
+    </ul>
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <!-- Request Form -->
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <form id="request_form" action="#" method="post">
+                {% csrf_token %}
+
+                <div class="employee-sheet-content custom-container bg-white pt-4" style="border-radius: 15px;">
+
+                    <h2 class="container-fluid" style="font-weight: bold; color: #0A1629; font-size: 24px;">
+                        Client Request Form</h2>
+                    <hr>
+
+                    <div class="container-fluid">
+
+                        <div class="row pb-4">
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="employee_duty" class="form-label pb-1">Client:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="employee_duty"
+                                            name="employee_duty" placeholder="Select Client"
+                                            style="border-radius: 13px;" required>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px; top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {% for client in clients %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{client.name}}', 'employee_duty', 'request_employee_id', '{{client.id}}')">
+                                                {{client.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input type="hidden" id="request_employee_id" name="request_employee_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="request_duty" class="form-label pb-1">Duty ID:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="request_duty"
+                                            name="request_duty" placeholder="Select Employee"
+                                            style="border-radius: 13px;" required>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px; top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {% for duty in dutys %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{duty.title}}', 'request_duty', 'request_duty_id', '{{duty.id}}')">
+                                                {{duty.title}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input type="hidden" id="request_duty_id" name="request_duty_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row pb-4">
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="request_method" class="form-label pb-1">Request Method:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="request_method"
+                                            name="request_method" placeholder="Request Method"
+                                            style="border-radius: 13px;" required>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px; top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+
+
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                            data-bs-target="#methodmodal"
+                                            style="position: absolute; right: 40px; top: 10px; cursor: pointer;">
+                                            <path
+                                                d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                                stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+
+                                        <ul id="request_method_ul" class="dropdown-menu"
+                                            aria-labelledby="dropdownMenuButton">
+                                            {% for request_method in request_methods %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{request_method.name}}', 'request_method', 'request_method_id', '{{request_method.id}}')">
+                                                {{request_method.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input type="hidden" id="request_method_id" name="request_method_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="routine_routine" class="form-label pb-1">Department:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="routine_routine"
+                                            name="routine_routine" placeholder="Select a role"
+                                            style="border-radius: 13px;" required>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px; top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {% for department in departments %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{department.name}}', 'routine_routine', 'employee_department_id', '{{department.id}}')">
+                                                {{department.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input value="" type="hidden" id="employee_department_id"
+                                                name="employee_department_id">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row pb-4">
+
+                            <div class="col-md-5">
+
+                                <div class="mb-2">
+                                    <label for="request_time" class="form-label pb-1"
+                                        style="font-weight: bold; color: #7D8592;">Request Time:</label>
+
+                                    <input type="time" class="form-control py-2" id="request_time" name="request_time"
+                                        placeholder="2:10 Pm" style="border-radius: 13px;" required>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="mb-2">
+                                    <label for="request_date" class="form-label pb-1"
+                                        style="font-weight: bold; color: #7D8592;">Request Date:</label>
+
+
+                                    <div class="dropdown">
+
+                                        <input type="date" class="form-control py-2" id="request_date"
+                                            name="request_date" placeholder="1/12/2024" style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pb-4">
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="request_reason" class="form-label pb-1">Request Reason:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="request_reason"
+                                            name="request_reason" placeholder="Request Reason"
+                                            style="border-radius: 13px;" required>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px; top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+
+
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                            data-bs-target="#reasonmodal"
+                                            style="position: absolute; right: 40px; top: 10px; cursor: pointer;">
+                                            <path
+                                                d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                                stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+
+
+                                        <ul id="request_reason_ul" class="dropdown-menu"
+                                            aria-labelledby="dropdownMenuButton">
+                                            {% for reason in reasons %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{reason.name}}', 'request_reason', 'request_reason_id', '{{reason.id}}')">
+                                                {{reason.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input value="" type="hidden" id="request_reason_id"
+                                                name="request_reason_id">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5">
+                                <div class="mb-2">
+                                    <label for="request_corresponding_id" class="form-label pb-1"
+                                        style="font-weight: bold; color: #7D8592;">Corresponding ID:</label>
+
+
+                                    <div class="dropdown">
+
+                                        <input type="text" class="form-control py-2" id="request_corresponding_id"
+                                            name="request_corresponding_id" placeholder="112233"
+                                            style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row pb-4">
+                            <div class="col-md-10">
+                                <div class="mb-2">
+                                    <label for="request_uids" class="form-label pb-1"
+                                        style="font-weight: bold; color: #7D8592;">UIDs:</label>
+
+
+                                    <div class="dropdown">
+
+                                        <input type="text" class="form-control py-2" id="request_uids"
+                                            name="request_uids" placeholder="Y7890" style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div> -->
+
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <label for="request_note" class="form-label pb-1">Request Note:</label>
+
+                                    <div class="dropdown">
+                                        <input type="text" class="form-control py-2" id="request_note"
+                                            name="request_note" placeholder="Request Note" style="border-radius: 13px;" required>
+
+                                        <input type="hidden" id="request_note_id" name="request_note_id">
+
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                            data-bs-target="#notemodal"
+                                            style="position: absolute; right: 20px; top: 10px; cursor: pointer;">
+                                            <path
+                                                d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                                stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="pt-3">
+                    <div class="employee-sheet-content custom-container bg-white"
+                        style="border-radius: 15px; padding: 5%;">
+                        <div class="d-flex" style=" gap: 90px;">
+                            <div>
+                                <p style="font-weight: bold; color: #7D8592;">Request Priority</p>
+                                <div class="checkboxes pt-4">
+                                    <div class="true">
+                                        <input type="checkbox" id="trueCheckbox" class="checkbox">
+                                        <label for="trueCheckbox" class="checkbox-label">True</label>
+                                    </div>
+
+                                    <div class="false pt-2">
+                                        <input type="checkbox" id="falseCheckbox" class="checkbox">
+                                        <label for="falseCheckbox" class="checkbox-label">False</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p style="font-weight: bold; color: #7D8592;">Request Requirements</p>
+                                <div class="checkboxes pt-4">
+                                    <div class="cases_log">
+                                        <input type="checkbox" id="cases_logCheckbox" class="checkbox">
+                                        <label for="cases_logCheckbox" class="checkbox-label">Cases Log</label>
+                                    </div>
+                                    <div class="traffic_log pt-2">
+                                        <input type="checkbox" id="traffic_logCheckbox" class="checkbox">
+                                        <label for="traffic_logCheckbox" class="checkbox-label">Trafic Log</label>
+                                    </div>
+                                    <div class="person_id pt-2">
+                                        <input type="checkbox" id="person_idCheckbox" class="checkbox">
+                                        <label for="person_idCheckbox" class="checkbox-label">Person ID</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-bold" id="error_message" style="font-weight: bold; color: red;"></p>
+
+                            <p class="text-bold" id="success_message" style="font-weight: bold; color: green;"></p>
+                        </div>
+
+                        <div class="pt-5">
+                            <input class="btn btn-primary" type="submit" value="Submit"
+                                style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <!-- Request Method Modal -->
+        <form id="request_method_modal" action="#" method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="methodmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Create
+                                Request Method
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="note_name">Name:</label>
+                                <input type="text" name="request_method_name" class="form-control"
+                                    id="request_method_name" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnCloseRequestMethod" type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Request Reason Reason -->
+        <form id="request_reason_modal" action="#" method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="reasonmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Create
+                                Request Reason
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="request_reason_name">Name:</label>
+                                <input type="text" name="request_reason_name" class="form-control"
+                                    id="request_reason_name" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Request Note Modal -->
+        <form id="request_note_modal" action="#" method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="notemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Create Note
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="note_name">Name:</label>
+                                <input type="text" name="note_name" class="form-control" id="note_name" required>
+                                <input id="note_user" type="hidden" value="{{request.user.id}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Information Form -->
+        <div class="tab-pane fade" id="pills-permission" role="tabpanel" aria-labelledby="pills-permission-tab">
+
+            <div class="tab-content user_management-content">
+                <div class="employee-sheet-content custom-container bg-white pt-4" style="border-radius: 15px;">
+                    <h2 class="container-fluid" style="font-weight: bold;">Information Form</h2>
+                    <hr>
+
+                    <div class="employee-sheet-content custom-container bg-white"
+                        style="border-radius: 15px; margin-top: 10px;">
+                        <form id="information_form" action="/create_information_form" method="post"
+                            enctype="multipart/form-data" class="container-fluid">
+                            {% csrf_token %}
+                            <div>
+                                <p>Attach Images <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M7.7414 17.4998C7.05292 17.4965 6.37197 17.3563 5.73819 17.0873C5.10441 16.8184 4.53045 16.426 4.04973 15.9331C3.57262 15.4809 3.18936 14.9391 2.92188 14.3386C2.65441 13.7381 2.50796 13.0908 2.49094 12.4337C2.47391 11.7765 2.58663 11.1225 2.82265 10.5089C3.05866 9.89541 3.41335 9.33444 3.8664 8.85814L9.99973 2.66647C10.3273 2.33953 10.7177 2.08237 11.1473 1.91049C11.577 1.73862 12.0371 1.65561 12.4997 1.66647C12.9953 1.66816 13.4856 1.7685 13.942 1.96165C14.3984 2.1548 14.8118 2.43689 15.1581 2.79147C15.8472 3.455 16.2469 4.36357 16.2703 5.31995C16.2937 6.27634 15.9389 7.20336 15.2831 7.8998L9.1164 14.0915C8.91888 14.2903 8.68384 14.448 8.42492 14.5553C8.16599 14.6625 7.88834 14.7173 7.60807 14.7165C7.3053 14.7169 7.00551 14.6566 6.72641 14.5392C6.44732 14.4219 6.19456 14.2498 5.98307 14.0331C5.56034 13.6239 5.31621 13.0643 5.30373 12.476C5.29124 11.8877 5.51142 11.3183 5.9164 10.8915L11.6081 5.1748C11.7701 5.06722 11.9646 5.01968 12.1579 5.0404C12.3513 5.06112 12.5313 5.14881 12.6668 5.28827C12.8023 5.42774 12.8847 5.6102 12.8999 5.80406C12.9151 5.99792 12.8619 6.19098 12.7497 6.3498L7.05807 12.0665C6.96316 12.1808 6.91696 12.3279 6.92943 12.4759C6.9419 12.624 7.01204 12.7613 7.12473 12.8581C7.24199 12.9762 7.40007 13.0448 7.5664 13.0498C7.62801 13.0507 7.68919 13.0394 7.7464 13.0165C7.80361 12.9936 7.85573 12.9596 7.89973 12.9165L14.0581 6.7248C14.4037 6.34079 14.5844 5.83616 14.561 5.32001C14.5376 4.80386 14.3121 4.31765 13.9331 3.96647C13.5811 3.601 13.1024 3.38436 12.5955 3.3611C12.0886 3.33785 11.5921 3.50977 11.2081 3.84147L5.04973 9.9998C4.75027 10.3214 4.51737 10.6991 4.36442 11.1111C4.21148 11.5231 4.14151 11.9613 4.15855 12.4004C4.17559 12.8396 4.2793 13.271 4.4637 13.6699C4.64811 14.0688 4.90958 14.4273 5.23307 14.7248C5.55746 15.0611 5.94562 15.3294 6.37487 15.5139C6.80411 15.6985 7.26584 15.7957 7.73307 15.7998C8.13591 15.8031 8.53544 15.7267 8.90869 15.5751C9.28195 15.4235 9.62158 15.1997 9.90807 14.9165L16.0664 8.7248C16.1436 8.64711 16.2353 8.58536 16.3363 8.5431C16.4373 8.50084 16.5456 8.47889 16.6551 8.47851C16.7646 8.47812 16.8731 8.4993 16.9744 8.54085C17.0757 8.58239 17.1679 8.64349 17.2456 8.72064C17.3233 8.79779 17.385 8.88949 17.4273 8.9905C17.4695 9.09152 17.4915 9.19986 17.4919 9.30936C17.4923 9.41885 17.4711 9.52735 17.4295 9.62866C17.388 9.72997 17.3269 9.82211 17.2497 9.8998L11.0914 16.0915C10.6542 16.5364 10.1328 16.8901 9.55775 17.1319C8.98265 17.3736 8.36525 17.4987 7.7414 17.4998Z"
+                                            fill="#7D8592" />
+                                    </svg></p>
+
+                                <div class="row">
+                                    <div class="col-12 col-lg-9">
+                                        <input id="information_form_file" class="w-100 ps-3 pt-3"
+                                            name="information_form_file" type="file"
+                                            placeholder="Drop your image here.browser"
+                                            style="border-radius: 14px; border: 1px dashed #7D8592; height: 144px; text-align: center;">
+                                        <input type="hidden" id="information_form_user" name="information_form_user">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="34"
+                                            viewBox="0 0 36 34" fill="none"
+                                            style="position: relative; margin-left: -400px; top: 31px;">
+                                            <g clip-path="url(#clip0_316_2723)">
+                                                <path
+                                                    d="M30.1232 27.498V28.5557C30.1232 30.308 28.8179 31.7285 27.2078 31.7285H3.88507C2.27495 31.7285 0.969727 30.308 0.969727 28.5557V11.6338C0.969727 9.88145 2.27495 8.46094 3.88507 8.46094H4.85685V22.21C4.85685 25.1258 7.03656 27.498 9.71576 27.498H30.1232ZM35.9539 22.21V5.28809C35.9539 3.53575 34.6486 2.11523 33.0385 2.11523H9.71576C8.10564 2.11523 6.80041 3.53575 6.80041 5.28809V22.21C6.80041 23.9623 8.10564 25.3828 9.71576 25.3828H33.0385C34.6486 25.3828 35.9539 23.9623 35.9539 22.21ZM16.5182 8.46094C16.5182 10.2133 15.213 11.6338 13.6029 11.6338C11.9928 11.6338 10.6875 10.2133 10.6875 8.46094C10.6875 6.7086 11.9928 5.28809 13.6029 5.28809C15.213 5.28809 16.5182 6.7086 16.5182 8.46094ZM10.6875 17.9795L14.0593 14.3099C14.3439 14.0001 14.8054 14.0001 15.0901 14.3099L17.49 16.9219L25.7207 7.96419C26.0053 7.65444 26.4668 7.65444 26.7514 7.96419L32.0667 13.749V21.1523H10.6875V17.9795Z"
+                                                    fill="#7D8592" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_316_2723">
+                                                    <rect width="34.9841" height="33.8438" fill="white"
+                                                        transform="translate(0.969727)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                    fill="none">
+                                    <path
+                                        d="M19.9997 3.3335C10.7947 3.3335 3.33301 10.7952 3.33301 20.0002C3.33301 29.2052 10.7947 36.6668 19.9997 36.6668C29.2047 36.6668 36.6663 29.2052 36.6663 20.0002C36.6663 10.7952 29.2047 3.3335 19.9997 3.3335ZM28.333 21.6668H21.6663V28.3335H18.333V21.6668H11.6663V18.3335H18.333V11.6668H21.6663V18.3335H28.333V21.6668Z"
+                                        fill="#0A1629" />
+                                </svg>
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="16.665" fill="#0A1629" />
+                                    <path
+                                        d="M15.78 26.5146H24.0375M17.4315 23.2117V26.5146M22.386 23.2117V26.5146M12.4771 14.1285C12.4771 13.9095 12.564 13.6994 12.7189 13.5446C12.8738 13.3897 13.0838 13.3027 13.3028 13.3027H26.5147C26.7337 13.3027 26.9437 13.3897 27.0986 13.5446C27.2534 13.6994 27.3404 13.9095 27.3404 14.1285V22.3859C27.3404 22.6049 27.2534 22.8149 27.0986 22.9698C26.9437 23.1247 26.7337 23.2117 26.5147 23.2117H13.3028C13.0838 23.2117 12.8738 23.1247 12.7189 22.9698C12.564 22.8149 12.4771 22.6049 12.4771 22.3859V14.1285Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="16.665" fill="#0A1629" />
+                                    <path
+                                        d="M14.6242 26.5151L19.5787 18.2576L17.1014 14.1289M14.6242 26.5151L12.147 22.3863L17.1014 14.1289M14.6242 26.5151H24.5331L27.0104 22.3863M17.1014 14.1289L22.0559 22.3863H27.0104M17.1014 14.1289H22.0559L27.0104 22.3863M17.1014 22.3863H27.0104"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <br><br>
+                            <input class="btn btn-primary" type="submit" value="Submit"
+                                style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Attachment Form -->
+        <div class="tab-pane fade" id="pills-roles-permission" role="tabpanel"
+            aria-labelledby="pills-role-permission-tab">
+
+            <div class="tab-content user_management-content">
+                <div class="employee-sheet-content custom-container bg-white pt-4" style="border-radius: 15px;">
+                    <h2 class="container-fluid" style="font-weight: bold;">Attachment Form</h2>
+                    <hr>
+
+                    <div class="employee-sheet-content custom-container bg-white"
+                        style="border-radius: 15px; margin-top: 10px;">
+                        <form id="information_form" action="/create_information_form" method="post"
+                            enctype="multipart/form-data" class="container-fluid">
+                            {% csrf_token %}
+                            <div>
+                                <p>Attach Images <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M7.7414 17.4998C7.05292 17.4965 6.37197 17.3563 5.73819 17.0873C5.10441 16.8184 4.53045 16.426 4.04973 15.9331C3.57262 15.4809 3.18936 14.9391 2.92188 14.3386C2.65441 13.7381 2.50796 13.0908 2.49094 12.4337C2.47391 11.7765 2.58663 11.1225 2.82265 10.5089C3.05866 9.89541 3.41335 9.33444 3.8664 8.85814L9.99973 2.66647C10.3273 2.33953 10.7177 2.08237 11.1473 1.91049C11.577 1.73862 12.0371 1.65561 12.4997 1.66647C12.9953 1.66816 13.4856 1.7685 13.942 1.96165C14.3984 2.1548 14.8118 2.43689 15.1581 2.79147C15.8472 3.455 16.2469 4.36357 16.2703 5.31995C16.2937 6.27634 15.9389 7.20336 15.2831 7.8998L9.1164 14.0915C8.91888 14.2903 8.68384 14.448 8.42492 14.5553C8.16599 14.6625 7.88834 14.7173 7.60807 14.7165C7.3053 14.7169 7.00551 14.6566 6.72641 14.5392C6.44732 14.4219 6.19456 14.2498 5.98307 14.0331C5.56034 13.6239 5.31621 13.0643 5.30373 12.476C5.29124 11.8877 5.51142 11.3183 5.9164 10.8915L11.6081 5.1748C11.7701 5.06722 11.9646 5.01968 12.1579 5.0404C12.3513 5.06112 12.5313 5.14881 12.6668 5.28827C12.8023 5.42774 12.8847 5.6102 12.8999 5.80406C12.9151 5.99792 12.8619 6.19098 12.7497 6.3498L7.05807 12.0665C6.96316 12.1808 6.91696 12.3279 6.92943 12.4759C6.9419 12.624 7.01204 12.7613 7.12473 12.8581C7.24199 12.9762 7.40007 13.0448 7.5664 13.0498C7.62801 13.0507 7.68919 13.0394 7.7464 13.0165C7.80361 12.9936 7.85573 12.9596 7.89973 12.9165L14.0581 6.7248C14.4037 6.34079 14.5844 5.83616 14.561 5.32001C14.5376 4.80386 14.3121 4.31765 13.9331 3.96647C13.5811 3.601 13.1024 3.38436 12.5955 3.3611C12.0886 3.33785 11.5921 3.50977 11.2081 3.84147L5.04973 9.9998C4.75027 10.3214 4.51737 10.6991 4.36442 11.1111C4.21148 11.5231 4.14151 11.9613 4.15855 12.4004C4.17559 12.8396 4.2793 13.271 4.4637 13.6699C4.64811 14.0688 4.90958 14.4273 5.23307 14.7248C5.55746 15.0611 5.94562 15.3294 6.37487 15.5139C6.80411 15.6985 7.26584 15.7957 7.73307 15.7998C8.13591 15.8031 8.53544 15.7267 8.90869 15.5751C9.28195 15.4235 9.62158 15.1997 9.90807 14.9165L16.0664 8.7248C16.1436 8.64711 16.2353 8.58536 16.3363 8.5431C16.4373 8.50084 16.5456 8.47889 16.6551 8.47851C16.7646 8.47812 16.8731 8.4993 16.9744 8.54085C17.0757 8.58239 17.1679 8.64349 17.2456 8.72064C17.3233 8.79779 17.385 8.88949 17.4273 8.9905C17.4695 9.09152 17.4915 9.19986 17.4919 9.30936C17.4923 9.41885 17.4711 9.52735 17.4295 9.62866C17.388 9.72997 17.3269 9.82211 17.2497 9.8998L11.0914 16.0915C10.6542 16.5364 10.1328 16.8901 9.55775 17.1319C8.98265 17.3736 8.36525 17.4987 7.7414 17.4998Z"
+                                            fill="#7D8592" />
+                                    </svg></p>
+
+                                <div class="row">
+                                    <div class="col-12 col-lg-9">
+                                        <input id="information_form_file" class="w-100 ps-3 pt-3"
+                                            name="information_form_file" type="file"
+                                            placeholder="Drop your image here.browser"
+                                            style="border-radius: 14px; border: 1px dashed #7D8592; height: 144px; text-align: center;">
+                                        <input type="hidden" id="information_form_user" name="information_form_user">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="34"
+                                            viewBox="0 0 36 34" fill="none"
+                                            style="position: relative; margin-left: -400px; top: 31px;">
+                                            <g clip-path="url(#clip0_316_2723)">
+                                                <path
+                                                    d="M30.1232 27.498V28.5557C30.1232 30.308 28.8179 31.7285 27.2078 31.7285H3.88507C2.27495 31.7285 0.969727 30.308 0.969727 28.5557V11.6338C0.969727 9.88145 2.27495 8.46094 3.88507 8.46094H4.85685V22.21C4.85685 25.1258 7.03656 27.498 9.71576 27.498H30.1232ZM35.9539 22.21V5.28809C35.9539 3.53575 34.6486 2.11523 33.0385 2.11523H9.71576C8.10564 2.11523 6.80041 3.53575 6.80041 5.28809V22.21C6.80041 23.9623 8.10564 25.3828 9.71576 25.3828H33.0385C34.6486 25.3828 35.9539 23.9623 35.9539 22.21ZM16.5182 8.46094C16.5182 10.2133 15.213 11.6338 13.6029 11.6338C11.9928 11.6338 10.6875 10.2133 10.6875 8.46094C10.6875 6.7086 11.9928 5.28809 13.6029 5.28809C15.213 5.28809 16.5182 6.7086 16.5182 8.46094ZM10.6875 17.9795L14.0593 14.3099C14.3439 14.0001 14.8054 14.0001 15.0901 14.3099L17.49 16.9219L25.7207 7.96419C26.0053 7.65444 26.4668 7.65444 26.7514 7.96419L32.0667 13.749V21.1523H10.6875V17.9795Z"
+                                                    fill="#7D8592" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_316_2723">
+                                                    <rect width="34.9841" height="33.8438" fill="white"
+                                                        transform="translate(0.969727)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                    fill="none">
+                                    <path
+                                        d="M19.9997 3.3335C10.7947 3.3335 3.33301 10.7952 3.33301 20.0002C3.33301 29.2052 10.7947 36.6668 19.9997 36.6668C29.2047 36.6668 36.6663 29.2052 36.6663 20.0002C36.6663 10.7952 29.2047 3.3335 19.9997 3.3335ZM28.333 21.6668H21.6663V28.3335H18.333V21.6668H11.6663V18.3335H18.333V11.6668H21.6663V18.3335H28.333V21.6668Z"
+                                        fill="#0A1629" />
+                                </svg>
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="16.665" fill="#0A1629" />
+                                    <path
+                                        d="M15.78 26.5146H24.0375M17.4315 23.2117V26.5146M22.386 23.2117V26.5146M12.4771 14.1285C12.4771 13.9095 12.564 13.6994 12.7189 13.5446C12.8738 13.3897 13.0838 13.3027 13.3028 13.3027H26.5147C26.7337 13.3027 26.9437 13.3897 27.0986 13.5446C27.2534 13.6994 27.3404 13.9095 27.3404 14.1285V22.3859C27.3404 22.6049 27.2534 22.8149 27.0986 22.9698C26.9437 23.1247 26.7337 23.2117 26.5147 23.2117H13.3028C13.0838 23.2117 12.8738 23.1247 12.7189 22.9698C12.564 22.8149 12.4771 22.6049 12.4771 22.3859V14.1285Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="16.665" fill="#0A1629" />
+                                    <path
+                                        d="M14.6242 26.5151L19.5787 18.2576L17.1014 14.1289M14.6242 26.5151L12.147 22.3863L17.1014 14.1289M14.6242 26.5151H24.5331L27.0104 22.3863M17.1014 14.1289L22.0559 22.3863H27.0104M17.1014 14.1289H22.0559L27.0104 22.3863M17.1014 22.3863H27.0104"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <br><br>
+                            <input class="btn btn-primary" type="submit" value="Submit"
+                                style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function updateInput(role, first_input, second_input, id) {
+        document.getElementById(first_input).value = role;
+        document.getElementById(second_input).value = id;
+    }
+</script>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    // Request Form Modal
+    $("#request_method_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/request_method_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('request_method_name').value
+            },
+            success: function (response) {
+                $('#request_method_ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+    onclick="updateInput('${response.name}', 'request_method', 'request_method_id', '${response.id}')"> ${response.name}
+</li>`);
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // Request Reason Modal
+    $("#request_reason_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/request_reason_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('request_reason_name').value
+            },
+            success: function (response) {
+                $('#request_reason_ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+    onclick="updateInput('${response.name}', 'request_reason', 'request_reason_id', '${response.id}')"> ${response.name}
+</li>`);
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // Request Note Modal
+    $("#request_note_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/request_note_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                created_by: document.getElementById('note_user').value,
+                content: document.getElementById('note_name').value
+            },
+            success: function (response) {
+                document.getElementById('request_note').value = response.content;
+                document.getElementById('request_note_id').value = response.id;
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $("#request_form").submit(function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/request_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                duty: $('#request_duty_id').val(),
+                client_auto_id: $('#request_employee_id').val(),
+                department: $('#employee_department_id').val(),
+                notes: $('#request_note_id').val(),
+                request_date: $('#request_date').val(),
+                request_time: $('#request_time').val(),
+                request_method: $('#request_method_id').val(),
+                corresponding_id: $('#request_corresponding_id').val(),
+                request_reason: $('#request_reason_id').val(),
+            },
+            success: function (response) {
+                document.getElementById('success_message').style.display = "block";
+                document.getElementById('success_message').innerHTML = "Request created successfully";
+                document.getElementById('error_message').style.display = "none";
+                console.log(response);
+            },
+            error: function (error) {
+                document.getElementById('error_message').style.display = "block";
+                document.getElementById('error_message').innerHTML = error.responseText;
+                document.getElementById('success_message').style.display = "none";
+                console.error(error);
+            }
+        });
+        return false;
+    });
+
+    // $("#information_form").submit(function (event) {
+    //  event.preventDefault();
+
+    // var formData = new FormData();
+    // formData.append('file', $('#information_form_file')[0].files[0]);
+    // formData.append('uploaded_by', '1');
+    // formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+    // $.ajax({
+    // url: "/information_form_api",
+    // type: 'POST',
+    // data: {
+    // csrfmiddlewaretoken: '{{ csrf_token }}',
+    // file: $('#information_form_file')[0].files[0],
+    // uploaded_by: '{{request.user.id}}'
+    // },
+    // success: function (response) {
+    // console.log(response);
+    // },
+    // error: function (error) {
+    // console.error(error);
+    //  }
+    // });
+
+    // return false;
+    // });
+
+    $(document).ready(function () {
+        $('#cases_logCheckbox, #traffic_logCheckbox, #person_idCheckbox').click(function () {
+            if ($('#person_idCheckbox').prop("checked") == true) {
+                $('#cases_logCheckbox').prop("checked", false);
+                $('#traffic_logCheckbox').prop("checked", false);
+                $('#pills-role-permission-tab').css("display", "none");
+                $('#pills-permission-tab').css("display", "block");
+
+            } else if ($('#cases_logCheckbox').prop("checked") == true) {
+                $('#pills-permission-tab').css("display", "none");
+                $('#pills-role-permission-tab').css("display", "block");
+            } else if ($('#traffic_logCheckbox').prop("checked") == true) {
+                $('#pills-permission-tab').css("display", "none");
+                $('#pills-role-permission-tab').css("display", "block");
+            }
+            else {
+                $('#pills-permission-tab').css("display", "block");
+                $('#pills-role-permission-tab').css("display", "block");
+            }
+        });
+    });
+
+
+</script>
+{% endblock %}

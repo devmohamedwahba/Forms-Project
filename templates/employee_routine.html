@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Employee Routine" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <div class="py-3" style="background-color: white; height: 530px; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans "Employee Routine" %}</h2>
+                <hr>
+
+                <form id="employee_routine_form" method="post" action="/employee_routine" class="container-fluid mt-4">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label for="employee_routine" class="form-label pb-1">{% trans "Employees" %}:</label>
+
+                                <div class="dropdown">
+    <input type="text" class="form-control py-2" id="employee_routine" name="employee_routine" placeholder="{% trans "Employees" %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <small id="employee_routine_error" class="error text-danger" style="display: none;">{% trans 'Employee is required' %}</small>
+                                    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                        width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                            fill="#0A1629" />
+                                    </svg>
+                                    <ul id="employee-ul" class="dropdown-menu pt-0"
+                                        aria-labelledby="dropdownMenuButton">
+                                        <input class="w-100 dropdown-item" type="text" id="employee-Input"
+                                            placeholder="{% trans 'Search' %}"
+                                            style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                        {% for employee in employees %}
+                                        <li class="dropdown-item" style="cursor: pointer;"
+                                            onclick="updateInput('{{employee.username}}', 'employee_routine', 'employee_routine_id', '{{employee.id}}')">
+                                            {{employee.username}}
+                                        </li>
+                                        {% endfor %}
+                                        <input type="hidden" id="employee_routine_id" name="employee_routine_id">
+                                    </ul>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label for="routine_routine" class="form-label pb-1">{% trans "Routine" %}:</label>
+
+                                <div class="dropdown">
+    <input type="text" class="form-control py-2" id="routine_routine" name="routine_routine" placeholder="{% trans "Routine" %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <small id="routine_routine_error" class="error text-danger" style="display: none;">{% trans 'Routine is required' %}</small>
+                                    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                        width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                            fill="#0A1629" />
+                                    </svg>
+                                    <ul id="routine-ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+                                        <input class="w-100 dropdown-item" type="text" id="routine-Input"
+                                            placeholder="{% trans 'Search' %}"
+                                            style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                        {% for routine in routines %}
+                                        <li class="dropdown-item" style="cursor: pointer;"
+                                            onclick="updateInput('{{routine}}', 'routine_routine', 'routine_routine_id', '{{routine.id}}')">
+                                            {{routine}}
+                                        </li>
+                                        {% endfor %}
+                                        <input type="hidden" id="routine_routine_id" name="routine_routine_id">
+                                    </ul>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="mt-4">
+                        {% for error_message in error_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                        {% endfor %}
+
+                        {% for success_message in success_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <style>
+                        #employee_label {
+                            display: none;
+                        }
+
+                        #shift_label {
+                            display: none;
+                        }
+                    </style>
+                    <div class="mt-4 d-flex" style="gap: 25px;">
+                        <p id="employee_label">{% trans "Name" %}:</p>
+                        <p id="employee_name" class="text-primary text-bold"></p>
+                        <p id="shift_label">{% trans "Shift" %}:</p>
+                        <p id="shift_name" class="text-primary text-bold"></p>
+                    </div>
+
+                    <div class="button" style="padding-top: 5rem;">
+                        <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary"
+                            type="button" value="{% trans 'Save' %}"
+                            style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                    </div>
+
+                    <!-- Confirmation Popup -->
+                    <div id="submitSucessModal">
+                        <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+                                        <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"  data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+    <button id="employee_routine_modal_close_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function updateInput(role, first_input, second_input, id) {
+                            document.getElementById(first_input).value = role;
+                            document.getElementById(second_input).value = id;
+                            $("#" + second_input).trigger('change')
+                        }
+                    </script>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('#employee_routine_id').change(function () {
+            $.ajax({
+                url: "/single_employee_routine_api",
+                type: 'GET',
+                data: { employee_routine_id: $('#employee_routine_id').val() },
+                success: function (response) {
+                    console.log(response);
+                    document.getElementById('employee_label').style.display = "block";
+                    document.getElementById('employee_name').innerHTML = response[0].employee.username;
+                    document.getElementById('shift_label').style.display = "block";
+                    document.getElementById('shift_name').innerHTML = response[0].routine.shift.name;
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#employee-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#employee-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#routine-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#routine-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#employee_routine_form').submit(function(event) {
+            var readonlyValue = $('#employee_routine').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#employee_routine_error').css('display', 'block');
+                $("#employee_routine_modal_close_btn").trigger("click");
+            }
+            else{
+                $('#employee_routine_error').css('display', 'none');
+            }
+        });
+        });
+
+    $(document).ready(function() {
+        $('#employee_routine_form').submit(function(event) {
+            var readonlyValue = $('#routine_routine').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#routine_routine_error').css('display', 'block');
+                $("#employee_routine_modal_close_btn").trigger("click");
+            }
+            else{
+                $('#routine_routine_error').css('display', 'none');
+            }
+        });
+        });
+    
+
+</script>
+{% endblock %}

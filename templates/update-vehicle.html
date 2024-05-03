@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Update" %} {% trans "Vehicle" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+    <div>
+        <div class="py-3" style="background-color: white; padding-bottom: 60px !important; border-radius: 18px;">
+            <h2 class="container-fluid" style="color: #0A1629;font-size: 24px; font-weight: 700; line-height: normal;">
+                {% trans "Update" %} {% trans "Vehicle" %}</h2>
+            <hr>
+
+            <form action="/update_vehicle/{{vehicle.id}}/" method="post" class="container-fluid mt-4">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="update_vehicle_name" class="form-label pb-1">{% trans "Name" %}:</label>
+                            <input value="{{vehicle.name}}" type="text" class="form-control py-2" id="update_vehicle_name" name="update_vehicle_name"
+                                placeholder="{% trans "Name" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="update_vehicle_plate_number" class="form-label pb-1">{% trans "Plate" %} {% trans "Number" %}:</label>
+                            <input value="{{vehicle.plate_number}}" type="number" class="form-control py-2" id="update_vehicle_plate_number" name="update_vehicle_plate_number"
+                                placeholder="{% trans "Plate" %} {% trans "Number" %}" style="border-radius: 13px;"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="form-label pb-1">{% trans "Plate" %} {% trans "Type" %}:</p>
+                        <select class="py-2 px-2 w-100" name="update_vehicle_plate_type" id="update_vehicle_plate_type"
+                            style="border-radius: 13px; border:1px solid #ced4da;">
+                            <option class="form-control py-2" value="A">A</option>
+                            <option class="form-control py-2" value="B">B</option>
+                            <option class="form-control py-2" value="C">C</option>
+                            <option class="form-control py-2" value="D">D</option>
+                            <option class="form-control py-2" value="E">E</option>
+                            <option class="form-control py-2" value="F">F</option>
+                            <option class="form-control py-2" value="G">G</option>
+                            <option class="form-control py-2" value="H">H</option>
+                            <option class="form-control py-2" value="I">I</option>
+                            <option class="form-control py-2" value="J">J</option>
+                            <option class="form-control py-2" value="K">K</option>
+                            <option class="form-control py-2" value="L">L</option>
+                            <option class="form-control py-2" value="M">M</option>
+                            <option class="form-control py-2" value="N">N</option>
+                            <option class="form-control py-2" value="O">O</option>
+                            <option class="form-control py-2" value="P">P</option>
+                            <option class="form-control py-2" value="Q">Q</option>
+                            <option class="form-control py-2" value="R">R</option>
+                            <option class="form-control py-2" value="S">S</option>
+                            <option class="form-control py-2" value="T">T</option>
+                            <option class="form-control py-2" value="U">U</option>
+                            <option class="form-control py-2" value="V">V</option>
+                            <option class="form-control py-2" value="W">W</option>
+                            <option class="form-control py-2" value="X">X</option>
+                            <option class="form-control py-2" value="Y">Y</option>
+                            <option class="form-control py-2" value="Z">Z</option>
+                        </select>
+
+                    </div>
+
+                    <!-- Vehicle Type -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="employee_routine" class="form-label pb-1">{% trans "Vehicle" %} {% trans "Type" %}:</label>
+
+                            <div class="dropdown">
+                                <input value="{{vehicle.vehicle_type.name}}" type="text" class="form-control py-2" id="employee_routine"
+                                    name="employee_routine" placeholder="{% trans "Vehicle" %} {% trans "Type" %}"
+                                    style="border-radius: 13px; background: transparent;" required readonly>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#typemodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 35px; {% else %}right: 35px; {% endif %} top: 10px; cursor: pointer;">
+                                        <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                    width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                        fill="#0A1629" />
+                                </svg>
+                                <ul id="user_modal_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+                                    <input class="w-100 dropdown-item" type="text" id="user-Input"
+                                        placeholder="{% trans 'Search' %}"
+                                        style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                    {% for type in vehicle_types %}
+    <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{type.name}}', 'employee_routine', 'update_vehicle_type_id', '{{type.id}}')"> {{type.name}}
+    </li>
+                                    {% endfor %}
+
+                                    <input value="{{vehicle.vehicle_type.id}}" type="hidden" id="update_vehicle_type_id" name="update_vehicle_type_id">
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- Plate Source -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="routine_routine" class="form-label pb-1">{% trans "Plate" %} {% trans "Source" %}:</label>
+
+                            <div class="dropdown">
+                                <input value="{{vehicle.plate_source.address}}" type="text" class="form-control py-2" id="worklocations_id"
+                                    name="worklocations_id" placeholder="{% trans "Plate" %} {% trans "Source" %}"
+                                    style="border-radius: 13px; background: transparent;" required readonly>
+                                <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                    width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                        fill="#0A1629" />
+                                </svg>
+
+                                {% comment %} <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                    data-bs-target="#workmodal"
+                                    style="position: absolute; right: 40px; top: 10px; cursor: pointer;">
+                                    <path
+                                        d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                        stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg> {% endcomment %}
+
+                                <ul id="worklocation_modal_ul" class="dropdown-menu pt-0"
+                                    aria-labelledby="dropdownMenuButton">
+                                    <input class="w-100 dropdown-item" type="text" id="worklocation-Input"
+                                        placeholder="{% trans 'Search' %}"
+                                        style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                    {% for worklocation in worklocations %}
+                                    <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{worklocation.address}}', 'worklocations_id', 'update_vehicle_plate_source_id', '{{worklocation.id}}')">
+                                        {{worklocation.address}}
+                                    </li>
+                                    {% endfor %}
+
+                                    <input value="{{vehicle.plate_source.id}}" type="hidden" id="update_vehicle_plate_source_id"
+                                        name="update_vehicle_plate_source_id">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="update_vehicle_year" class="form-label pb-1">{% trans "Year" %}:</label>
+                            <input value="{{vehicle.vehicle_year}}" type="number" min="1900" max="2099" step="1" class="form-control py-2" id="update_vehicle_year"
+                                name="update_vehicle_year" placeholder="2016" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+                    {% for error_message in error_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                    {% endfor %}
+
+                    {% for success_message in success_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                    {% endfor %}
+                </div>
+
+
+                <script>
+                    function updateInput(role, first_input, second_input, id) {
+                        document.getElementById(first_input).value = role;
+                        document.getElementById(second_input).value = id;
+                    }
+                </script>
+
+                <div class="button" style="padding-top: 5rem;">
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button"
+                        value="{% trans 'Save' %}"
+                        style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                </div>
+
+                <!-- Confirmation Popup -->
+                <div id="submitSucessModal">
+                    <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}
+                                    </h5>
+                                    <button type="button"
+                                        class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- WorkLocations Modal -->
+            <form id="worklocation_modal" action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_to" value="update_client_worklocation">
+                <div class="modal fade" id="workmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Work
+                                    Locations" %}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="worklocation_name">{% trans "Name" %}:</label>
+                                    <input type="text" name="worklocation_name" class="form-control"
+                                        id="worklocation_name" required>
+                                </div>
+                                <div class="form-group" style="position: relative;">
+                                    <label for="worklocation_address">{% trans "Address" %}:</label>
+                                    <input type="text" name="worklocation_address" class="form-control"
+                                        id="worklocation_address" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Vehicle Type Modal -->
+            <form id="vehicle_type_modal" action="" method="post">
+                {% csrf_token %}
+                <div class="modal fade" id="typemodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Vehicle" %} {% trans "Type" %}</h5>
+    <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+    <div class="modal-body">
+    <div class="form-group">
+    <label for="vehicle_type_modal_name">{% trans "Name" %}:</label>
+    <input type="text" name="vehicle_type_modal_name" class="form-control" id="vehicle_type_modal_name" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="vehicle_type_close_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+    // Vehicle Type Modal
+    $("#vehicle_type_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/vehicle_type_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('vehicle_type_modal_name').value,
+            },
+            success: function (response) {
+                $('#user_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('${response.name}', 'employee_routine', 'create_vehicle_type_id', '${response.id}')"> ${response.name} </li>`);
+
+                document.getElementById('employee_routine').value = response.name;
+                document.getElementById('update_vehicle_type_id').value = response.id;
+                $("#vehicle_type_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // Worklocaion Modal
+    $("#worklocation_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/worklocation_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('worklocation_name').value,
+                address: document.getElementById('worklocation_address').value
+            },
+            success: function (response) {
+                $('#worklocation_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('${response.address}', 'client_work_location', 'client_work_location_id', '${response.id}')"> ${response.address} </li>`);
+
+                document.getElementById('client_work_location').value = response.address;
+                document.getElementById('client_work_location_id').value = response.id;
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $(document).ready(function () {
+        $("#user-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#user_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#worklocation-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#worklocation_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+    });
+    
+</script>
+
+{% endblock %}

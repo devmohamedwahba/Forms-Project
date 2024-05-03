@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Attendance" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+    <div>
+        <ul class="nav nav-pills attendance-tabs mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item text-center" style="width: 50%;">
+                <a class="nav-link active px-3 active-link" id="pills-today-attendance-tab" data-bs-toggle="pill"
+                    href="#pills-today-attendance" role="tab" aria-controls="pills-today-attendance"
+                    aria-selected="true" style="border-radius: 20px;">{% trans "Today Attendance" %}</a>
+            </li>
+            <li class="nav-item text-center" style="width: 50%;">
+                <a class="nav-link attendance-tab px-3" id="pills-attendance-sheet-tab" data-bs-toggle="pill"
+                    href="#pills-attendance-sheet" role="tab" aria-controls="pills-attendance-sheet"
+                    aria-selected="false" style="border-radius: 20px;">{% trans "Attendance Sheet" %}</a>
+            </li>
+            <!-- <li class="nav-item text-center" style="width: 33.3%;">
+                <a class="nav-link attendance-tab px-3" id="pills-employee-sheet-tab" data-bs-toggle="pill"
+                    href="#pills-employee-sheet" role="tab" aria-controls="pills-employee-sheet" aria-selected="false"
+                    style="border-radius: 20px;">Employee Sheet</a>
+            </li> -->
+        </ul>
+
+        <!-- Today Attendence -->
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-today-attendance" role="tabpanel"
+                aria-labelledby="pills-today-attendance-tab">
+                <div style="background-color: white; border-radius: 18px;">
+                    <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+                        style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                        <h5 class="me-3 mb-0 text-white">{% trans "Today Attendance" %} <span
+                                style="text-decoration: underline;" class="ms-2">{{today_date}}
+                            </span>
+                        </h5>
+                    </div>
+                    <div class="attendence-table container-fluid" style="overflow-x:auto;">
+                        <table class="table table-hover table-borderless" id="todayAttendenceTable">
+                            <thead>
+                                <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
+                                    <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans "ID" %}
+                                    </th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Name" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Checked In" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Break" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Checked Out" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Total" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Status" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Shift" %}</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- attendance sheet -->
+            <div class="tab-pane fade" id="pills-attendance-sheet" role="tabpanel"
+                aria-labelledby="pills-attendance-sheet-tab">
+                <div style="background-color: white; border-radius: 18px;">
+                    <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+                        style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                        <h5 class="me-3 mb-0 text-white">{% trans "Attendance Sheet" %}</h5>
+                    </div>
+                    <div class="attendence-table container-fluid" style="overflow-x:auto;">
+                        <table class="table table-hover table-borderless" id="attendanceReportTable">
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Sheet -->
+            <!-- <div class="tab-pane fade" id="pills-employee-sheet" role="tabpanel"
+                aria-labelledby="pills-employee-sheet-tab">
+                <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+                    style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                    <h5 class="me-3 mb-0 text-white">Employee Attendence</h5>
+                </div>
+                <div class="employee-sheet-content custom-container bg-white"
+                    style="padding-top: 35px; padding-bottom: 35px;">
+                    <div class="container-fluid">
+            <div class="row flex-column flex-md-row" style="width: 100%; gap: 10px; padding-bottom: 25px;">
+                <div class="emp-input-div">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control py-2" id="name" name="name" placeholder="Employee Name"
+                        style="border-radius: 13px;">
+                </div>
+                <div class="emp-input-div">
+                    <label for="department">Department:</label>
+                    <input type="text" class="form-control py-2" id="department" name="department"
+                        placeholder="Department" style="border-radius: 13px;">
+                </div>
+            </div>
+            <div class="row flex-column flex-md-row" style="width: 100%; gap: 10px; padding-bottom: 100px;">
+                <div class="emp-input-div">
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" class="form-control py-2" id="start-date" name="start-date"
+                        placeholder="Start Date" style="border-radius: 13px;">
+                </div>
+                <div class="emp-input-div">
+                    <label for="end-date">End Date:</label>
+                    <input type="date" class="form-control py-2" id="end-date" name="end-date" placeholder="End Date"
+                        style="border-radius: 13px;">
+                </div>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit"
+                    style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+            </div>
+        </div>
+    </div>
+</div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        let data_url = '/today_attendence_api';
+
+        $.ajax({
+            url: data_url,
+            type: 'GET',
+            success: function (response) {
+                let requests = response.data;
+                let tbody = $('#todayAttendenceTable tbody');
+
+                requests.forEach(function (request) {
+                    let row = `<tr>
+                        <td><a href="/department/${request.id}">${request.id}</a></td>
+                        <td><a href="/department/${request.id}">${request.employee_routine.employee.username}</a></td>
+                        <td><a href="/department/${request.id}">${request.first_in}</a></td>
+                        <td><a href="/department/${request.id}">${request.employee_routine.routine.break_time}</a></td>
+                        <td><a href="/department/${request.id}">${request.last_out}</a></td>
+                        <td><a href="/department/${request.id}">8:00</a></td>
+                        {% if request.status is a %}
+                        <td><a href="/department/${request.id}">${request.status}</a></td>
+                        {% endif %}
+                        <td><a class="text-primary" href="/department/${request.id}">${request.employee_routine.routine.shift.name}</a></td>
+                        
+                    </tr>`;
+                    tbody.append(row);
+                });
+
+
+                $('#todayAttendenceTable').DataTable(
+                    {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'pdfHtml5',
+                        'csvHtml5',
+                        'excelHtml5'
+                    ],
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    language: {
+                        url: '{% static 'jquery/jquery-datatables-arabic.json' %}',
+                    },
+                    {% endif %}
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        let data_url = '/month_attendence_api';
+
+        $.ajax({
+            url: data_url,
+            type: 'GET',
+            success: function (response) {
+                let attendanceData = response.data;
+                let tbody = $('#attendanceReportTable tbody');
+                let dates = [];
+                let employeeAttendanceMap = {};
+
+                attendanceData.forEach(function (item) {
+                    item.attendances.forEach(function (attendance) {
+                        if (!dates.includes(attendance.today_date)) {
+                            dates.push(attendance.today_date);
+                        }
+                        let employeeName = attendance.employee_routine.employee.name;
+                        if (!employeeAttendanceMap[employeeName]) {
+                            employeeAttendanceMap[employeeName] = {};
+                        }
+                        employeeAttendanceMap[employeeName][attendance.today_date] = attendance.status === 'p' ? 'Present' : 'Absent';
+                    });
+                });
+
+                dates.sort();
+
+                let tableHeader = '<thead><tr><th>{% trans "Name" %}</th>';
+                dates.forEach(function (date) {
+                    tableHeader += `<th>${date}</th>`;
+                });
+                tableHeader += '</tr></thead>';
+                $('#attendanceReportTable').append(tableHeader);
+
+                Object.keys(employeeAttendanceMap).forEach(function (employeeName) {
+                    let row = `<tr><td>${employeeName}</td>`;
+                    dates.forEach(function (date) {
+                        let attendanceStatus = employeeAttendanceMap[employeeName][date] || 'Absent';
+                        row += `<td>${attendanceStatus}</td>`;
+                    });
+                    row += '</tr>';
+                    tbody.append(row);
+                });
+
+                $('#attendanceReportTable').DataTable(
+                    {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'pdfHtml5',
+                        'csvHtml5',
+                        'excelHtml5'
+                    ],
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    language: {
+                        url: '{% static 'jquery/jquery-datatables-arabic.json' %}',
+                    },
+                    {% endif %}
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
+{% endblock %}

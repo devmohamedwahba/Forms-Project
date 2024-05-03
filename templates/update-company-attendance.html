@@ -1,0 +1,997 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Update" %} {% trans "Company" %} {% trans "Attendance" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <!-- Request Form -->
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <form id="request_form" action="#" method="post">
+                {% csrf_token %}
+
+                <div class="employee-sheet-content custom-container bg-white pt-4" style="border-radius: 15px;">
+
+
+                    <input type="hidden" name="created_request_id_name" id="created_request_id">
+    <h2 class="container-fluid" style="font-weight: bold; color: #0A1629; font-size: 24px;">{% trans "Update" %} {% trans "Company" %} {% trans "Attendance" %}</h2>
+                    <hr>
+
+                    <div class="container-fluid">
+
+                        <div class="row pb-1">
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="employee_duty" class="form-label pb-1">{% trans "Employees" %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value="{{employee.username}}" type="text" class="form-control py-2"
+                                            id="employee_duty" name="employee_duty" placeholder="Select Employee"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{employee.username}}', 'employee_duty', 'request_employee_id', '{{employee.id}}')">
+                                                {{employee.username}}</li>
+
+                                            <input value="{{employee.id}}" type="hidden" id="request_employee_id"
+                                                name="request_employee_id">
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="request_clients" class="form-label pb-1">{% trans "City" %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value = "{{company_attendance.city.name}}" type="text" class="form-control py-2" id="request_clients"
+                                            name="request_clients" placeholder="{% trans "City" %}"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul id="client-ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <input class="w-100 dropdown-item" type="text" id="client-Input"
+                                                placeholder="{% trans 'Search' %}"
+                                                style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            {% for worklocation in worklocations %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{worklocation.name}}', 'request_clients', 'request_worklocation_id', '{{worklocation.id}}')">
+                                                {{worklocation.name}} </li>
+                                            {% endfor %}
+
+                                            <input value="{{company_attendance.city.id}}" type="hidden" id="request_worklocation_id"
+                                                name="request_worklocation_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row pb-1">
+
+                            <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="request_duty" class="form-label pb-1">{% trans "Duty" %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value="{{company_attendance.duty.title}}" type="text" class="form-control py-2" id="request_duty"
+                                            name="request_duty" placeholder="{% trans "Duty" %}"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul id="duty-ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <input class="w-100 dropdown-item" type="text" id="duty-Input"
+                                                placeholder="{% trans 'Search' %}"
+                                                style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            {% for duty in dutys %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{duty.title}}', 'request_duty', 'request_duty_id', '{{duty.id}}')">
+                                                {{duty.title}}
+                                            </li>
+                                            {% endfor %}
+
+                   <input value="{{company_attendance.duty.id}}" type="hidden" id="request_duty_id" name="request_duty_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-5">
+                                <div class="mb-2">
+    <label for="request_corresponding_id" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Employee Routine" %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value="{{routine}}" type="text" class="form-control py-2"
+                                            id="request_corresponding_id" name="request_corresponding_id"
+                                            placeholder="112233" style="border-radius: 13px; background: transparent;"
+                                            required readonly>
+                                        <input value="{{routine.id}}" type="hidden" class="form-control py-2"
+                                            id="employee_routine_id" name="employee_routine_id" placeholder="112233"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pb-1">
+
+                            <!-- <div class="col-md-5">
+                                <div class="mb-3">
+                                    <label for="cases_company" class="form-label pb-1">{% trans "Company" %}:</label>
+
+                                    <div class="dropdown">
+    <input  value="{{company_attendance.company.name}}" type="text" class="form-control py-2" id="cases_company" name="cases_company" placeholder="{% trans "Company" %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#companymodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+        <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+                                        <ul id="company-ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+    <input class="w-100 dropdown-item" type="text" id="company-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            {% for company in companys %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{company.name}}', 'cases_company', 'cases_company_id', '{{company.id}}')">
+                                                {{company.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input value="{{company_attendance.company.id}}" type="hidden" id="cases_company_id" name="cases_company_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+
+                            </div> -->
+
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <label for="routine_routine" class="form-label pb-1">{% trans 'Groups' %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value="{{group.name}}" type="text" class="form-control py-2"
+                                            id="routine_routine" name="routine_routine"
+                                            placeholder="{% trans 'Groups' %}"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+                                        <!-- <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg> -->
+                                        <ul id="department-ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <input class="w-100 dropdown-item" type="text" id="department-Input"
+                                                placeholder="{% trans 'Search' %}"
+                                                style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{group.name}}', 'routine_routine', 'employee_department_id', '{{group.id}}')">
+                                                {{group.name}}
+                                            </li>
+
+                                            <input value="{{group.id}}" type="hidden" id="cases_group_id"
+                                                name="cases_group_id">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pb-1">
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <label for="cases_actions" class="form-label pb-1">{% trans "Vehicle" %}:</label>
+
+                                    <div class="dropdown">
+                                        <input value="{{company_attendance.vehicle.name}}" type="text" class="form-control py-2" id="cases_actions"
+                                            name="cases_actions" placeholder=" {% trans "Vehicle" %}"
+                                            style="border-radius: 13px; background: transparent;" required readonly>
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629" />
+                                        </svg>
+
+
+                                        <ul id="vehicle_ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+    <input class="w-100 dropdown-item" type="text" id="vehicle-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            {% for vehicle in vehicles %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{vehicle.name}}', 'cases_actions', 'case_action_id', '{{vehicle.id}}')">
+                                                {{vehicle.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input value="{{company_attendance.vehicle.id}}" type="hidden" id="case_action_id" name="case_action_id">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row pb-1">
+
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label for="start_km" class="form-label pb-1"
+                                        style="font-weight: bold; color: #7D8592;">{% trans "Start" %} {% trans "KM" %}:</label>
+
+
+                                    <div class="dropdown">
+
+    <input value="{{company_attendance.milage_start_km}}" type="number" class="form-control py-2" id="start_km" name="start_km" placeholder="{% trans "Start" %} {% trans "KM" %}" style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-2">
+                                    <label for="finish_km" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Finish" %} {% trans "KM" %}:</label>
+
+
+                                    <div class="dropdown">
+
+                                        <input value="{{company_attendance.milage_finish_km}}" type="number" class="form-control py-2" id="finish_km" name="finish_km"
+                                            placeholder="{% trans "Finish" %} {% trans "KM" %}" style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="spend_time" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Spend" %} {% trans "Time" %}:</label>
+
+
+                                    <div class="dropdown">
+
+    <input value="{{company_attendance.spend_time}}" type="number" class="form-control py-2" id="spend_time" name="spend_time" placeholder="{% trans "Spend" %} {% trans "Time" %}" style="border-radius: 13px;" required>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row pb-1">
+                            <div class="col-md-10">
+                                <div class="mb-2">
+                                    <label for="case_comment" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Comments" %}:</label>
+
+        <textarea class="form-control py-2" id="case_comment" rows="4" name="case_comment" placeholder="{% trans "Comments" %}" style="border-radius: 13px;" required>{{company_attendance.comments}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pb-1">
+                            <div class="col-md-10" style="position: relative;">
+                                <label for="company_case_action" class="form-label pb-1">{% trans "Action" %}</label>
+        <div class="pb-2">
+        </div>
+        <input type="text" id="search_available_permissions" class="form-control" placeholder="{% trans 'Search' %}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#actionmodall" style="position: absolute; cursor: pointer; {% if LANGUAGE_CODE == 'ar' %} right: 68px; top: 2px; {% else %} left: 68px; top: 1px; {% endif %}">
+            <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        <select name="company_case_action" id="company_case_action" style="width: 100%; height: 300px;" multiple>
+            {% for action in actions %}
+            <option value="{{ action.id }}"
+                    {% if action in company_attendance.actions.all %}
+                        selected
+                    {% endif %}>
+                {{ action.name }}
+            </option>
+            {% endfor %}
+        </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row pb-1">
+                            <div class="col-md-10">
+                                <div class="mb-3">
+  <label for="callnames" class="form-label pb-1">{% trans "Call" %} {% trans "Name" %}:</label>
+
+    <div class="dropdown">
+    <input value="{{company_attendance.callname.name}}" type="text" class="form-control py-2" id="callnames" name="callnames" placeholder=" {% trans "Call" %} {% trans "Name" %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
+                                        </svg>
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#callnamemodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+    <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <ul id="request_method_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+    <input class="w-100 dropdown-item" type="text" id="request-method-Input"  placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                            {% for callname in callnames %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{callname.name}}', 'callnames', 'callnames_id', '{{callname.id}}')">
+                                                {{callname.name}}
+                                            </li>
+                                            {% endfor %}
+
+    <input value="{{company_attendance.callname.id}}" type="hidden" id="callnames_id" name="callnames_id">
+                                        </ul>
+    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="container-fluid">
+
+                        <div class="button" style="padding-top: 5rem;">
+                            <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary"
+                                type="button" value="{% trans 'Save' %}"
+                                style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                        </div>
+
+                        <div class="mt-4">
+                            <p class="text-bold" id="error_message" style="font-weight: bold; color: red;"></p>
+
+                            <p class="text-bold" id="success_message" style="font-weight: bold; color: green; display: none;">{% trans 'Company Attendance updated successfully' %}</p>
+                        </div>
+
+                        <!-- Confirmation Popup -->
+    <div id="submitSucessModal">
+    <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+    <button id="request-form-btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+    <div class="form-group">
+    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+    </div>
+
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+
+    <form id="request_method_modal" action="#" method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="callnamemodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Call" %} {% trans "Name" %}
+                        </h5>
+                        <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"
+                            id="request_method_close_btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="note_name">{% trans "Name" %}:</label>
+                            <input type="text" name="request_call_name" class="form-control" id="request_call_name"
+                                required>
+                            <p class="text-bold block mt-3" id="request_method_error_message"
+                                style="font-weight: bold; color: red;"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCloseRequestMethod" type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                        <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="action_modal" action="#" method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="actionmodall" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Action" %} </h5>
+<button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" id="action_close_btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+<div class="form-group">
+<label for="action_modal_name">{% trans "Name" %}:</label>
+<input type="text" name="action_modal_name" class="form-control" id="action_modal_name" required>
+<p class="text-bold block mt-3" id="action_error_message" style="font-weight: bold; color: red;"></p>
+
+                        </div>
+                    </div>
+<div class="modal-footer">
+<button id="btnCloseRequestMethod" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+<button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="company_modal" action="#" method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="companymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Company" %}
+                        </h5>
+                        <button id="company_close_btn" type="button"
+                            class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="company_modal_name">{% trans "Name" %}:</label>
+                            <input type="text" name="company_modal_name" class="form-control" id="company_modal_name" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+<button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Request Reason Reason -->
+    <form id="request_reason_modal" action="#" method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="reasonmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">{% trans "Action" %} </h5>
+<button id="request_reason_close_btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+ <div class="modal-body">
+                        <div class="form-group">
+                            <div class="dropdown">
+<input type="text" class="form-control py-2" id="simple_action" name="simple_action" placeholder="{% trans "Action" %}" style="border-radius: 13px; background: transparent;" required readonly>
+<svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
+                                    </svg>
+<ul id="request_method_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+<input class="w-100 dropdown-item" type="text" id="request-method-Input"  placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                        {% for action in simple_actions %}
+                                        <li class="dropdown-item" style="cursor: pointer;"
+                                            onclick="updateInput('{{action.name}}', 'simple_action', 'simple_action_id', '{{action.id}}')">
+                                            {{action.name}}
+                                        </li>
+                                        {% endfor %}
+
+<input value="" type="hidden" id="simple_action_id" name="simple_action_id">
+                                    </ul>
+</div>
+                            <p class="text-bold block mt-3" id="request_reason_error_message"
+                                style="font-weight: bold; color: red;"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close'
+                            %}</button>
+                        <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <!-- Request Note Modal -->
+        <form id="request_note_modal" action="#" method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="notemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Request Note"
+                                %}
+                            </h5>
+                            <button id="request_note_close_btn" type="button"
+                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="note_name">{% trans "Name" %}:</label>
+                                <input type="text" name="note_name" class="form-control" id="note_name" required>
+                                <input id="note_user" type="hidden" value="{{request.user.id}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close'
+                                %}</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Company Guard Modal -->
+        <form id="company_guard_modal" action="#" method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="guardmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Company" %} {%
+                                trans "Guard" %}
+                            </h5>
+                            <button id="company_guard_close_btn" type="button"
+                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="guard_name" class="form-label pb-1">{% trans "Name" %}:</label>
+                                <input type="text" name="guard_name" class="form-control mb-3" id="guard_name" required>
+                                <label class="form-label pb-1" for="guard_nationality">{% trans "Nationality"
+                                    %}:</label>
+                                <input type="text" name="guard_nationality" class="form-control mb-3"
+                                    id="guard_nationality" required>
+                                <input id="note_user" type="hidden" value=" {{request.user.id}}">
+                                <div class="mb-3" bis_skin_checked="1">
+                                    <label for="guard_company" class="form-label pb-1">{% trans 'Company' %}:</label>
+
+                                    <div class="dropdown" bis_skin_checked="1">
+                                        <input type="text" class="form-control py-2" id="guard_company"
+                                            name="guard_company" placeholder="Company"
+                                            style="border-radius: 13px; background: transparent;" required=""
+                                            readonly="">
+
+                                        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none"
+                                            style="position: absolute; right: 6px;  top: 7px; cursor: pointer;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                                fill="#0A1629"></path>
+                                        </svg>
+                                        <ul id="guard-company-ul" class="dropdown-menu pt-0"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <input class="w-100 dropdown-item" type="text" id="guard-company-Input"
+                                                placeholder="Search"
+                                                style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+
+                                            {% for company in companys %}
+                                            <li class="dropdown-item" style="cursor: pointer;"
+                                                onclick="updateInput('{{company.name}}', 'guard_company', 'guard_company_id', '{{company.id}}')">
+                                                {{company.name}}
+                                            </li>
+                                            {% endfor %}
+
+                                            <input type="hidden" id="guard_company_id" name="guard_company_id">
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close'
+                                %}</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    function updateInput(role, first_input, second_input, id) {
+        document.getElementById(first_input).value = role;
+        document.getElementById(second_input).value = id;
+    }
+</script>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    // Company Cases
+
+    $("#request_form").submit(function (event) {
+        event.preventDefault();
+        var selectedValues = $('#company_case_action').val();
+        console.log(selectedValues);
+        $.ajax({
+            url: "/company_attendance_api/{{company_attendance.id}}/",
+            type: 'PUT',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                employee: document.getElementById('request_employee_id').value,
+                city: document.getElementById('request_worklocation_id').value,
+                group: document.getElementById('cases_group_id').value,
+                // company: document.getElementById('cases_company_id').value,
+                employee_routine: document.getElementById('employee_routine_id').value,
+                callname: document.getElementById('callnames_id').value,
+                vehicle: document.getElementById('case_action_id').value,
+                comments: document.getElementById('case_comment').value,
+                actions_id: selectedValues,
+                duty: document.getElementById('request_duty_id').value,
+                milage_start_km: document.getElementById('start_km').value,
+                milage_finish_km: document.getElementById('finish_km').value,
+                spend_time: document.getElementById('spend_time').value,
+            },
+            success: function (response) {
+                console.log(response);
+                document.getElementById('success_message').style.display = "block";
+                document.getElementById('error_message').style.display = "none";
+                $("#request-form-btn").trigger("click");
+            },
+            error: function (error) {
+                document.getElementById('error_message').style.display = "block";
+                document.getElementById('error_message').innerHTML = error.responseText;
+                document.getElementById('success_message').style.display = "none";
+                $('#request-form-btn').trigger("click")
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $('#search_available_permissions').on('input', function() {
+        var searchTerm = $(this).val().toLowerCase();
+        $('#company_case_action option').each(function() {
+            var text = $(this).text().toLowerCase();
+            var match = text.indexOf(searchTerm) > -1;
+            $(this).toggle(match);
+        });
+    });
+    
+    // Request Form Modal
+    $("#request_method_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/callname_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('request_call_name').value
+            },
+            success: function (response) {
+                $('#request_method_ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+    onclick="updateInput('${response.name}', 'callnames', 'callnames_id', '${response.id}')"> ${response.name} </li>`);
+    
+    document.getElementById('callnames').value = response.name;
+    document.getElementById('callnames_id').value = response.id;
+                $("#request_method_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function (error) {
+                document.getElementById('request_method_error_message').innerHTML = error.responseText;
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    // Request Reason Modal
+    $("#request_reason_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/cases_action_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: document.getElementById('simple_action_id').value
+            },
+            success: function (response) {
+                $('#request_reason_ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+    onclick="updateInput('${response}', 'cases_attendance_actions', 'case_attendance_action_id', '${response.id}')"> ${response}
+</li>`);
+                document.getElementById('cases_attendance_actions').value = response;
+                document.getElementById('case_attendance_action_id').value = response.id;
+                $("#request_reason_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function (error) {
+                document.getElementById('request_reason_error_message').innerHTML = error.responseText;
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+
+    $("#action_modal").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/actions_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('action_modal_name').value,
+            },
+            success: function(response) {
+                $('#company_case_action').append($('<option>', {
+                    value: response.id,
+                    text: response.name,
+                    selected: true
+                }));
+                $("#action_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+    
+
+    // Request Note Modal
+    $("#request_note_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/request_note_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                created_by: document.getElementById('note_user').value,
+                content: document.getElementById('note_name').value
+            },
+            success: function (response) {
+                document.getElementById('request_note').value = response.content;
+                document.getElementById('request_note_id').value = response.id;
+                $("#request_note_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $("#company_modal").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/company_form_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('company_modal_name').value,
+            },
+            success: function(response) {
+                $('#company-ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+    onclick="updateInput('${response.name}', 'cases_company', 'cases_company_id', '${response.id}')"> ${response.name}
+</li>`);
+                document.getElementById('cases_company').value = response.name;
+                document.getElementById('cases_company_id').value = response.id;
+                $("#company_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+    
+    
+    // Request Note Modal
+    $("#company_guard_modal").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/company_guard_api",
+            type: 'POST',
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                name: document.getElementById('guard_name').value,
+                company: document.getElementById('guard_company_id').value,
+                nationality: document.getElementById('guard_nationality').value
+            },
+            success: function (response) {
+                document.getElementById('cases_company_guard').value = response.name;
+                document.getElementById('cases_company_guard_id').value = response.id;
+                $("#company_guard_close_btn").trigger("click");
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        return false;
+    });
+
+    $("#information_form").submit(function (event) {
+        event.preventDefault();
+
+        var formData = new FormData();
+        formData.append('file_name', $('#information_form_file')[0].files[0]);
+        formData.append('uploaded_by', '{{request.user.id}}');
+        formData.append('request_id', $('#created_request_id').val());
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+        $.ajax({
+            url: "/information_form_api",
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (response) {
+                var responseObject = JSON.parse(response);
+                var fileName = responseObject.file_name;
+                $('#information-form_ul').append(`<li class="" style="cursor:pointer;">File: ${fileName}</li>`);
+                console.log(response);
+
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+
+        return false;
+    });
+
+    $("#attachment_form").submit(function (event) {
+        event.preventDefault();
+
+        var formData = new FormData();
+        formData.append('file_name', $('#attachment_form_file')[0].files[0]);
+        formData.append('uploaded_by', '{{request.user.id}}');
+        formData.append('request_id', $('#created_request_id').val());
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+        $.ajax({
+            url: "/information_form_api",
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (response) {
+                var responseObject = JSON.parse(response);
+                var fileName = responseObject.file_name;
+                $('#attachment-form_ul').append(`<li class="" style="cursor:pointer;">File: ${fileName}</li>`);
+                console.log(response);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+
+        return false;
+    });
+
+    $(document).ready(function () {
+        $('#cases_logCheckbox, #traffic_logCheckbox, #person_idCheckbox').click(function () {
+            if ($('#person_idCheckbox').prop("checked") == true) {
+                $('#cases_logCheckbox').prop("checked", false);
+                $('#traffic_logCheckbox').prop("checked", false);
+                $('#pills-role-permission-tab').css("display", "none");
+                $('#pills-permission-tab').css("display", "block");
+
+            } else if ($('#cases_logCheckbox').prop("checked") == true) {
+                $('#pills-permission-tab').css("display", "none");
+                $('#pills-role-permission-tab').css("display", "block");
+            } else if ($('#traffic_logCheckbox').prop("checked") == true) {
+                $('#pills-permission-tab').css("display", "none");
+                $('#pills-role-permission-tab').css("display", "block");
+            }
+            else {
+                $('#pills-permission-tab').css("display", "block");
+                $('#pills-role-permission-tab').css("display", "block");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#client-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#client-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#duty-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#duty-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#request-method-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#request_method_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#department-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#department-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#request-reason-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#request_reason_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#vehicle-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#vehicle_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+        $("#company-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#company-ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+    });
+
+</script>
+{% endblock %}

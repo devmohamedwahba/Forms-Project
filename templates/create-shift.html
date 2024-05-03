@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'Create' %} {% trans 'Shift' %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <div class="py-3" style="background-color: white; height: 420px; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans 'Create' %} {% trans 'Shift' %}</h2>
+                <hr>
+
+                <form method="post" action="/create_shift" class="container-fluid mt-4">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="create_department_name" class="form-label pb-1">{% trans 'Shift' %} {% trans 'Name' %}:</label>
+                                <input type="text" class="form-control py-2" id="create_shift_name"
+                                    name="create_shift_name" placeholder="{% trans 'Shift' %} {% trans 'Name' %}"
+                                    style="border-radius: 13px;" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        {% for error_message in error_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                        {% endfor %}
+    
+                        {% for success_message in success_messages %}
+                        <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="button" style="padding-top: 5rem;">
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}"
+                        style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                </div>
+
+                <!-- Confirmation Popup -->
+            <div id="submitSucessModal">
+                <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+                                <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"  data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                    <script>
+                        function updateInput(role, inputID) {
+                            document.getElementById(inputID).value = role;
+                        }
+                    </script>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,2525 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-27 17:08+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\forms_django\settings.py:159 .\templates\base.html:688
+#: .\templates\base.html:698 .\templates\base.html:714
+#: .\templates\sign-in.html:56 .\templates\sign-in.html:72
+msgid "Arabic"
+msgstr "Arabic"
+
+#: .\forms_django\settings.py:160 .\templates\base.html:686
+#: .\templates\base.html:706 .\templates\base.html:722
+#: .\templates\sign-in.html:64 .\templates\sign-in.html:80
+msgid "English"
+msgstr ""
+
+#: .\mainapp\models.py:110 .\templates\create_client.html:30
+#: .\templates\employee_duty.html:66 .\templates\employee_duty.html:67
+#: .\templates\request-form.html:412 .\templates\update-client.html:30
+#: .\templates\update-request-form.html:386
+msgid "Active"
+msgstr "Active"
+
+#: .\mainapp\models.py:111 .\templates\create_client.html:31
+#: .\templates\employee_duty.html:67 .\templates\request-form.html:413
+#: .\templates\update-client.html:31 .\templates\update-request-form.html:385
+msgid "Inactive"
+msgstr "Inactive"
+
+#: .\mainapp\models.py:180
+msgid "OnSide"
+msgstr ""
+
+#: .\mainapp\models.py:181
+msgid "OnRemote"
+msgstr ""
+
+#: .\mainapp\models.py:193
+msgid "Break time duration cannot exceed shift duration."
+msgstr "Break time duration cannot exceed shift duration."
+
+#: .\mainapp\models.py:196
+msgid "Break time duration cannot be negative."
+msgstr "Break time duration cannot be negative."
+
+#: .\mainapp\models.py:214
+msgid "SickLeave"
+msgstr ""
+
+#: .\mainapp\models.py:215
+msgid "CasualLeave"
+msgstr ""
+
+#: .\mainapp\models.py:216
+msgid "OthersLeave"
+msgstr ""
+
+#: .\mainapp\models.py:225
+msgid "Present"
+msgstr ""
+
+#: .\mainapp\models.py:226
+msgid "Absent"
+msgstr ""
+
+#: .\mainapp\views.py:90
+msgid "You are not an active user"
+msgstr "You are not an active user"
+
+#: .\mainapp\views.py:92
+msgid "Invalid username or password"
+msgstr "Invalid username or password"
+
+#: .\mainapp\views.py:121
+msgid "You don't have permission to create employees."
+msgstr "You don't have permission to create employees."
+
+#: .\mainapp\views.py:146
+msgid "Employee created successfully."
+msgstr "Employee created successfully."
+
+#: .\mainapp\views.py:154
+msgid "Failed to create employee. User does not exist."
+msgstr "Failed to create employee. User does not exist."
+
+#: .\mainapp\views.py:157
+msgid "Failed to create employee. Work location does not exist."
+msgstr "Failed to create employee. Work location does not exist."
+
+#: .\mainapp\views.py:160
+msgid "Failed to create employee:"
+msgstr "Failed to create employee:"
+
+#: .\mainapp\views.py:168 .\mainapp\views.py:178
+msgid "You don't have permission to view employees."
+msgstr "You don't have permission to view employees."
+
+#: .\mainapp\views.py:187
+msgid "You don't have permission to change employees."
+msgstr "You don't have permission to change employees."
+
+#: .\mainapp\views.py:213
+msgid "Employee updated successfully."
+msgstr "Employee updated successfully."
+
+#: .\mainapp\views.py:221
+msgid "User does not exist."
+msgstr "User does not exist."
+
+#: .\mainapp\views.py:224 .\mainapp\views.py:1368 .\mainapp\views.py:1456
+msgid "Work location does not exist."
+msgstr "Work location does not exist."
+
+#: .\mainapp\views.py:227
+msgid "Failed to update employee:"
+msgstr "Failed to update employee:"
+
+#: .\mainapp\views.py:240
+msgid "You don't have permission to delete employees."
+msgstr "You don't have permission to delete employees."
+
+#: .\mainapp\views.py:250
+msgid "You don't have permission to Create Shift."
+msgstr "You don't have permission to Create Shift."
+
+#: .\mainapp\views.py:260
+msgid "Shift created successfully."
+msgstr "Shift created successfully."
+
+#: .\mainapp\views.py:264
+msgid "Failed to create Shift:"
+msgstr "Failed to create Shift:"
+
+#: .\mainapp\views.py:282
+msgid "Actions created successfully."
+msgstr "Actions created successfully."
+
+#: .\mainapp\views.py:286
+msgid "Failed to create Actions:"
+msgstr "Failed to create Actions:"
+
+#: .\mainapp\views.py:309
+msgid "You don't have permission to Update Actions."
+msgstr "You don't have permission to Update Actions."
+
+#: .\mainapp\views.py:321
+msgid "Actions updated successfully."
+msgstr "Actions updated successfully."
+
+#: .\mainapp\views.py:325
+msgid "Actions does not exist."
+msgstr "Actions does not exist."
+
+#: .\mainapp\views.py:327
+msgid "Failed to update Actions:"
+msgstr "Failed to update Actions:"
+
+#: .\mainapp\views.py:338
+msgid "You don't have permission to delete action."
+msgstr "You don't have permission to delete action."
+
+#: .\mainapp\views.py:374
+msgid "Shift updated successfully."
+msgstr "Shift updated successfully."
+
+#: .\mainapp\views.py:378 .\mainapp\views.py:1024 .\mainapp\views.py:1084
+msgid "Shift does not exist."
+msgstr "Shift does not exist."
+
+#: .\mainapp\views.py:380
+msgid "Failed to update Shift:"
+msgstr "Failed to update Shift:"
+
+#: .\mainapp\views.py:402
+msgid "You don't have permission to Create Vehicle."
+msgstr "You don't have permission to Create Vehicle."
+
+#: .\mainapp\views.py:420
+msgid "Vehicle created successfully."
+msgstr "Vehicle created successfully."
+
+#: .\mainapp\views.py:424
+msgid "Failed to create Vehicle:"
+msgstr "Failed to create Vehicle:"
+
+#: .\mainapp\views.py:474
+msgid "Vehicle updated successfully."
+msgstr "Vehicle updated successfully."
+
+#: .\mainapp\views.py:476
+msgid "Vehicle does not exist."
+msgstr "Vehicle does not exist."
+
+#: .\mainapp\views.py:478
+msgid "Failed to update Vehicle:"
+msgstr "Failed to update Vehicle:"
+
+#: .\mainapp\views.py:500
+msgid "You don't have permission to Create Vehicle Type."
+msgstr "You don't have permission to Create Vehicle Type."
+
+#: .\mainapp\views.py:511
+msgid "Vehicle Type created successfully."
+msgstr "Vehicle Type created successfully."
+
+#: .\mainapp\views.py:515
+msgid "Failed to create Vehicle Type:"
+msgstr "Failed to create Vehicle Type:"
+
+#: .\mainapp\views.py:538
+msgid "You don't have permission to Update Vehicle Type."
+msgstr "You don't have permission to Update Vehicle Type."
+
+#: .\mainapp\views.py:549
+msgid "VehicleType updated successfully."
+msgstr "VehicleType updated successfully."
+
+#: .\mainapp\views.py:553
+msgid "VehicleType does not exist."
+msgstr "VehicleType does not exist."
+
+#: .\mainapp\views.py:555
+msgid "Failed to update VehicleType:"
+msgstr "Failed to update VehicleType:"
+
+#: .\mainapp\views.py:566
+msgid "You don't have permission to delete Vehicle Type."
+msgstr "You don't have permission to delete Vehicle Type."
+
+#: .\mainapp\views.py:577
+#, fuzzy
+#| msgid "You don't have permission to Update Company Cases."
+msgid "You don't have permission to Create Company Cases."
+msgstr "You don't have permission to Update Company Cases."
+
+#: .\mainapp\views.py:582 .\mainapp\views.py:1690 .\mainapp\views.py:1718
+msgid "Employee does not exist. Please create an employee first."
+msgstr "Employee does not exist. Please create an employee first."
+
+#: .\mainapp\views.py:590 .\mainapp\views.py:636 .\mainapp\views.py:689
+#: .\mainapp\views.py:740 .\mainapp\views.py:786 .\mainapp\views.py:888
+msgid "Group does not exist. Please create a group first."
+msgstr "Group does not exist. Please create a group first."
+
+#: .\mainapp\views.py:594 .\mainapp\views.py:641 .\mainapp\views.py:694
+#: .\mainapp\views.py:745 .\mainapp\views.py:791 .\mainapp\views.py:893
+msgid "Routine does not exist. Please assign a routine to the employee first."
+msgstr "Routine does not exist. Please assign a routine to the employee first."
+
+#: .\mainapp\views.py:624 .\mainapp\views.py:677 .\mainapp\views.py:723
+#: .\mainapp\views.py:774 .\mainapp\views.py:871
+msgid "Employee does not exist. Please create an employee profile first."
+msgstr "Employee does not exist. Please create an employee profile first."
+
+#: .\mainapp\views.py:631 .\mainapp\views.py:684 .\mainapp\views.py:735
+#: .\mainapp\views.py:781 .\mainapp\views.py:878
+msgid "No duty assigned to the employee. Please assign a duty first."
+msgstr "No duty assigned to the employee. Please assign a duty first."
+
+#: .\mainapp\views.py:646
+#, fuzzy
+#| msgid "Employee does not exist."
+msgid "Company case does not exist."
+msgstr "Employee does not exist."
+
+#: .\mainapp\views.py:672
+msgid "You don't have permission to Create Company Attendance."
+msgstr "You don't have permission to Create Company Attendance."
+
+#: .\mainapp\views.py:728
+#, fuzzy
+#| msgid "Employee does not exist."
+msgid "Company attendance record does not exist."
+msgstr "Employee does not exist."
+
+#: .\mainapp\views.py:769
+msgid "You don't have permission to Create Vehicle Failures."
+msgstr "You don't have permission to Create Vehicle Failures."
+
+#: .\mainapp\views.py:810
+msgid "You don't have permission to Create Company."
+msgstr "You don't have permission to Create Company."
+
+#: .\mainapp\views.py:820
+msgid "Company created successfully."
+msgstr "Company created successfully."
+
+#: .\mainapp\views.py:824
+#, python-format
+msgid "Failed to create Company: %(error)s"
+msgstr "Failed to create Company: %(error)s"
+
+#: .\mainapp\views.py:883
+#, fuzzy
+#| msgid "Vehicle does not exist."
+msgid "Vehicle failure record does not exist."
+msgstr "Vehicle does not exist."
+
+#: .\mainapp\views.py:961
+msgid "You don't have permission to Update Company."
+msgstr "You don't have permission to Update Company."
+
+#: .\mainapp\views.py:990
+msgid "You don't have permission to delete Company."
+msgstr "You don't have permission to delete Company."
+
+#: .\mainapp\views.py:1000
+msgid "You don't have permission to create Routines."
+msgstr "You don't have permission to create Routines."
+
+#: .\mainapp\views.py:1015
+msgid "Routine with this shift already exists."
+msgstr "Routine with this shift already exists."
+
+#: .\mainapp\views.py:1021
+msgid "Routine created successfully."
+msgstr "Routine created successfully."
+
+#: .\mainapp\views.py:1027
+msgid "Failed to create routine: {}"
+msgstr "Failed to create routine: {}"
+
+#: .\mainapp\views.py:1039 .\mainapp\views.py:1048
+msgid "You don't have permission to View Routines."
+msgstr "You don't have permission to View Routines."
+
+#: .\mainapp\views.py:1080
+msgid "Routine Updated successfully."
+msgstr "Routine Updated successfully."
+
+#: .\mainapp\views.py:1087
+msgid "Failed to update routine: {str(e)}"
+msgstr "Failed to update routine: {str(e)}"
+
+#: .\mainapp\views.py:1127 .\mainapp\views.py:1138
+msgid "You don't have permission to create Roles."
+msgstr "You don't have permission to create Roles."
+
+#: .\mainapp\views.py:1177
+msgid "Invalid group or user ID"
+msgstr "Invalid group or user ID"
+
+#: .\mainapp\views.py:1196
+msgid "You don't have permission to create Employee Routines."
+msgstr "You don't have permission to create Employee Routines."
+
+#: .\mainapp\views.py:1215
+msgid "Employee routine assigned successfully."
+msgstr "Employee routine assigned successfully."
+
+#: .\mainapp\views.py:1218 .\mainapp\views.py:1292
+msgid "Employee does not exist."
+msgstr "Employee does not exist."
+
+#: .\mainapp\views.py:1221
+msgid "Routine does not exist."
+msgstr "Routine does not exist."
+
+#: .\mainapp\views.py:1224
+msgid "Failed to assign employee routine: {str(e)}"
+msgstr "Failed to assign employee routine: {str(e)}"
+
+#: .\mainapp\views.py:1271
+msgid "You don't have permission to create Employee Duty."
+msgstr "You don't have permission to create Employee Duty."
+
+#: .\mainapp\views.py:1286
+msgid "Duty assigned successfully."
+msgstr "Duty assigned successfully."
+
+#: .\mainapp\views.py:1287
+msgid "New Duty Assigned to You"
+msgstr "New Duty Assigned to You"
+
+#: .\mainapp\views.py:1295
+msgid "Failed to assign duty: {str(e)}"
+msgstr "Failed to assign duty: {str(e)}"
+
+#: .\mainapp\views.py:1319
+msgid "You don't have permission to create Clients."
+msgstr "You don't have permission to create Clients."
+
+#: .\mainapp\views.py:1363
+msgid "Client created successfully."
+msgstr "Client created successfully."
+
+#: .\mainapp\views.py:1366
+#, python-brace-format
+msgid "Invalid value provided: {error}"
+msgstr "Invalid value provided: {error}"
+
+#: .\mainapp\views.py:1370
+#, python-brace-format
+msgid "Failed to create client: {error}"
+msgstr "Failed to create client: {error}"
+
+#: .\mainapp\views.py:1395 .\mainapp\views.py:1404
+msgid "You don't have permission to view Clients."
+msgstr "You don't have permission to view Clients."
+
+#: .\mainapp\views.py:1458
+msgid "Failed to update client: {str(e)}"
+msgstr "Failed to update client: {str(e)}"
+
+#: .\mainapp\views.py:1486
+msgid "You don't have permission to Create Users."
+msgstr "You don't have permission to Create Users."
+
+#: .\mainapp\views.py:1509 .\mainapp\views.py:1569
+msgid "Passwords do not match."
+msgstr "Passwords do not match."
+
+#: .\mainapp\views.py:1512 .\mainapp\views.py:1572
+msgid "This email address is already in use."
+msgstr "This email address is already in use."
+
+#: .\mainapp\views.py:1525
+msgid "User Created Successfully!"
+msgstr "User Created Successfully!"
+
+#: .\mainapp\views.py:1599
+msgid "User Updated Successfully!"
+msgstr "User Updated Successfully!"
+
+#: .\mainapp\views.py:1627 .\mainapp\views.py:1636
+msgid "You don't have permission to View Users."
+msgstr "You don't have permission to View Users."
+
+#: .\mainapp\views.py:1645 .\mainapp\views.py:1655
+msgid "You don't have permission to Check Attendance."
+msgstr "You don't have permission to Check Attendance."
+
+#: .\mainapp\views.py:1685
+msgid "You don't have permission to Create Request Form."
+msgstr "You don't have permission to Create Request Form."
+
+#: .\mainapp\views.py:1763 .\mainapp\views.py:1784
+msgid "You don't have permission to View Request Form."
+msgstr "You don't have permission to View Request Form."
+
+#: .\mainapp\views.py:1771
+msgid "You don't have permission to View Attachment Form."
+msgstr "You don't have permission to View Attachment Form."
+
+#: .\mainapp\views.py:2374
+msgid "New Request Notifications"
+msgstr "New Request Notifications"
+
+#: .\templates\403.html:121
+msgid "Request Forbidden"
+msgstr "Request Forbidden"
+
+#: .\templates\403.html:122
+msgid "You Don't have permission to perform this action"
+msgstr "You Don't have permission to perform this action"
+
+#: .\templates\403.html:123
+msgid "Go Back"
+msgstr "Go Back"
+
+#: .\templates\all-actions.html:5 .\templates\all-actions.html:13
+#: .\templates\all-clients.html:5 .\templates\all-clients.html:13
+#: .\templates\all-company-attendance.html:5
+#: .\templates\all-company-attendance.html:13
+#: .\templates\all-company-cases.html:5 .\templates\all-company-cases.html:13
+#: .\templates\all-company.html:5 .\templates\all-company.html:13
+#: .\templates\all-employee.html:5 .\templates\all-employee.html:13
+#: .\templates\all-routines.html:5 .\templates\all-routines.html:13
+#: .\templates\all-shift.html:5 .\templates\all-shift.html:13
+#: .\templates\all-users.html:5 .\templates\all-users.html:13
+#: .\templates\all-vehicle-failure.html:5
+#: .\templates\all-vehicle-failure.html:13 .\templates\all-vehicle-type.html:5
+#: .\templates\all-vehicle-type.html:13 .\templates\all-vehicle.html:5
+#: .\templates\all-vehicle.html:13 .\templates\base.html:361
+#: .\templates\base.html:379 .\templates\base.html:397
+#: .\templates\base.html:503 .\templates\base.html:510
+#: .\templates\base.html:559 .\templates\base.html:575
+#: .\templates\base.html:591 .\templates\base.html:607
+#: .\templates\list-attachments.html:5 .\templates\list-attachments.html:13
+#: .\templates\list-request-form.html:5 .\templates\list-request-form.html:13
+msgid "List All"
+msgstr "List All"
+
+#: .\templates\all-actions.html:5 .\templates\all-actions.html:13
+#: .\templates\all-actions.html:20 .\templates\create-action.html:5
+#: .\templates\create-action.html:14 .\templates\create-action.html:23
+#: .\templates\create-action.html:25
+#: .\templates\create-company-attendance.html:300
+#: .\templates\create-company-attendance.html:435
+#: .\templates\create-company-attendance.html:490
+#: .\templates\create-company-attendance.html:496
+#: .\templates\create-company-cases.html:375
+#: .\templates\create-company-cases.html:511 .\templates\single-action.html:5
+#: .\templates\single-action.html:15 .\templates\single-action.html:23
+#: .\templates\single-client.html:30
+#: .\templates\single-company-attendance.html:32
+#: .\templates\single-company-cases.html:32
+#: .\templates\single-company-cases.html:34 .\templates\single-company.html:23
+#: .\templates\single-employee.html:26 .\templates\single-request.html:32
+#: .\templates\single-routine.html:26 .\templates\single-shift.html:23
+#: .\templates\single-user.html:30 .\templates\single-vehicle-failure.html:30
+#: .\templates\single-vehicle-type.html:23 .\templates\single-vehicle.html:28
+#: .\templates\update-action.html:5 .\templates\update-action.html:14
+#: .\templates\update-action.html:23 .\templates\update-action.html:24
+#: .\templates\update-company-attendance.html:312
+#: .\templates\update-company-attendance.html:446
+#: .\templates\update-company-attendance.html:501
+#: .\templates\update-company-attendance.html:507
+#: .\templates\update-company-cases.html:381
+#: .\templates\update-company-cases.html:519
+#, fuzzy
+#| msgid "Action"
+msgid "Action"
+msgstr "Action"
+
+#: .\templates\all-actions.html:19 .\templates\all-clients.html:19
+#: .\templates\all-company-attendance.html:19
+#: .\templates\all-company-cases.html:19 .\templates\all-company.html:19
+#: .\templates\all-employee.html:19 .\templates\all-routines.html:19
+#: .\templates\all-shift.html:19 .\templates\all-users.html:19
+#: .\templates\all-vehicle-failure.html:19 .\templates\all-vehicle-type.html:19
+#: .\templates\all-vehicle.html:19 .\templates\attendence.html:45
+#: .\templates\client-report.html:157 .\templates\list-attachments.html:19
+#: .\templates\list-attachments.html:23 .\templates\list-request-form.html:19
+#: .\templates\single-action.html:21 .\templates\single-client.html:21
+#: .\templates\single-company-attendance.html:19
+#: .\templates\single-company-cases.html:19 .\templates\single-company.html:21
+#: .\templates\single-employee.html:21 .\templates\single-request.html:22
+#: .\templates\single-routine.html:21 .\templates\single-shift.html:21
+#: .\templates\single-user.html:21 .\templates\single-vehicle-failure.html:19
+#: .\templates\single-vehicle-type.html:21 .\templates\single-vehicle.html:21
+msgid "ID"
+msgstr "ID"
+
+#: .\templates\all-actions.html:20 .\templates\all-clients.html:20
+#: .\templates\all-company-attendance.html:20
+#: .\templates\all-company-attendance.html:21
+#: .\templates\all-company-cases.html:20 .\templates\all-company-cases.html:21
+#: .\templates\all-company.html:20 .\templates\all-employee.html:20
+#: .\templates\all-routines.html:20 .\templates\all-shift.html:20
+#: .\templates\all-vehicle-failure.html:20
+#: .\templates\all-vehicle-failure.html:21 .\templates\all-vehicle-type.html:20
+#: .\templates\all-vehicle.html:20 .\templates\attendence-report.html:286
+#: .\templates\attendence.html:47 .\templates\attendence.html:212
+#: .\templates\cases_log.html:259 .\templates\client-report.html:158
+#: .\templates\create-action.html:23 .\templates\create-action.html:25
+#: .\templates\create-company-attendance.html:320
+#: .\templates\create-company-attendance.html:323
+#: .\templates\create-company-attendance.html:403
+#: .\templates\create-company-attendance.html:410
+#: .\templates\create-company-attendance.html:440
+#: .\templates\create-company-attendance.html:469
+#: .\templates\create-company-attendance.html:541
+#: .\templates\create-company-attendance.html:572
+#: .\templates\create-company-cases.html:485
+#: .\templates\create-company-cases.html:516
+#: .\templates\create-company-cases.html:547
+#: .\templates\create-company-cases.html:579
+#: .\templates\create-company-cases.html:608
+#: .\templates\create-company-cases.html:637 .\templates\create-company.html:23
+#: .\templates\create-company.html:25 .\templates\create-employee.html:264
+#: .\templates\create-shift.html:23 .\templates\create-shift.html:25
+#: .\templates\create-vehicle-failure.html:323
+#: .\templates\create-vehicle-failure.html:357
+#: .\templates\create-vehicle-failure.html:389
+#: .\templates\create-vehicle-failure.html:419
+#: .\templates\create-vehicle-type.html:23
+#: .\templates\create-vehicle-type.html:25 .\templates\create-vehicle.html:22
+#: .\templates\create-vehicle.html:24 .\templates\create-vehicle.html:241
+#: .\templates\create-vehicle.html:272 .\templates\create_client.html:22
+#: .\templates\create_client.html:23 .\templates\create_client.html:279
+#: .\templates\create_routine.html:149 .\templates\employee_routine.html:111
+#: .\templates\list-attachments.html:22 .\templates\person_id.html:259
+#: .\templates\request-form.html:478 .\templates\request-form.html:510
+#: .\templates\request-form.html:539 .\templates\single-action.html:22
+#: .\templates\single-client.html:22
+#: .\templates\single-company-attendance.html:20
+#: .\templates\single-company-attendance.html:21
+#: .\templates\single-company-cases.html:20
+#: .\templates\single-company-cases.html:21
+#: .\templates\single-company-cases.html:32 .\templates\single-company.html:22
+#: .\templates\single-employee.html:22 .\templates\single-routine.html:22
+#: .\templates\single-shift.html:22 .\templates\single-vehicle-failure.html:20
+#: .\templates\single-vehicle-failure.html:21
+#: .\templates\single-vehicle-type.html:22 .\templates\single-vehicle.html:22
+#: .\templates\trafic_log.html:259 .\templates\update-action.html:23
+#: .\templates\update-action.html:24 .\templates\update-client.html:22
+#: .\templates\update-client.html:23 .\templates\update-client.html:266
+#: .\templates\update-company-attendance.html:336
+#: .\templates\update-company-attendance.html:339
+#: .\templates\update-company-attendance.html:415
+#: .\templates\update-company-attendance.html:422
+#: .\templates\update-company-attendance.html:451
+#: .\templates\update-company-attendance.html:480
+#: .\templates\update-company-attendance.html:552
+#: .\templates\update-company-attendance.html:583
+#: .\templates\update-company-cases.html:492
+#: .\templates\update-company-cases.html:524
+#: .\templates\update-company-cases.html:554
+#: .\templates\update-company-cases.html:583
+#: .\templates\update-company-cases.html:614
+#: .\templates\update-company-cases.html:644 .\templates\update-company.html:23
+#: .\templates\update-company.html:25 .\templates\update-request-form.html:465
+#: .\templates\update-request-form.html:493
+#: .\templates\update-request-form.html:519 .\templates\update-shift.html:23
+#: .\templates\update-shift.html:25 .\templates\update-vehicle-failure.html:333
+#: .\templates\update-vehicle-failure.html:367
+#: .\templates\update-vehicle-failure.html:399
+#: .\templates\update-vehicle-failure.html:430
+#: .\templates\update-vehicle-type.html:23
+#: .\templates\update-vehicle-type.html:25 .\templates\update-vehicle.html:21
+#: .\templates\update-vehicle.html:23 .\templates\update-vehicle.html:235
+#: .\templates\update-vehicle.html:267
+msgid "Name"
+msgstr "Name"
+
+#: .\templates\all-clients.html:5 .\templates\all-clients.html:13
+#: .\templates\base.html:442 .\templates\base.html:449
+#: .\templates\base.html:648 .\templates\client-report.html:39
+#: .\templates\client-report.html:110 .\templates\client-report.html:150
+#: .\templates\create_client.html:5 .\templates\create_client.html:14
+#: .\templates\dashboard.html:49 .\templates\dashboard.html:60
+#: .\templates\list-request-form.html:22 .\templates\request-form.html:101
+#: .\templates\request-form.html:105 .\templates\single-client.html:5
+#: .\templates\single-client.html:15 .\templates\single-request.html:25
+#: .\templates\update-client.html:5 .\templates\update-client.html:13
+#: .\templates\update-request-form.html:57
+#: .\templates\update-request-form.html:62
+msgid "Clients"
+msgstr "Clients"
+
+#: .\templates\all-clients.html:21 .\templates\create_client.html:36
+#: .\templates\create_client.html:38 .\templates\single-client.html:23
+#: .\templates\update-client.html:36 .\templates\update-client.html:38
+msgid "Job Grade"
+msgstr "Job Grade"
+
+#: .\templates\all-clients.html:22 .\templates\create_client.html:43
+#: .\templates\create_client.html:46 .\templates\create_client.html:274
+#: .\templates\single-client.html:24 .\templates\update-client.html:43
+#: .\templates\update-client.html:46 .\templates\update-client.html:261
+msgid "Job Role"
+msgstr "Job Role"
+
+#: .\templates\all-clients.html:23 .\templates\create_client.html:75
+#: .\templates\create_client.html:77 .\templates\single-client.html:25
+#: .\templates\update-client.html:74 .\templates\update-client.html:76
+msgid "Head Office"
+msgstr "Head Office"
+
+#: .\templates\all-clients.html:24 .\templates\create_client.html:82
+#: .\templates\create_client.html:84 .\templates\single-client.html:26
+#: .\templates\update-client.html:81 .\templates\update-client.html:83
+msgid "Headquarter Name"
+msgstr "Headquarter Name"
+
+#: .\templates\all-clients.html:25 .\templates\client-report.html:159
+#: .\templates\create_client.html:96 .\templates\create_client.html:98
+#: .\templates\single-client.html:27 .\templates\update-client.html:95
+msgid "Mobile"
+msgstr "Mobile"
+
+#: .\templates\all-clients.html:26 .\templates\create_client.html:149
+#: .\templates\create_client.html:151 .\templates\single-client.html:28
+#: .\templates\update-client.html:147 .\templates\update-client.html:149
+msgid "UID"
+msgstr "UID"
+
+#: .\templates\all-clients.html:27 .\templates\all-employee.html:22
+#: .\templates\all-users.html:24 .\templates\cases_log.html:174
+#: .\templates\cases_log.html:176 .\templates\client-report.html:160
+#: .\templates\create-employee.html:179 .\templates\create-employee.html:181
+#: .\templates\create-user.html:54 .\templates\create-user.html:56
+#: .\templates\create_client.html:209 .\templates\create_client.html:211
+#: .\templates\person_id.html:174 .\templates\person_id.html:176
+#: .\templates\single-client.html:29 .\templates\single-employee.html:24
+#: .\templates\single-user.html:26 .\templates\trafic_log.html:174
+#: .\templates\trafic_log.html:176 .\templates\update-client.html:192
+#: .\templates\update-client.html:194 .\templates\update-employee.html:202
+#: .\templates\update-employee.html:204 .\templates\update-user.html:48
+#: .\templates\update-user.html:49
+msgid "Email"
+msgstr ""
+
+#: .\templates\all-company-attendance.html:5
+#: .\templates\all-company-attendance.html:13
+#: .\templates\all-company-attendance.html:21
+#: .\templates\all-company-cases.html:5 .\templates\all-company-cases.html:13
+#: .\templates\all-company-cases.html:21 .\templates\all-company-cases.html:30
+#: .\templates\all-company.html:5 .\templates\all-company.html:13
+#: .\templates\all-vehicle-failure.html:21 .\templates\base.html:537
+#: .\templates\base.html:583 .\templates\base.html:591
+#: .\templates\base.html:599 .\templates\base.html:607
+#: .\templates\create-company-attendance.html:5
+#: .\templates\create-company-attendance.html:21
+#: .\templates\create-company-attendance.html:147
+#: .\templates\create-company-attendance.html:150
+#: .\templates\create-company-attendance.html:461
+#: .\templates\create-company-attendance.html:563
+#: .\templates\create-company-attendance.html:580
+#: .\templates\create-company-cases.html:5
+#: .\templates\create-company-cases.html:22
+#: .\templates\create-company-cases.html:161
+#: .\templates\create-company-cases.html:164
+#: .\templates\create-company-cases.html:200
+#: .\templates\create-company-cases.html:203
+#: .\templates\create-company-cases.html:600
+#: .\templates\create-company-cases.html:629
+#: .\templates\create-company-cases.html:644 .\templates\create-company.html:5
+#: .\templates\create-company.html:14
+#: .\templates\create-vehicle-failure.html:129
+#: .\templates\create-vehicle-failure.html:411
+#: .\templates\single-company-attendance.html:5
+#: .\templates\single-company-attendance.html:13
+#: .\templates\single-company-attendance.html:21
+#: .\templates\single-company-cases.html:5
+#: .\templates\single-company-cases.html:13
+#: .\templates\single-company-cases.html:21
+#: .\templates\single-company-cases.html:30 .\templates\single-company.html:5
+#: .\templates\single-company.html:15
+#: .\templates\single-vehicle-failure.html:21
+#: .\templates\update-company-attendance.html:5
+#: .\templates\update-company-attendance.html:21
+#: .\templates\update-company-attendance.html:148
+#: .\templates\update-company-attendance.html:151
+#: .\templates\update-company-attendance.html:472
+#: .\templates\update-company-attendance.html:574
+#: .\templates\update-company-attendance.html:591
+#: .\templates\update-company-cases.html:5
+#: .\templates\update-company-cases.html:21
+#: .\templates\update-company-cases.html:158
+#: .\templates\update-company-cases.html:197
+#: .\templates\update-company-cases.html:546
+#: .\templates\update-company-cases.html:636
+#: .\templates\update-company-cases.html:651 .\templates\update-company.html:5
+#: .\templates\update-vehicle-failure.html:125
+#: .\templates\update-vehicle-failure.html:421
+#: .\templates\update-vehicle-failure.html:438
+msgid "Company"
+msgstr "Company"
+
+#: .\templates\all-company-attendance.html:5
+#: .\templates\all-company-attendance.html:13 .\templates\attendence.html:5
+#: .\templates\base.html:460 .\templates\base.html:599
+#: .\templates\base.html:607 .\templates\base.html:634
+#: .\templates\create-company-attendance.html:5
+#: .\templates\create-company-attendance.html:21
+#: .\templates\single-company-attendance.html:5
+#: .\templates\single-company-attendance.html:13
+#: .\templates\update-company-attendance.html:5
+#: .\templates\update-company-attendance.html:21
+msgid "Attendance"
+msgstr "Attendance"
+
+#: .\templates\all-company-attendance.html:20
+#: .\templates\all-company-cases.html:20 .\templates\all-employee.html:5
+#: .\templates\all-employee.html:13 .\templates\all-vehicle-failure.html:20
+#: .\templates\create-company-attendance.html:29
+#: .\templates\create-company-cases.html:30 .\templates\create-employee.html:5
+#: .\templates\create-employee.html:15
+#: .\templates\create-vehicle-failure.html:29 .\templates\dashboard.html:72
+#: .\templates\dashboard.html:81 .\templates\dashboard.html:119
+#: .\templates\employee_duty.html:22 .\templates\employee_duty.html:25
+#: .\templates\employee_routine.html:23 .\templates\employee_routine.html:26
+#: .\templates\list-request-form.html:21 .\templates\request-form.html:69
+#: .\templates\request-report.html:80 .\templates\request-report.html:183
+#: .\templates\single-company-attendance.html:20
+#: .\templates\single-company-cases.html:20 .\templates\single-employee.html:5
+#: .\templates\single-employee.html:15 .\templates\single-request.html:24
+#: .\templates\single-vehicle-failure.html:20
+#: .\templates\update-company-attendance.html:29
+#: .\templates\update-company-cases.html:29
+#: .\templates\update-company-cases.html:32 .\templates\update-employee.html:5
+#: .\templates\update-employee.html:14 .\templates\update-request-form.html:27
+#: .\templates\update-request-form.html:32
+#: .\templates\update-vehicle-failure.html:29
+msgid "Employees"
+msgstr "Employees"
+
+#: .\templates\all-company-attendance.html:22
+#: .\templates\all-company-cases.html:22
+#: .\templates\all-vehicle-failure.html:22 .\templates\base.html:414
+#: .\templates\create-company-attendance.html:90
+#: .\templates\create-company-attendance.html:94
+#: .\templates\create-company-cases.html:104
+#: .\templates\create-vehicle-failure.html:72
+#: .\templates\list-request-form.html:23 .\templates\request-form.html:135
+#: .\templates\request-form.html:139
+#: .\templates\single-company-attendance.html:22
+#: .\templates\single-company-cases.html:22 .\templates\single-request.html:26
+#: .\templates\single-vehicle-failure.html:22
+#: .\templates\update-company-attendance.html:91
+#: .\templates\update-company-attendance.html:95
+#: .\templates\update-company-cases.html:101
+#: .\templates\update-request-form.html:97
+#: .\templates\update-request-form.html:102
+#: .\templates\update-vehicle-failure.html:72
+msgid "Duty"
+msgstr "Duty"
+
+#: .\templates\all-company-attendance.html:23
+#: .\templates\all-company-cases.html:25
+#: .\templates\all-vehicle-failure.html:24
+#: .\templates\create-company-attendance.html:49
+#: .\templates\create-company-cases.html:62
+#: .\templates\create-vehicle-failure.html:43
+#: .\templates\single-company-attendance.html:24
+#: .\templates\single-company-cases.html:25
+#: .\templates\single-vehicle-failure.html:24
+#: .\templates\update-company-attendance.html:50
+#: .\templates\update-company-attendance.html:54
+#: .\templates\update-company-cases.html:59
+#: .\templates\update-vehicle-failure.html:43
+msgid "City"
+msgstr "City"
+
+#: .\templates\all-company-attendance.html:24
+#: .\templates\all-company-attendance.html:25
+#: .\templates\all-vehicle-failure.html:28 .\templates\all-vehicle.html:21
+#: .\templates\all-vehicle.html:22 .\templates\all-vehicle.html:23
+#: .\templates\create-vehicle.html:30 .\templates\create-vehicle.html:32
+#: .\templates\create-vehicle.html:38 .\templates\create-vehicle.html:116
+#: .\templates\create-vehicle.html:120
+#: .\templates\single-company-attendance.html:26
+#: .\templates\single-company-attendance.html:27
+#: .\templates\single-vehicle-failure.html:28
+#: .\templates\single-vehicle.html:23 .\templates\single-vehicle.html:24
+#: .\templates\single-vehicle.html:25 .\templates\update-vehicle.html:29
+#: .\templates\update-vehicle.html:31 .\templates\update-vehicle.html:37
+#: .\templates\update-vehicle.html:111 .\templates\update-vehicle.html:115
+msgid "Plate"
+msgstr "Plate"
+
+#: .\templates\all-company-attendance.html:24
+#: .\templates\all-vehicle-failure.html:28 .\templates\all-vehicle.html:21
+#: .\templates\create-vehicle.html:30 .\templates\create-vehicle.html:32
+#: .\templates\single-company-attendance.html:26
+#: .\templates\single-vehicle-failure.html:28
+#: .\templates\single-vehicle.html:23 .\templates\update-vehicle.html:29
+#: .\templates\update-vehicle.html:31
+msgid "Number"
+msgstr "Number"
+
+#: .\templates\all-company-attendance.html:25
+#: .\templates\all-vehicle-failure.html:25 .\templates\all-vehicle-type.html:5
+#: .\templates\all-vehicle-type.html:13 .\templates\all-vehicle.html:22
+#: .\templates\all-vehicle.html:24 .\templates\create-vehicle-failure.html:229
+#: .\templates\create-vehicle-type.html:5
+#: .\templates\create-vehicle-type.html:14 .\templates\create-vehicle.html:38
+#: .\templates\create-vehicle.html:74 .\templates\create-vehicle.html:78
+#: .\templates\create-vehicle.html:267
+#: .\templates\single-company-attendance.html:27
+#: .\templates\single-vehicle-failure.html:25
+#: .\templates\single-vehicle-type.html:5
+#: .\templates\single-vehicle-type.html:15 .\templates\single-vehicle.html:24
+#: .\templates\single-vehicle.html:26
+#: .\templates\update-vehicle-failure.html:233
+#: .\templates\update-vehicle-type.html:5
+#: .\templates\update-vehicle-type.html:14 .\templates\update-vehicle.html:37
+#: .\templates\update-vehicle.html:73 .\templates\update-vehicle.html:77
+#: .\templates\update-vehicle.html:262
+msgid "Type"
+msgstr "Type"
+
+#: .\templates\all-company-attendance.html:26
+#: .\templates\all-company-attendance.html:27
+#: .\templates\single-company-attendance.html:28
+#: .\templates\single-company-attendance.html:29
+#: .\templates\single-company-attendance.html:31
+msgid "Milage"
+msgstr "Milage"
+
+#: .\templates\all-company-attendance.html:26
+#: .\templates\create-company-attendance.html:250
+#: .\templates\create-company-attendance.html:255
+#: .\templates\single-company-attendance.html:28
+#: .\templates\update-company-attendance.html:262
+#: .\templates\update-company-attendance.html:267
+msgid "Start"
+msgstr "Start"
+
+#: .\templates\all-company-attendance.html:26
+#: .\templates\all-company-attendance.html:27
+#: .\templates\create-company-attendance.html:250
+#: .\templates\create-company-attendance.html:255
+#: .\templates\create-company-attendance.html:262
+#: .\templates\create-company-attendance.html:267
+#: .\templates\single-company-attendance.html:28
+#: .\templates\single-company-attendance.html:29
+#: .\templates\update-company-attendance.html:262
+#: .\templates\update-company-attendance.html:267
+#: .\templates\update-company-attendance.html:274
+#: .\templates\update-company-attendance.html:280
+msgid "KM"
+msgstr "KM"
+
+#: .\templates\all-company-attendance.html:27
+#: .\templates\create-company-attendance.html:262
+#: .\templates\create-company-attendance.html:267
+#: .\templates\single-company-attendance.html:29
+#: .\templates\update-company-attendance.html:274
+#: .\templates\update-company-attendance.html:280
+#, fuzzy
+#| msgid "Finish"
+msgid "Finish"
+msgstr "Finish"
+
+#: .\templates\all-company-attendance.html:28
+#: .\templates\create-company-attendance.html:274
+#: .\templates\create-company-attendance.html:279
+#: .\templates\single-company-attendance.html:30
+#: .\templates\update-company-attendance.html:287
+#: .\templates\update-company-attendance.html:292
+#, fuzzy
+#| msgid "Spend"
+msgid "Spend"
+msgstr "Spend"
+
+#: .\templates\all-company-attendance.html:28
+#: .\templates\create-company-attendance.html:274
+#: .\templates\create-company-attendance.html:279
+#: .\templates\single-company-attendance.html:30
+#: .\templates\update-company-attendance.html:287
+#: .\templates\update-company-attendance.html:292
+#, fuzzy
+#| msgid "End Time"
+msgid "Time"
+msgstr "End Time"
+
+#: .\templates\all-company-cases.html:5 .\templates\all-company-cases.html:13
+#: .\templates\all-company-cases.html:29 .\templates\base.html:583
+#: .\templates\base.html:591 .\templates\create-company-cases.html:5
+#: .\templates\create-company-cases.html:22
+#: .\templates\create-company-cases.html:302
+#: .\templates\create-company-cases.html:304
+#: .\templates\create-company-cases.html:326
+#: .\templates\create-company-cases.html:329
+#: .\templates\single-company-cases.html:5
+#: .\templates\single-company-cases.html:13
+#: .\templates\single-company-cases.html:29
+#: .\templates\update-company-cases.html:5
+#: .\templates\update-company-cases.html:21
+msgid "Cases"
+msgstr "Cases"
+
+#: .\templates\all-company-cases.html:23
+#: .\templates\all-vehicle-failure.html:23 .\templates\base.html:621
+#: .\templates\base.html:634 .\templates\base.html:641
+#: .\templates\base.html:648 .\templates\create-company-cases.html:286
+#: .\templates\create-company-cases.html:292
+#: .\templates\create-vehicle-failure.html:241
+#: .\templates\create-vehicle-failure.html:246
+#: .\templates\single-company-cases.html:23
+#: .\templates\single-vehicle-failure.html:23
+#: .\templates\update-company-cases.html:276
+msgid "Reports"
+msgstr "Reports"
+
+#: .\templates\all-company-cases.html:24
+#: .\templates\single-company-cases.html:24
+msgid "Date of Case"
+msgstr "Date of Case"
+
+#: .\templates\all-company-cases.html:26
+#: .\templates\create-company-cases.html:277
+#: .\templates\single-company-cases.html:26
+#: .\templates\update-company-cases.html:268
+msgid "Zone"
+msgstr "Zone"
+
+#: .\templates\all-company-cases.html:27
+#: .\templates\create-company-cases.html:357
+#: .\templates\single-company-cases.html:27
+#: .\templates\update-company-cases.html:363
+msgid "Type of Case"
+msgstr "Type of Case"
+
+#: .\templates\all-company-cases.html:28
+#: .\templates\all-vehicle-failure.html:24
+#: .\templates\create-company-cases.html:539
+#: .\templates\create-vehicle-failure.html:43
+#: .\templates\create-vehicle-failure.html:348
+#: .\templates\single-company-cases.html:28
+#: .\templates\single-vehicle-failure.html:24
+#: .\templates\update-company-cases.html:292
+#: .\templates\update-company-cases.html:294
+#: .\templates\update-company-cases.html:315
+#: .\templates\update-company-cases.html:575
+#: .\templates\update-vehicle-failure.html:43
+#: .\templates\update-vehicle-failure.html:358
+msgid "Case"
+msgstr "Case"
+
+#: .\templates\all-company-cases.html:28
+#: .\templates\create-company-cases.html:326
+#: .\templates\create-company-cases.html:329
+#: .\templates\create-company-cases.html:539 .\templates\employee_duty.html:57
+#: .\templates\employee_duty.html:58 .\templates\single-company-cases.html:28
+#: .\templates\update-company-cases.html:315
+#: .\templates\update-company-cases.html:575
+msgid "Description"
+msgstr "Description"
+
+#: .\templates\all-company-cases.html:29
+#: .\templates\create-company-cases.html:302
+#: .\templates\create-company-cases.html:304
+#: .\templates\single-company-cases.html:29
+#: .\templates\update-company-cases.html:292
+#: .\templates\update-company-cases.html:294
+msgid "Summart"
+msgstr "Summart"
+
+#: .\templates\all-company-cases.html:30 .\templates\all-company-cases.html:31
+#: .\templates\create-company-cases.html:200
+#: .\templates\create-company-cases.html:203
+#: .\templates\create-company-cases.html:629
+#: .\templates\single-company-cases.html:30
+#: .\templates\single-company-cases.html:31
+#: .\templates\update-company-cases.html:197
+#: .\templates\update-company-cases.html:200
+#: .\templates\update-company-cases.html:636
+msgid "Guard"
+msgstr "Guard"
+
+#: .\templates\all-company-cases.html:31
+#: .\templates\create-company-cases.html:639
+#: .\templates\single-company-cases.html:31
+#: .\templates\update-company-cases.html:646
+msgid "Nationality"
+msgstr "Nationality"
+
+#: .\templates\all-company-cases.html:32
+#: .\templates\create-company-attendance.html:290
+#: .\templates\create-company-attendance.html:292
+#: .\templates\create-company-cases.html:313
+#: .\templates\create-company-cases.html:316
+#: .\templates\single-company-attendance.html:25
+#: .\templates\single-company-cases.html:33
+#: .\templates\update-company-attendance.html:303
+#: .\templates\update-company-attendance.html:305
+#: .\templates\update-company-cases.html:302
+#: .\templates\update-company-cases.html:305
+msgid "Comments"
+msgstr "Comments"
+
+#: .\templates\all-employee.html:21 .\templates\all-users.html:23
+#: .\templates\cases_log.html:167 .\templates\cases_log.html:169
+#: .\templates\create-employee.html:172 .\templates\create-employee.html:174
+#: .\templates\create-user.html:45 .\templates\create-user.html:47
+#: .\templates\person_id.html:167 .\templates\person_id.html:169
+#: .\templates\sign-in.html:119 .\templates\sign-in.html:121
+#: .\templates\single-employee.html:23 .\templates\single-user.html:25
+#: .\templates\trafic_log.html:167 .\templates\trafic_log.html:169
+#: .\templates\update-employee.html:195 .\templates\update-employee.html:197
+#: .\templates\update-user.html:41 .\templates\update-user.html:42
+msgid "Username"
+msgstr "Username"
+
+#: .\templates\all-employee.html:23 .\templates\cases_log.html:253
+#: .\templates\create-employee.html:56 .\templates\create-employee.html:59
+#: .\templates\create-employee.html:258 .\templates\create-user.html:103
+#: .\templates\create-user.html:106 .\templates\create_client.html:164
+#: .\templates\create_client.html:167 .\templates\person_id.html:253
+#: .\templates\single-employee.html:25 .\templates\trafic_log.html:253
+#: .\templates\update-client.html:160 .\templates\update-client.html:164
+#: .\templates\update-employee.html:70 .\templates\update-employee.html:74
+#: .\templates\update-user.html:92 .\templates\update-user.html:95
+msgid "Work Locations"
+msgstr "Work Locations"
+
+#: .\templates\all-routines.html:5 .\templates\all-routines.html:13
+#: .\templates\base.html:388 .\templates\base.html:397
+#: .\templates\base.html:405 .\templates\create_routine.html:5
+#: .\templates\create_routine.html:14 .\templates\employee_routine.html:58
+#: .\templates\employee_routine.html:61 .\templates\single-routine.html:5
+#: .\templates\single-routine.html:15 .\templates\update-routine.html:5
+#: .\templates\update-routine.html:14 .\templates\update-routine.html:59
+#: .\templates\update-routine.html:78
+msgid "Routine"
+msgstr "Routine"
+
+#: .\templates\all-routines.html:20 .\templates\all-shift.html:5
+#: .\templates\all-shift.html:13 .\templates\all-shift.html:20
+#: .\templates\attendence.html:53 .\templates\base.html:379
+#: .\templates\create-shift.html:5 .\templates\create-shift.html:14
+#: .\templates\create-shift.html:23 .\templates\create-shift.html:25
+#: .\templates\create_routine.html:22 .\templates\create_routine.html:26
+#: .\templates\create_routine.html:144 .\templates\employee_routine.html:113
+#: .\templates\single-routine.html:22 .\templates\single-shift.html:5
+#: .\templates\single-shift.html:15 .\templates\update-company.html:14
+#: .\templates\update-routine.html:22 .\templates\update-shift.html:5
+#: .\templates\update-shift.html:14 .\templates\update-shift.html:23
+#: .\templates\update-shift.html:25
+msgid "Shift"
+msgstr "Shift"
+
+#: .\templates\all-routines.html:21 .\templates\create_routine.html:63
+#: .\templates\single-routine.html:23 .\templates\update-routine.html:59
+msgid "Start Time"
+msgstr "Start Time"
+
+#: .\templates\all-routines.html:22 .\templates\create_routine.html:73
+#: .\templates\single-routine.html:24 .\templates\update-routine.html:71
+msgid "Break Duration"
+msgstr "Break Duration"
+
+#: .\templates\all-routines.html:23 .\templates\create_routine.html:80
+#: .\templates\single-routine.html:25 .\templates\update-routine.html:78
+msgid "End Time"
+msgstr "End Time"
+
+#: .\templates\all-users.html:5 .\templates\all-users.html:13
+#: .\templates\base.html:338 .\templates\base.html:353
+#: .\templates\base.html:361 .\templates\base.html:369
+#: .\templates\cases_log.html:139 .\templates\create-employee.html:24
+#: .\templates\create-employee.html:27 .\templates\create-employee.html:144
+#: .\templates\create-user.html:5 .\templates\create-user.html:14
+#: .\templates\person_id.html:139 .\templates\trafic_log.html:139
+#: .\templates\update-employee.html:167 .\templates\user_management.html:5
+#: .\templates\user_management.html:278 .\templates\user_management.html:281
+msgid "Users"
+msgstr "Users"
+
+#: .\templates\all-users.html:21 .\templates\cases_log.html:148
+#: .\templates\cases_log.html:150 .\templates\create-employee.html:153
+#: .\templates\create-employee.html:155 .\templates\create-user.html:22
+#: .\templates\create-user.html:23 .\templates\person_id.html:148
+#: .\templates\person_id.html:150 .\templates\single-user.html:23
+#: .\templates\trafic_log.html:148 .\templates\trafic_log.html:150
+#: .\templates\update-employee.html:176 .\templates\update-employee.html:178
+#: .\templates\update-user.html:23 .\templates\update-user.html:24
+msgid "First Name"
+msgstr "First Name"
+
+#: .\templates\all-users.html:22 .\templates\cases_log.html:156
+#: .\templates\cases_log.html:158 .\templates\create-employee.html:161
+#: .\templates\create-employee.html:163 .\templates\create-user.html:32
+#: .\templates\create-user.html:34 .\templates\person_id.html:156
+#: .\templates\person_id.html:158 .\templates\single-user.html:24
+#: .\templates\trafic_log.html:156 .\templates\trafic_log.html:158
+#: .\templates\update-employee.html:184 .\templates\update-employee.html:186
+#: .\templates\update-user.html:31 .\templates\update-user.html:32
+msgid "Last Name"
+msgstr "Last Name"
+
+#: .\templates\all-users.html:25 .\templates\create-user.html:66
+#: .\templates\create-user.html:67 .\templates\single-user.html:27
+#: .\templates\update-user.html:59 .\templates\update-user.html:60
+msgid "Mobile Number"
+msgstr "Mobile Number"
+
+#: .\templates\all-users.html:26 .\templates\single-user.html:5
+#: .\templates\single-user.html:15 .\templates\single-user.html:28
+#: .\templates\update-employee.html:23 .\templates\update-employee.html:27
+#: .\templates\update-user.html:5 .\templates\update-user.html:14
+#, fuzzy
+#| msgid "Users"
+msgid "User"
+msgstr "Users"
+
+#: .\templates\all-users.html:26 .\templates\create-company-attendance.html:174
+#: .\templates\create-company-attendance.html:179
+#: .\templates\create-company-cases.html:240
+#: .\templates\create-company-cases.html:245
+#: .\templates\create-vehicle-failure.html:155
+#: .\templates\create-vehicle-failure.html:158 .\templates\single-user.html:28
+#: .\templates\update-company-attendance.html:185
+#: .\templates\update-company-attendance.html:190
+#: .\templates\update-company-cases.html:231
+#: .\templates\update-company-cases.html:236
+#: .\templates\update-vehicle-failure.html:158
+#: .\templates\update-vehicle-failure.html:163
+msgid "Groups"
+msgstr "Groups"
+
+#: .\templates\all-vehicle-failure.html:5
+#: .\templates\all-vehicle-failure.html:13
+#: .\templates\all-vehicle-failure.html:27
+#: .\templates\all-vehicle-failure.html:29 .\templates\all-vehicle-type.html:5
+#: .\templates\all-vehicle-type.html:13 .\templates\all-vehicle.html:5
+#: .\templates\all-vehicle.html:13 .\templates\all-vehicle.html:24
+#: .\templates\all-vehicle.html:25 .\templates\base.html:549
+#: .\templates\base.html:559 .\templates\base.html:567
+#: .\templates\base.html:575 .\templates\create-company-attendance.html:211
+#: .\templates\create-company-attendance.html:215
+#: .\templates\create-vehicle-failure.html:5
+#: .\templates\create-vehicle-failure.html:21
+#: .\templates\create-vehicle-failure.html:189
+#: .\templates\create-vehicle-failure.html:193
+#: .\templates\create-vehicle-type.html:5
+#: .\templates\create-vehicle-type.html:14 .\templates\create-vehicle.html:5
+#: .\templates\create-vehicle.html:14 .\templates\create-vehicle.html:74
+#: .\templates\create-vehicle.html:78 .\templates\create-vehicle.html:267
+#: .\templates\single-vehicle-failure.html:5
+#: .\templates\single-vehicle-failure.html:13
+#: .\templates\single-vehicle-failure.html:27
+#: .\templates\single-vehicle-failure.html:29
+#: .\templates\single-vehicle-type.html:5
+#: .\templates\single-vehicle-type.html:15 .\templates\single-vehicle.html:5
+#: .\templates\single-vehicle.html:15 .\templates\single-vehicle.html:26
+#: .\templates\single-vehicle.html:27
+#: .\templates\update-company-attendance.html:222
+#: .\templates\update-company-attendance.html:226
+#: .\templates\update-vehicle-failure.html:5
+#: .\templates\update-vehicle-failure.html:21
+#: .\templates\update-vehicle-failure.html:195
+#: .\templates\update-vehicle-failure.html:199
+#: .\templates\update-vehicle-type.html:5
+#: .\templates\update-vehicle-type.html:14 .\templates\update-vehicle.html:5
+#: .\templates\update-vehicle.html:13 .\templates\update-vehicle.html:73
+#: .\templates\update-vehicle.html:77 .\templates\update-vehicle.html:262
+msgid "Vehicle"
+msgstr "Vehicle"
+
+#: .\templates\all-vehicle-failure.html:5
+#: .\templates\all-vehicle-failure.html:13 .\templates\base.html:567
+#: .\templates\base.html:575 .\templates\create-vehicle-failure.html:5
+#: .\templates\create-vehicle-failure.html:21
+#: .\templates\single-vehicle-failure.html:5
+#: .\templates\single-vehicle-failure.html:13
+msgid "Failures"
+msgstr "Failures"
+
+#: .\templates\all-vehicle-failure.html:26
+#: .\templates\create-vehicle-failure.html:256
+#: .\templates\create-vehicle-failure.html:258
+#: .\templates\single-vehicle-failure.html:26
+#: .\templates\update-vehicle-failure.html:261
+#, fuzzy
+#| msgid "Details"
+msgid "Details"
+msgstr "Details"
+
+#: .\templates\all-vehicle-failure.html:29 .\templates\all-vehicle.html:25
+#: .\templates\attendence-report.html:76 .\templates\create-vehicle.html:163
+#: .\templates\single-vehicle-failure.html:29
+#: .\templates\single-vehicle.html:27 .\templates\update-vehicle.html:157
+msgid "Year"
+msgstr "Year"
+
+#: .\templates\all-vehicle.html:23 .\templates\create-vehicle.html:116
+#: .\templates\create-vehicle.html:120 .\templates\single-vehicle.html:25
+#: .\templates\update-vehicle.html:111 .\templates\update-vehicle.html:115
+msgid "Source"
+msgstr "Source"
+
+#: .\templates\attendence-report.html:5
+#, fuzzy
+#| msgid "Attendance Report"
+msgid "Attendence Report"
+msgstr "Attendance Report"
+
+#: .\templates\attendence-report.html:90
+msgid "Month"
+msgstr "Month"
+
+#: .\templates\attendence-report.html:133 .\templates\attendence.html:48
+msgid "Checked In"
+msgstr "Checked In"
+
+#: .\templates\attendence-report.html:228 .\templates\attendence.html:50
+msgid "Checked Out"
+msgstr "Checked Out"
+
+#: .\templates\attendence-report.html:239
+msgid "All Employees Monthly Attendance"
+msgstr "All Employees Monthly Attendance"
+
+#: .\templates\attendence.html:15 .\templates\attendence.html:36
+msgid "Today Attendance"
+msgstr "Today Attendance"
+
+#: .\templates\attendence.html:20 .\templates\attendence.html:71
+msgid "Attendance Sheet"
+msgstr "Attendance Sheet"
+
+#: .\templates\attendence.html:49
+msgid "Break"
+msgstr "Break"
+
+#: .\templates\attendence.html:51 .\templates\dashboard.html:81
+msgid "Total"
+msgstr "Total"
+
+#: .\templates\attendence.html:52 .\templates\create-company-cases.html:413
+#: .\templates\create_client.html:28 .\templates\employee_duty.html:63
+#: .\templates\request-form.html:409 .\templates\update-client.html:28
+#: .\templates\update-company-cases.html:423
+#: .\templates\update-request-form.html:382
+msgid "Status"
+msgstr "Status"
+
+#: .\templates\base.html:297 .\templates\sign-in.html:20
+msgid "Task and Management System"
+msgstr "Task and Management System"
+
+#: .\templates\base.html:303
+msgid "Loading"
+msgstr "Loading"
+
+#: .\templates\base.html:329 .\templates\dashboard.html:8
+#: .\templates\dashboard.html:20
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: .\templates\base.html:353 .\templates\base.html:388
+#: .\templates\base.html:442 .\templates\base.html:549
+#: .\templates\base.html:567 .\templates\base.html:583
+#: .\templates\base.html:599 .\templates\cases_log.html:139
+#: .\templates\cases_log.html:253 .\templates\create-action.html:5
+#: .\templates\create-action.html:14
+#: .\templates\create-company-attendance.html:403
+#: .\templates\create-company-attendance.html:435
+#: .\templates\create-company-attendance.html:461
+#: .\templates\create-company-attendance.html:532
+#: .\templates\create-company-attendance.html:563
+#: .\templates\create-company-cases.html:477
+#: .\templates\create-company-cases.html:511
+#: .\templates\create-company-cases.html:539
+#: .\templates\create-company-cases.html:570
+#: .\templates\create-company-cases.html:600
+#: .\templates\create-company-cases.html:629 .\templates\create-company.html:5
+#: .\templates\create-company.html:14 .\templates\create-employee.html:5
+#: .\templates\create-employee.html:15 .\templates\create-employee.html:144
+#: .\templates\create-employee.html:258 .\templates\create-shift.html:5
+#: .\templates\create-shift.html:14 .\templates\create-user.html:5
+#: .\templates\create-user.html:14 .\templates\create-vehicle-failure.html:315
+#: .\templates\create-vehicle-failure.html:348
+#: .\templates\create-vehicle-failure.html:380
+#: .\templates\create-vehicle-failure.html:411
+#: .\templates\create-vehicle-type.html:5
+#: .\templates\create-vehicle-type.html:14 .\templates\create-vehicle.html:5
+#: .\templates\create-vehicle.html:14 .\templates\create-vehicle.html:234
+#: .\templates\create-vehicle.html:267 .\templates\create_client.html:5
+#: .\templates\create_client.html:14 .\templates\create_client.html:274
+#: .\templates\create_routine.html:5 .\templates\create_routine.html:14
+#: .\templates\create_routine.html:144 .\templates\person_id.html:139
+#: .\templates\person_id.html:253 .\templates\request-form.html:471
+#: .\templates\request-form.html:503 .\templates\request-form.html:532
+#: .\templates\sign-in.html:100 .\templates\trafic_log.html:139
+#: .\templates\trafic_log.html:253 .\templates\update-client.html:261
+#: .\templates\update-company-attendance.html:415
+#: .\templates\update-company-attendance.html:446
+#: .\templates\update-company-attendance.html:472
+#: .\templates\update-company-attendance.html:543
+#: .\templates\update-company-attendance.html:574
+#: .\templates\update-company-cases.html:484
+#: .\templates\update-company-cases.html:519
+#: .\templates\update-company-cases.html:546
+#: .\templates\update-company-cases.html:575
+#: .\templates\update-company-cases.html:605
+#: .\templates\update-company-cases.html:636
+#: .\templates\update-employee.html:167
+#: .\templates\update-request-form.html:459
+#: .\templates\update-request-form.html:487
+#: .\templates\update-request-form.html:513
+#: .\templates\update-vehicle-failure.html:325
+#: .\templates\update-vehicle-failure.html:358
+#: .\templates\update-vehicle-failure.html:390
+#: .\templates\update-vehicle-failure.html:421
+#: .\templates\update-vehicle.html:228 .\templates\update-vehicle.html:262
+msgid "Create"
+msgstr "Create"
+
+#: .\templates\base.html:369 .\templates\user_management.html:5
+msgid "Management"
+msgstr "Management"
+
+#: .\templates\base.html:405 .\templates\base.html:414
+msgid "Assign"
+msgstr "Assign"
+
+#: .\templates\base.html:429
+msgid "Authorized"
+msgstr "Authorized"
+
+#: .\templates\base.html:449
+msgid "All"
+msgstr ""
+
+#: .\templates\base.html:468 .\templates\base.html:481
+#: .\templates\base.html:503 .\templates\base.html:641
+#: .\templates\cases_log.html:24 .\templates\cases_log.html:27
+#: .\templates\client-report.html:138 .\templates\client-report.html:191
+#: .\templates\dashboard.html:93 .\templates\dashboard.html:103
+#: .\templates\dashboard.html:166 .\templates\list-attachments.html:23
+#: .\templates\list-request-form.html:5 .\templates\list-request-form.html:13
+#: .\templates\person_id.html:24 .\templates\person_id.html:27
+#: .\templates\request-report.html:170 .\templates\single-request.html:6
+#: .\templates\single-request.html:16 .\templates\trafic_log.html:24
+#: .\templates\trafic_log.html:27 .\templates\update-request-form.html:5
+#: .\templates\update-request-form.html:19
+msgid "Requests"
+msgstr "Requests"
+
+#: .\templates\base.html:489 .\templates\cases_log.html:5
+#: .\templates\cases_log.html:15
+msgid "Cases Log"
+msgstr "Cases Log"
+
+#: .\templates\base.html:496 .\templates\trafic_log.html:5
+#: .\templates\trafic_log.html:15
+msgid "Trafic Log"
+msgstr "Trafic Log"
+
+#: .\templates\base.html:510
+msgid "Attachment"
+msgstr "Attachment"
+
+#: .\templates\base.html:665
+msgid "Logout"
+msgstr "Logout"
+
+#: .\templates\cases_log.html:28 .\templates\person_id.html:28
+#: .\templates\trafic_log.html:28
+msgid "Request is required"
+msgstr "Request is required"
+
+#: .\templates\cases_log.html:34 .\templates\create-company-attendance.html:67
+#: .\templates\create-company-attendance.html:108
+#: .\templates\create-company-attendance.html:158
+#: .\templates\create-company-attendance.html:193
+#: .\templates\create-company-attendance.html:230
+#: .\templates\create-company-attendance.html:303
+#: .\templates\create-company-attendance.html:332
+#: .\templates\create-company-attendance.html:501
+#: .\templates\create-company-cases.html:80
+#: .\templates\create-company-cases.html:122
+#: .\templates\create-company-cases.html:180
+#: .\templates\create-company-cases.html:216
+#: .\templates\create-company-cases.html:259
+#: .\templates\create-company-cases.html:340
+#: .\templates\create-company-cases.html:378
+#: .\templates\create-employee.html:38 .\templates\create-employee.html:71
+#: .\templates\create-user.html:114 .\templates\create-vehicle-failure.html:51
+#: .\templates\create-vehicle-failure.html:90
+#: .\templates\create-vehicle-failure.html:140
+#: .\templates\create-vehicle-failure.html:171
+#: .\templates\create-vehicle-failure.html:209
+#: .\templates\create-vehicle.html:95 .\templates\create-vehicle.html:145
+#: .\templates\create_client.html:59 .\templates\create_client.html:189
+#: .\templates\create_routine.html:44 .\templates\employee_duty.html:31
+#: .\templates\employee_routine.html:39 .\templates\employee_routine.html:73
+#: .\templates\person_id.html:34 .\templates\request-form.html:115
+#: .\templates\request-form.html:152 .\templates\request-form.html:205
+#: .\templates\request-form.html:243 .\templates\request-form.html:324
+#: .\templates\trafic_log.html:34 .\templates\update-client.html:58
+#: .\templates\update-client.html:176
+#: .\templates\update-company-attendance.html:68
+#: .\templates\update-company-attendance.html:109
+#: .\templates\update-company-attendance.html:166
+#: .\templates\update-company-attendance.html:204
+#: .\templates\update-company-attendance.html:241
+#: .\templates\update-company-attendance.html:315
+#: .\templates\update-company-attendance.html:348
+#: .\templates\update-company-attendance.html:512
+#: .\templates\update-company-cases.html:77
+#: .\templates\update-company-cases.html:119
+#: .\templates\update-company-cases.html:177
+#: .\templates\update-company-cases.html:208
+#: .\templates\update-company-cases.html:250
+#: .\templates\update-company-cases.html:346
+#: .\templates\update-company-cases.html:384
+#: .\templates\update-employee.html:50 .\templates\update-employee.html:90
+#: .\templates\update-request-form.html:76
+#: .\templates\update-request-form.html:116
+#: .\templates\update-request-form.html:172
+#: .\templates\update-request-form.html:210
+#: .\templates\update-request-form.html:294 .\templates\update-routine.html:39
+#: .\templates\update-user.html:103 .\templates\update-vehicle-failure.html:51
+#: .\templates\update-vehicle-failure.html:88
+#: .\templates\update-vehicle-failure.html:140
+#: .\templates\update-vehicle-failure.html:177
+#: .\templates\update-vehicle-failure.html:214
+#: .\templates\update-vehicle.html:92 .\templates\update-vehicle.html:140
+#: .\templates\user_management.html:140 .\templates\user_management.html:157
+msgid "Search"
+msgstr "Search"
+
+#: .\templates\cases_log.html:49 .\templates\person_id.html:49
+#: .\templates\trafic_log.html:49
+msgid "Attach Images"
+msgstr "Attach Images"
+
+#: .\templates\cases_log.html:93 .\templates\cases_log.html:113
+#: .\templates\cases_log.html:208 .\templates\cases_log.html:271
+#: .\templates\create-action.html:42 .\templates\create-action.html:65
+#: .\templates\create-company-attendance.html:354
+#: .\templates\create-company-attendance.html:384
+#: .\templates\create-company-attendance.html:420
+#: .\templates\create-company-attendance.html:448
+#: .\templates\create-company-attendance.html:475
+#: .\templates\create-company-attendance.html:519
+#: .\templates\create-company-attendance.html:549
+#: .\templates\create-company-attendance.html:621
+#: .\templates\create-company-cases.html:427
+#: .\templates\create-company-cases.html:458
+#: .\templates\create-company-cases.html:496
+#: .\templates\create-company-cases.html:524
+#: .\templates\create-company-cases.html:556
+#: .\templates\create-company-cases.html:587
+#: .\templates\create-company-cases.html:614
+#: .\templates\create-company-cases.html:681 .\templates\create-company.html:42
+#: .\templates\create-company.html:65 .\templates\create-employee.html:96
+#: .\templates\create-employee.html:118 .\templates\create-employee.html:213
+#: .\templates\create-employee.html:276 .\templates\create-shift.html:42
+#: .\templates\create-shift.html:65 .\templates\create-user.html:207
+#: .\templates\create-user.html:230 .\templates\create-vehicle-failure.html:267
+#: .\templates\create-vehicle-failure.html:296
+#: .\templates\create-vehicle-failure.html:334
+#: .\templates\create-vehicle-failure.html:367
+#: .\templates\create-vehicle-failure.html:397
+#: .\templates\create-vehicle-failure.html:425
+#: .\templates\create-vehicle-type.html:42
+#: .\templates\create-vehicle-type.html:65 .\templates\create-vehicle.html:191
+#: .\templates\create-vehicle.html:216 .\templates\create-vehicle.html:278
+#: .\templates\create_client.html:235 .\templates\create_client.html:256
+#: .\templates\create_client.html:285 .\templates\create_routine.html:99
+#: .\templates\create_routine.html:120 .\templates\create_routine.html:155
+#: .\templates\employee_duty.html:83 .\templates\employee_duty.html:106
+#: .\templates\employee_routine.html:119 .\templates\employee_routine.html:142
+#: .\templates\person_id.html:93 .\templates\person_id.html:113
+#: .\templates\person_id.html:208 .\templates\person_id.html:271
+#: .\templates\request-form.html:428 .\templates\request-form.html:452
+#: .\templates\request-form.html:489 .\templates\request-form.html:519
+#: .\templates\request-form.html:546 .\templates\sign-in.html:153
+#: .\templates\trafic_log.html:93 .\templates\trafic_log.html:113
+#: .\templates\trafic_log.html:208 .\templates\trafic_log.html:271
+#: .\templates\update-action.html:40 .\templates\update-action.html:63
+#: .\templates\update-client.html:217 .\templates\update-client.html:240
+#: .\templates\update-client.html:272
+#: .\templates\update-company-attendance.html:370
+#: .\templates\update-company-attendance.html:397
+#: .\templates\update-company-attendance.html:432
+#: .\templates\update-company-attendance.html:459
+#: .\templates\update-company-attendance.html:486
+#: .\templates\update-company-attendance.html:530
+#: .\templates\update-company-attendance.html:560
+#: .\templates\update-company-attendance.html:632
+#: .\templates\update-company-cases.html:437
+#: .\templates\update-company-cases.html:464
+#: .\templates\update-company-cases.html:503
+#: .\templates\update-company-cases.html:532
+#: .\templates\update-company-cases.html:560
+#: .\templates\update-company-cases.html:592
+#: .\templates\update-company-cases.html:622
+#: .\templates\update-company-cases.html:689 .\templates\update-company.html:41
+#: .\templates\update-company.html:63 .\templates\update-employee.html:119
+#: .\templates\update-employee.html:142 .\templates\update-employee.html:236
+#: .\templates\update-request-form.html:442
+#: .\templates\update-request-form.html:473
+#: .\templates\update-request-form.html:500
+#: .\templates\update-request-form.html:526 .\templates\update-routine.html:99
+#: .\templates\update-routine.html:124 .\templates\update-shift.html:41
+#: .\templates\update-shift.html:63 .\templates\update-user.html:195
+#: .\templates\update-user.html:218 .\templates\update-vehicle-failure.html:273
+#: .\templates\update-vehicle-failure.html:306
+#: .\templates\update-vehicle-failure.html:344
+#: .\templates\update-vehicle-failure.html:377
+#: .\templates\update-vehicle-failure.html:407
+#: .\templates\update-vehicle-failure.html:479
+#: .\templates\update-vehicle-type.html:42
+#: .\templates\update-vehicle-type.html:65 .\templates\update-vehicle.html:185
+#: .\templates\update-vehicle.html:210 .\templates\update-vehicle.html:273
+#: .\templates\user_management.html:48 .\templates\user_management.html:70
+#: .\templates\user_management.html:192 .\templates\user_management.html:215
+#: .\templates\user_management.html:317 .\templates\user_management.html:339
+msgid "Save"
+msgstr "Save"
+
+#: .\templates\cases_log.html:102 .\templates\create-action.html:53
+#: .\templates\create-company-attendance.html:371
+#: .\templates\create-company-cases.html:447 .\templates\create-company.html:53
+#: .\templates\create-employee.html:107 .\templates\create-shift.html:53
+#: .\templates\create-user.html:218 .\templates\create-vehicle-failure.html:285
+#: .\templates\create-vehicle-type.html:53 .\templates\create-vehicle.html:202
+#: .\templates\create_client.html:245 .\templates\create_routine.html:109
+#: .\templates\employee_duty.html:94 .\templates\employee_routine.html:130
+#: .\templates\person_id.html:102 .\templates\request-form.html:439
+#: .\templates\single-action.html:59 .\templates\single-client.html:73
+#: .\templates\single-company-attendance.html:80
+#: .\templates\single-company-cases.html:83 .\templates\single-company.html:59
+#: .\templates\single-employee.html:62 .\templates\single-routine.html:65
+#: .\templates\single-shift.html:59 .\templates\single-user.html:87
+#: .\templates\single-vehicle-failure.html:76
+#: .\templates\single-vehicle-type.html:59 .\templates\single-vehicle.html:69
+#: .\templates\trafic_log.html:102 .\templates\update-action.html:51
+#: .\templates\update-client.html:228
+#: .\templates\update-company-attendance.html:386
+#: .\templates\update-company-cases.html:453 .\templates\update-company.html:52
+#: .\templates\update-employee.html:130 .\templates\update-routine.html:110
+#: .\templates\update-shift.html:52 .\templates\update-user.html:206
+#: .\templates\update-vehicle-failure.html:293
+#: .\templates\update-vehicle-type.html:53 .\templates\update-vehicle.html:196
+#: .\templates\user_management.html:59 .\templates\user_management.html:203
+#: .\templates\user_management.html:328
+msgid "Confirmation Message"
+msgstr "Confirmation Message"
+
+#: .\templates\cases_log.html:107 .\templates\create-action.html:59
+#: .\templates\create-company-attendance.html:378
+#: .\templates\create-company-cases.html:452 .\templates\create-company.html:59
+#: .\templates\create-employee.html:112 .\templates\create-shift.html:59
+#: .\templates\create-user.html:224 .\templates\create-vehicle-failure.html:290
+#: .\templates\create-vehicle-type.html:59 .\templates\create-vehicle.html:210
+#: .\templates\create_client.html:250 .\templates\create_routine.html:114
+#: .\templates\employee_duty.html:100 .\templates\employee_routine.html:136
+#: .\templates\person_id.html:107 .\templates\request-form.html:444
+#: .\templates\trafic_log.html:107 .\templates\update-action.html:57
+#: .\templates\update-client.html:234
+#: .\templates\update-company-attendance.html:391
+#: .\templates\update-company-cases.html:458 .\templates\update-company.html:57
+#: .\templates\update-employee.html:136 .\templates\update-routine.html:117
+#: .\templates\update-shift.html:57 .\templates\update-user.html:212
+#: .\templates\update-vehicle-failure.html:300
+#: .\templates\update-vehicle-type.html:59 .\templates\update-vehicle.html:204
+#: .\templates\user_management.html:64 .\templates\user_management.html:209
+#: .\templates\user_management.html:333
+msgid "Are You Sure Want to Submit this?"
+msgstr "Are You Sure Want to Submit this?"
+
+#: .\templates\cases_log.html:112 .\templates\create-action.html:64
+#: .\templates\create-company-attendance.html:383
+#: .\templates\create-company-attendance.html:419
+#: .\templates\create-company-attendance.html:447
+#: .\templates\create-company-attendance.html:474
+#: .\templates\create-company-cases.html:457
+#: .\templates\create-company-cases.html:495
+#: .\templates\create-company-cases.html:523
+#: .\templates\create-company-cases.html:555
+#: .\templates\create-company-cases.html:613
+#: .\templates\create-company-cases.html:680 .\templates\create-company.html:64
+#: .\templates\create-employee.html:117 .\templates\create-shift.html:64
+#: .\templates\create-user.html:229 .\templates\create-vehicle-failure.html:295
+#: .\templates\create-vehicle-failure.html:333
+#: .\templates\create-vehicle-failure.html:424
+#: .\templates\create-vehicle-type.html:64 .\templates\create-vehicle.html:215
+#: .\templates\create-vehicle.html:277 .\templates\create_client.html:255
+#: .\templates\create_client.html:284 .\templates\create_routine.html:119
+#: .\templates\create_routine.html:154 .\templates\employee_duty.html:105
+#: .\templates\employee_routine.html:141 .\templates\person_id.html:112
+#: .\templates\request-form.html:450 .\templates\request-form.html:488
+#: .\templates\request-form.html:518 .\templates\request-form.html:545
+#: .\templates\single-action.html:71 .\templates\single-client.html:84
+#: .\templates\single-company-attendance.html:90
+#: .\templates\single-company-cases.html:95 .\templates\single-company.html:71
+#: .\templates\single-employee.html:74 .\templates\single-routine.html:77
+#: .\templates\single-shift.html:71 .\templates\single-user.html:99
+#: .\templates\single-vehicle-failure.html:88
+#: .\templates\single-vehicle-type.html:71 .\templates\single-vehicle.html:81
+#: .\templates\trafic_log.html:112 .\templates\update-action.html:62
+#: .\templates\update-client.html:239 .\templates\update-client.html:271
+#: .\templates\update-company-attendance.html:396
+#: .\templates\update-company-attendance.html:431
+#: .\templates\update-company-attendance.html:458
+#: .\templates\update-company-attendance.html:485
+#: .\templates\update-company-cases.html:463
+#: .\templates\update-company-cases.html:502
+#: .\templates\update-company-cases.html:531
+#: .\templates\update-company-cases.html:559
+#: .\templates\update-company-cases.html:591
+#: .\templates\update-company-cases.html:688 .\templates\update-company.html:62
+#: .\templates\update-employee.html:141 .\templates\update-employee.html:235
+#: .\templates\update-request-form.html:472
+#: .\templates\update-request-form.html:499
+#: .\templates\update-request-form.html:525 .\templates\update-routine.html:123
+#: .\templates\update-shift.html:62 .\templates\update-user.html:217
+#: .\templates\update-vehicle-failure.html:305
+#: .\templates\update-vehicle-failure.html:343
+#: .\templates\update-vehicle-type.html:64 .\templates\update-vehicle.html:209
+#: .\templates\update-vehicle.html:272 .\templates\user_management.html:69
+#: .\templates\user_management.html:214 .\templates\user_management.html:338
+msgid "Close"
+msgstr ""
+
+#: .\templates\cases_log.html:184 .\templates\cases_log.html:186
+#: .\templates\create-employee.html:189 .\templates\create-employee.html:191
+#: .\templates\create-user.html:130 .\templates\create-user.html:132
+#: .\templates\create-user.html:150 .\templates\person_id.html:184
+#: .\templates\person_id.html:186 .\templates\sign-in.html:124
+#: .\templates\sign-in.html:125 .\templates\trafic_log.html:184
+#: .\templates\trafic_log.html:186 .\templates\update-employee.html:212
+#: .\templates\update-employee.html:214 .\templates\update-user.html:117
+#: .\templates\update-user.html:119
+msgid "Password"
+msgstr "Password"
+
+#: .\templates\cases_log.html:264 .\templates\client-report.html:161
+#: .\templates\create-employee.html:269 .\templates\create-vehicle.html:246
+#: .\templates\person_id.html:264 .\templates\trafic_log.html:264
+#: .\templates\update-vehicle.html:240
+msgid "Address"
+msgstr "Address"
+
+#: .\templates\client-report.html:6
+msgid "Client Report"
+msgstr "Client Report"
+
+#: .\templates\client-report.html:221 .\templates\dashboard.html:193
+msgid "Created"
+msgstr "Created"
+
+#: .\templates\client-report.html:228 .\templates\dashboard.html:200
+msgid "No Requests"
+msgstr "No Requests"
+
+#: .\templates\create-company-attendance.html:53
+#: .\templates\create-company-cases.html:66
+#: .\templates\create-vehicle-failure.html:46
+#: .\templates\update-company-cases.html:63
+#: .\templates\update-vehicle-failure.html:46
+msgid " City"
+msgstr "City"
+
+#: .\templates\create-company-attendance.html:127
+#: .\templates\create-company-cases.html:141
+#: .\templates\create-vehicle-failure.html:110
+#: .\templates\employee_routine.html:5 .\templates\employee_routine.html:14
+#: .\templates\update-company-attendance.html:128
+#: .\templates\update-company-cases.html:139
+#: .\templates\update-vehicle-failure.html:106
+msgid "Employee Routine"
+msgstr "Employee Routine"
+
+#: .\templates\create-company-attendance.html:320
+#: .\templates\create-company-attendance.html:323
+#: .\templates\create-company-attendance.html:403
+#: .\templates\update-company-attendance.html:336
+#: .\templates\update-company-attendance.html:339
+#: .\templates\update-company-attendance.html:415
+msgid "Call"
+msgstr "Call"
+
+#: .\templates\create-company-attendance.html:361
+msgid "Company Attendance created successfully"
+msgstr "Company Attendance created successfully"
+
+#: .\templates\create-company-cases.html:108
+#: .\templates\create-vehicle-failure.html:76
+#: .\templates\update-company-cases.html:105
+#: .\templates\update-vehicle-failure.html:76
+#, fuzzy
+#| msgid "Duty"
+msgid " Duty"
+msgstr "Duty"
+
+#: .\templates\create-company-cases.html:280
+#: .\templates\update-company-cases.html:270
+#, fuzzy
+#| msgid "Zone"
+msgid " Zone"
+msgstr "Zone"
+
+#: .\templates\create-company-cases.html:361
+#: .\templates\update-company-cases.html:367
+msgid "Security"
+msgstr "Security"
+
+#: .\templates\create-company-cases.html:362
+#: .\templates\update-company-cases.html:368
+msgid "Traffic"
+msgstr "Traffic"
+
+#: .\templates\create-company-cases.html:363
+#: .\templates\update-company-cases.html:369
+msgid "Maintainance"
+msgstr "Maintainance"
+
+#: .\templates\create-company-cases.html:364
+#: .\templates\update-company-cases.html:370
+msgid "Security Info"
+msgstr "Security Info"
+
+#: .\templates\create-company-cases.html:365
+#: .\templates\create-vehicle-failure.html:234
+#: .\templates\update-company-cases.html:371
+#: .\templates\update-vehicle-failure.html:238
+msgid "Other"
+msgstr "Other"
+
+#: .\templates\create-company-cases.html:436
+msgid "Company Cases created successfully"
+msgstr "Company Cases created successfully"
+
+#: .\templates\create-employee.html:28 .\templates\employee_duty.html:26
+#: .\templates\employee_routine.html:27
+msgid "Employee is required"
+msgstr "Employee is required"
+
+#: .\templates\create-employee.html:60 .\templates\create-user.html:107
+#: .\templates\create_client.html:168 .\templates\update-user.html:96
+msgid "Worklocation is required"
+msgstr "Worklocation is required"
+
+#: .\templates\create-user.html:25 .\templates\update-user.html:25
+msgid "First name can only contain letters and spaces."
+msgstr "First name can only contain letters and spaces."
+
+#: .\templates\create-user.html:37 .\templates\update-user.html:33
+msgid "Last name can only contain letters and spaces."
+msgstr "Last name can only contain letters and spaces."
+
+#: .\templates\create-user.html:49 .\templates\update-user.html:43
+msgid "Username can only contain numbers, letters and spaces."
+msgstr "Username can only contain numbers, letters and spaces."
+
+#: .\templates\create-user.html:57
+msgid "Invalid email address."
+msgstr ""
+
+#: .\templates\create-user.html:149 .\templates\update-user.html:136
+#: .\templates\update-user.html:138
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+#: .\templates\create-user.html:169 .\templates\single-user.html:29
+#: .\templates\update-user.html:159
+msgid "Is Employee?"
+msgstr "Is Employee?"
+
+#: .\templates\create-vehicle-failure.html:132
+#: .\templates\update-company-cases.html:161
+#: .\templates\update-company-cases.html:200
+#: .\templates\update-vehicle-failure.html:128
+#, fuzzy
+#| msgid "Company"
+msgid " Company"
+msgstr "Company"
+
+#: .\templates\create-vehicle-failure.html:232
+#: .\templates\update-vehicle-failure.html:236
+msgid "Accident"
+msgstr ""
+
+#: .\templates\create-vehicle-failure.html:233
+#: .\templates\update-vehicle-failure.html:5
+#: .\templates\update-vehicle-failure.html:21
+#: .\templates\update-vehicle-failure.html:237
+msgid "Failure"
+msgstr ""
+
+#: .\templates\create-vehicle-failure.html:275
+msgid "Vehicle Failure created successfully"
+msgstr "Vehicle Failure created successfully"
+
+#: .\templates\create_client.html:24 .\templates\update-client.html:24
+msgid "Name can only contain letters and spaces."
+msgstr "Name can only contain letters and spaces."
+
+#: .\templates\create_client.html:89 .\templates\create_client.html:91
+#: .\templates\update-client.html:88 .\templates\update-client.html:90
+msgid "Main Headquarter"
+msgstr "Main Headquarter"
+
+#: .\templates\create_client.html:134 .\templates\create_client.html:136
+#: .\templates\update-client.html:131
+msgid "Birth Date"
+msgstr "Birth Date"
+
+#: .\templates\create_client.html:141 .\templates\update-client.html:138
+msgid "Designation Date"
+msgstr "Designation Date"
+
+#: .\templates\create_client.html:156 .\templates\create_client.html:158
+#: .\templates\update-client.html:154 .\templates\update-client.html:155
+msgid "ID Number"
+msgstr "ID Number"
+
+#: .\templates\create_routine.html:27
+msgid "Shift is required"
+msgstr "Shift is required"
+
+#: .\templates\create_routine.html:75 .\templates\update-routine.html:73
+msgid ""
+"Break duration cannot be more than the difference between start time and end "
+"time."
+msgstr ""
+"Break duration cannot be more than the difference between start time and end "
+"time."
+
+#: .\templates\dashboard.html:19 .\templates\my_template.html:2
+msgid "Welcome Back"
+msgstr "Welcome Back"
+
+#: .\templates\dashboard.html:119
+msgid "Our"
+msgstr "Our"
+
+#: .\templates\dashboard.html:120
+msgid "View All"
+msgstr "View All"
+
+#: .\templates\employee_duty.html:5 .\templates\employee_duty.html:14
+msgid "Employee Duty"
+msgstr "Employee Duty"
+
+#: .\templates\employee_duty.html:47 .\templates\employee_duty.html:48
+msgid "Title"
+msgstr "Title"
+
+#: .\templates\employee_routine.html:62
+msgid "Routine is required"
+msgstr "Routine is required"
+
+#: .\templates\list-attachments.html:5 .\templates\list-attachments.html:13
+#: .\templates\request-form.html:24
+msgid "Attachment Form"
+msgstr "Attachment Form"
+
+#: .\templates\list-attachments.html:21
+msgid "Added By"
+msgstr "Added By"
+
+#: .\templates\list-attachments.html:22
+msgid "File"
+msgstr ""
+
+#: .\templates\list-request-form.html:24 .\templates\request-form.html:380
+#: .\templates\request-form.html:384 .\templates\request-form.html:532
+#: .\templates\single-request.html:27 .\templates\update-request-form.html:351
+#: .\templates\update-request-form.html:354
+msgid "Request Note"
+msgstr "Request Note"
+
+#: .\templates\list-request-form.html:25 .\templates\request-form.html:175
+#: .\templates\request-form.html:179 .\templates\request-form.html:471
+#: .\templates\single-request.html:28 .\templates\update-request-form.html:141
+#: .\templates\update-request-form.html:146
+#: .\templates\update-request-form.html:459
+msgid "Request Method"
+msgstr "Request Method"
+
+#: .\templates\list-request-form.html:26 .\templates\request-form.html:294
+#: .\templates\request-form.html:298 .\templates\request-form.html:503
+#: .\templates\single-request.html:29 .\templates\update-request-form.html:262
+#: .\templates\update-request-form.html:267
+#: .\templates\update-request-form.html:487
+msgid "Request Reason"
+msgstr "Request Reason"
+
+#: .\templates\list-request-form.html:27 .\templates\request-form.html:276
+#: .\templates\single-request.html:30 .\templates\update-request-form.html:244
+msgid "Request Date"
+msgstr "Request Date"
+
+#: .\templates\list-request-form.html:28 .\templates\request-form.html:267
+#: .\templates\single-request.html:31 .\templates\update-request-form.html:234
+msgid "Request Time"
+msgstr "Request Time"
+
+#: .\templates\my_template.html:17
+msgid "Switch Language"
+msgstr ""
+
+#: .\templates\notifications\notice.html:10
+#, fuzzy
+#| msgid "All Unread Notifications"
+msgid "All Unread Notifications"
+msgstr "All Unread Notifications"
+
+#: .\templates\notifications\notice.html:100
+msgid "New Notifications"
+msgstr "New Notifications"
+
+#: .\templates\notifications\notice.html:103
+msgid "ago"
+msgstr "ago"
+
+#: .\templates\notifications\notice.html:110
+msgid "Unread"
+msgstr "Unread"
+
+#: .\templates\notifications\notice.html:114
+msgid "Read"
+msgstr ""
+
+#: .\templates\notifications\notice.html:122
+msgid "Mark as Read"
+msgstr "Mark as Read"
+
+#: .\templates\notifications\notice.html:124
+msgid "All Notifications"
+msgstr "All Notifications"
+
+#: .\templates\person_id.html:5 .\templates\person_id.html:15
+msgid "Person ID"
+msgstr "Person ID"
+
+#: .\templates\request-form.html:5 .\templates\request-form.html:14
+#: .\templates\request-form.html:39
+msgid "Request Form"
+msgstr "Request Form"
+
+#: .\templates\request-form.html:19
+msgid "Information Form"
+msgstr "Information Form"
+
+#: .\templates\request-form.html:48 .\templates\update-request-form.html:401
+msgid "Request Priority"
+msgstr "Request Priority"
+
+#: .\templates\request-form.html:52 .\templates\update-request-form.html:405
+msgid "True"
+msgstr "True"
+
+#: .\templates\request-form.html:57 .\templates\update-request-form.html:410
+msgid "False"
+msgstr "False"
+
+#: .\templates\request-form.html:225 .\templates\request-form.html:229
+#: .\templates\update-request-form.html:193
+#: .\templates\update-request-form.html:196
+msgid "Departments"
+msgstr "Departments"
+
+#: .\templates\request-form.html:344 .\templates\update-request-form.html:314
+msgid "Corresponding"
+msgstr "Corresponding"
+
+#: .\templates\request-form.html:423
+msgid "Request created successfully"
+msgstr "Request created successfully"
+
+#: .\templates\request-report.html:5 .\templates\request-report.html:37
+msgid "Request Report"
+msgstr "Request Report"
+
+#: .\templates\sign-in.html:20 .\templates\sign-in.html:110
+msgid "Sign-in"
+msgstr "Sign-in"
+
+#: .\templates\sign-in.html:99
+msgid "Your place to work"
+msgstr "Your place to work"
+
+#: .\templates\sign-in.html:100
+msgid "Plan"
+msgstr "Plan"
+
+#: .\templates\sign-in.html:100
+msgid "Control"
+msgstr "Control"
+
+#: .\templates\single-action.html:65 .\templates\single-client.html:79
+#: .\templates\single-company-attendance.html:85
+#: .\templates\single-company-cases.html:89 .\templates\single-company.html:65
+#: .\templates\single-employee.html:68 .\templates\single-routine.html:71
+#: .\templates\single-shift.html:65 .\templates\single-user.html:93
+#: .\templates\single-vehicle-failure.html:82
+#: .\templates\single-vehicle-type.html:65 .\templates\single-vehicle.html:75
+msgid "Are You Sure Want to Delete this?"
+msgstr "Are You Sure Want to Delete this?"
+
+#: .\templates\single-action.html:73 .\templates\single-client.html:85
+#: .\templates\single-company-attendance.html:91
+#: .\templates\single-company-cases.html:96 .\templates\single-company.html:72
+#: .\templates\single-employee.html:76 .\templates\single-routine.html:79
+#: .\templates\single-shift.html:73 .\templates\single-user.html:101
+#: .\templates\single-vehicle-failure.html:89
+#: .\templates\single-vehicle-type.html:73 .\templates\single-vehicle.html:83
+msgid "Delete"
+msgstr ""
+
+#: .\templates\single-company-attendance.html:23
+msgid "Date"
+msgstr "Date"
+
+#: .\templates\single-company-attendance.html:31
+msgid "Calculations"
+msgstr "Calculations"
+
+#: .\templates\single-request.html:6 .\templates\single-request.html:16
+#: .\templates\update-action.html:5 .\templates\update-action.html:14
+#: .\templates\update-client.html:5 .\templates\update-client.html:13
+#: .\templates\update-company-attendance.html:5
+#: .\templates\update-company-attendance.html:21
+#: .\templates\update-company-cases.html:5
+#: .\templates\update-company-cases.html:21 .\templates\update-company.html:5
+#: .\templates\update-company.html:14 .\templates\update-employee.html:5
+#: .\templates\update-employee.html:14 .\templates\update-request-form.html:5
+#: .\templates\update-request-form.html:19 .\templates\update-routine.html:5
+#: .\templates\update-routine.html:14 .\templates\update-shift.html:5
+#: .\templates\update-shift.html:14 .\templates\update-user.html:5
+#: .\templates\update-user.html:14 .\templates\update-vehicle-failure.html:5
+#: .\templates\update-vehicle-failure.html:21
+#: .\templates\update-vehicle-type.html:5
+#: .\templates\update-vehicle-type.html:14 .\templates\update-vehicle.html:5
+#: .\templates\update-vehicle.html:13
+msgid "Update"
+msgstr "Update"
+
+#: .\templates\update-company-attendance.html:377
+msgid "Company Attendance updated successfully"
+msgstr "Company Attendance updated successfully"
+
+#: .\templates\update-company-cases.html:282
+#, fuzzy
+#| msgid "Reports"
+msgid " Report"
+msgstr "Reports"
+
+#: .\templates\update-company-cases.html:319
+#, fuzzy
+#| msgid "Case"
+msgid " Case"
+msgstr "Case"
+
+#: .\templates\update-company-cases.html:367
+#, fuzzy
+#| msgid "Security"
+msgid " Security"
+msgstr "Security"
+
+#: .\templates\update-company-cases.html:443
+msgid "Company Cases updated successfully"
+msgstr "Company Cases updated successfully"
+
+#: .\templates\update-request-form.html:438
+msgid "Request updated successfully"
+msgstr "Request updated successfully"
+
+#: .\templates\update-request-form.html:513
+msgid "Note"
+msgstr ""
+
+#: .\templates\update-vehicle-failure.html:245
+#: .\templates\update-vehicle-failure.html:250
+#, fuzzy
+#| msgid "Reports"
+msgid "Report"
+msgstr "Reports"
+
+#: .\templates\update-vehicle-failure.html:263
+#, fuzzy
+#| msgid "Details"
+msgid " Details"
+msgstr "Details"
+
+#: .\templates\update-vehicle-failure.html:283
+msgid "Vehicle Failure updated successfully"
+msgstr "Vehicle Failure updated successfully"
+
+#: .\templates\user_management.html:14 .\templates\user_management.html:34
+#: .\templates\user_management.html:42 .\templates\user_management.html:44
+#: .\templates\user_management.html:99 .\templates\user_management.html:102
+#: .\templates\user_management.html:241 .\templates\user_management.html:244
+msgid "Role"
+msgstr "Role"
+
+#: .\templates\user_management.html:20 .\templates\user_management.html:90
+msgid "Role Permission"
+msgstr "Role Permission"
+
+#: .\templates\user_management.html:25 .\templates\user_management.html:232
+msgid "User Permission"
+msgstr "User Permission"
+
+#: .\templates\user_management.html:103 .\templates\user_management.html:245
+msgid "Role is required"
+msgstr "Role is required"
+
+#: .\templates\user_management.html:136
+msgid "Available Permissions"
+msgstr "Available Permissions"
+
+#: .\templates\user_management.html:138
+msgid "Double Click to Add Permissions"
+msgstr "Double Click to Add Permissions"
+
+#: .\templates\user_management.html:151
+msgid "Chosen Permissions"
+msgstr "Chosen Permissions"
+
+#: .\templates\user_management.html:154
+msgid "Double Click to Remove Permissions"
+msgstr "Double Click to Remove Permissions"
+
+#: .\templates\user_management.html:282
+msgid "User is required"
+msgstr "User is required"
+
+#, fuzzy
+#~| msgid "Action"
+#~ msgid "Options"
+#~ msgstr "Action"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Commands"
+#~ msgstr "Comments"
+
+#, fuzzy
+#~| msgid "Role is required"
+#~ msgid "required"
+#~ msgstr "Role is required"
+
+#, fuzzy, python-brace-format
+#~| msgid "Invalid value provided: {error}"
+#~ msgid "Invalid value: {message}"
+#~ msgstr "Invalid value provided: {error}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Invalid value provided: {error}"
+#~ msgid "Invalid value for {param_hint}: {message}"
+#~ msgstr "Invalid value provided: {error}"
+
+#, fuzzy
+#~| msgid "Management"
+#~ msgid "Missing argument"
+#~ msgstr "Management"
+
+#, fuzzy
+#~| msgid "Vehicle does not exist."
+#~ msgid "{name} {filename!r} does not exist."
+#~ msgstr "Vehicle does not exist."
+
+#, fuzzy, python-format
+#~| msgid "Routine with this shift already exists."
+#~ msgid "%(model_name)s with this %(field_labels)s already exists."
+#~ msgstr "Routine with this shift already exists."
+
+#, fuzzy, python-format
+#~| msgid "Routine with this shift already exists."
+#~ msgid "%(model_name)s with this %(field_label)s already exists."
+#~ msgstr "Routine with this shift already exists."
+
+#, fuzzy
+#~| msgid "ID Number"
+#~ msgid "Decimal number"
+#~ msgstr "ID Number"
+
+#, fuzzy
+#~| msgid "Break Duration"
+#~ msgid "Duration"
+#~ msgstr "Break Duration"
+
+#, fuzzy
+#~| msgid "Address"
+#~ msgid "Email address"
+#~ msgstr "Address"
+
+#, fuzzy
+#~| msgid "Address"
+#~ msgid "IPv4 address"
+#~ msgstr "Address"
+
+#, fuzzy
+#~| msgid "Address"
+#~ msgid "IP address"
+#~ msgstr "Address"
+
+#, fuzzy
+#~| msgid "Shift is required"
+#~ msgid "This field is required."
+#~ msgstr "Shift is required"
+
+#, fuzzy
+#~| msgid "Month"
+#~ msgid "Mon"
+#~ msgstr "Month"
+
+#, fuzzy
+#~| msgid "True"
+#~ msgid "Tue"
+#~ msgstr "True"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Sat"
+#~ msgstr "Start"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "March"
+#~ msgstr "Search"
+
+#, fuzzy
+#~| msgid "Number"
+#~ msgid "November"
+#~ msgstr "Number"
+
+#, fuzzy
+#~| msgid "Summart"
+#~ msgid "mar"
+#~ msgstr "Summart"
+
+#, fuzzy
+#~| msgid "Company"
+#~ msgid "may"
+#~ msgstr "Company"
+
+#, fuzzy
+#~| msgid "ago"
+#~ msgid "aug"
+#~ msgstr "ago"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "abbrev. month"
+#~ msgid "March"
+#~ msgstr "Search"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "alt. month"
+#~ msgid "March"
+#~ msgstr "Search"
+
+#, fuzzy
+#~| msgid "Number"
+#~ msgctxt "alt. month"
+#~ msgid "November"
+#~ msgstr "Number"
+
+#, fuzzy
+#~| msgid "Request Forbidden"
+#~ msgid "Forbidden"
+#~ msgstr "Request Forbidden"
+
+#, fuzzy
+#~| msgid "Date of Case"
+#~ msgid "Date out of range"
+#~ msgstr "Date of Case"
+
+#, fuzzy, python-format
+#~| msgid "Actions does not exist."
+#~ msgid "“%(path)s” does not exist"
+#~ msgstr "Actions does not exist."
+
+#~ msgid "Request Requirements"
+#~ msgstr "Request Requirements"
+
+#~ msgid "You don't have permission to Update Shift."
+#~ msgstr "You don't have permission to Update Shift."
+
+#~ msgid "You don't have permission to delete shift."
+#~ msgstr "You don't have permission to delete shift."
+
+#~ msgid "You don't have permission to Update Vehicle."
+#~ msgstr "You don't have permission to Update Vehicle."
+
+#~ msgid "You don't have permission to delete vehicle."
+#~ msgstr "You don't have permission to delete vehicle."
+
+#~ msgid "You don't have permission to Update Company Cases."
+#~ msgstr "You don't have permission to Update Company Cases."
+
+#~ msgid "You don't have permission to Update Company Attendance."
+#~ msgstr "You don't have permission to Update Company Attendance."
+
+#~ msgid "You don't have permission to Update Vehicle Failures."
+#~ msgstr "You don't have permission to Update Vehicle Failures."
+
+#~ msgid "You don't have permission to delete Company Cases."
+#~ msgstr "You don't have permission to delete Company Cases."
+
+#~ msgid "You don't have permission to Delete Company Attendance."
+#~ msgstr "You don't have permission to Delete Company Attendance."
+
+#~ msgid "You don't have permission to delete Vehicle Failures."
+#~ msgstr "You don't have permission to delete Vehicle Failures."
+
+#~ msgid "You don't have permission to Change Routines."
+#~ msgstr "You don't have permission to Change Routines."
+
+#~ msgid "You don't have permission to Delete Routines."
+#~ msgstr "You don't have permission to Delete Routines."
+
+#~ msgid "You don't have permission to Update Clients."
+#~ msgstr "You don't have permission to Update Clients."
+
+#~ msgid "You don't have permission to Delete Clients."
+#~ msgstr "You don't have permission to Delete Clients."
+
+#~ msgid "You don't have permission to Update Users."
+#~ msgstr "You don't have permission to Update Users."
+
+#~ msgid "You don't have permission to Delete Users."
+#~ msgstr "You don't have permission to Delete Users."
+
+#~ msgid "You don't have permission to Update Request Form."
+#~ msgstr "You don't have permission to Update Request Form."
+
+#~ msgid "You don't have permission to Delete Request Form."
+#~ msgstr "You don't have permission to Delete Request Form."
+
+#, python-brace-format
+#~ msgid "New Duty Assigned to You by {request_user}"
+#~ msgstr "New Duty Assigned to You by {request_user}"
+
+#~ msgid "Username can only contain letters and spaces."
+#~ msgstr "Username can only contain letters and spaces."
+
+#~ msgid "Forms"
+#~ msgstr "Forms"
+
+#, fuzzy
+#~| msgid "Action"
+#~ msgid " Actions"
+#~ msgstr "Action"
+
+#~ msgid "Employee routine not found for this user."
+#~ msgstr "Employee routine not found for this user."
+
+#~ msgid "Break Time"
+#~ msgstr "Break Time"
+
+#, fuzzy
+#~| msgid "Routine is required"
+#~ msgid "Duty is required"
+#~ msgstr "Routine is required"
+
+#, fuzzy
+#~| msgid "Uploaded_By"
+#~ msgid "Uploaded_By"
+#~ msgstr "Uploaded_By"
+
+#, fuzzy
+#~| msgid "List All"
+#~ msgid "List all"
+#~ msgstr "List All"
+
+#, fuzzy
+#~| msgid "User Groups"
+#~ msgid "User Groups"
+#~ msgstr "User Groups"
+
+#, fuzzy
+#~| msgid "Headquarter Name"
+#~ msgid "Headquarter"
+#~ msgstr "Headquarter Name"
+
+#, fuzzy
+#~| msgid "Vehicle"
+#~ msgid " Vehicle"
+#~ msgstr "Vehicle"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid " Comments"
+#~ msgstr "Comments"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid " Start"
+#~ msgstr "Start"
+
+#, fuzzy
+#~| msgid "Finish"
+#~ msgid " Finish"
+#~ msgstr "Finish"
+
+#, fuzzy
+#~| msgid "Spend"
+#~ msgid " Spend"
+#~ msgstr "Spend"
+
+#, fuzzy
+#~| msgid "Call"
+#~ msgid " Call"
+#~ msgstr "Call"
+
+#, fuzzy
+#~| msgid "Employees"
+#~ msgid "Employee"
+#~ msgstr "Employees"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Case Description"
+#~ msgstr "Description"
+
+#, fuzzy
+#~| msgid "Nationality"
+#~ msgid "Guard Nationality"
+#~ msgstr "Nationality"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Comment"
+#~ msgstr "Comments"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid " Comment"
+#~ msgstr "Comments"
+
+#, fuzzy
+#~| msgid "Work Locations"
+#~ msgid "WorkLocations"
+#~ msgstr "Work Locations"
+
+#~ msgid "Welcome"
+#~ msgstr "Welcome"
+
+#~ msgid "Today"
+#~ msgstr "Today"
+
+#~ msgid "Sheet"
+#~ msgstr "Sheet"
+
+#~ msgid "Monthly"
+#~ msgstr "Monthly"
+
+#~ msgid "Add"
+#~ msgstr "Add"
+
+#~ msgid "Remove"
+#~ msgstr "Remove"

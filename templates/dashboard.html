@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load notifications_tags %}
+{% load custom_filters %}
+
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+    
+    <div class="container">
+
+    </div>
+    <div class="dashboard-content">
+        <div class="heading">
+            <p> {% trans "Welcome Back" %}, <span class="text-capitalize"> {{request.user.username}}!</span></p>
+            <h4>{% trans "Dashboard" %}</h4>
+        </div>
+        <div class="colors-box">
+            <div class="row">
+                {% comment %} <div class="col-md-3">
+                    
+                    <div class="dashboard-box" style="background: #4365D0; border-radius: 9.771px;">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="text-white">{% trans "Clients" %}</h4>
+                            <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
+                                <path
+                                    d="M8 12V10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H12M8 20V22C8 22.5304 8.21071 23.0391 8.58579 23.4142C8.96086 23.7893 9.46957 24 10 24H12M20 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V12M20 24H22C22.5304 24 23.0391 23.7893 23.4142 23.4142C23.7893 23.0391 24 22.5304 24 22V20M12 20C12 19.4696 12.2107 18.9609 12.5858 18.5858C12.9609 18.2107 13.4696 18 14 18H18C18.5304 18 19.0391 18.2107 19.4142 18.5858C19.7893 18.9609 20 19.4696 20 20M14 13C14 13.5304 14.2107 14.0391 14.5858 14.4142C14.9609 14.7893 15.4696 15 16 15C16.5304 15 17.0391 14.7893 17.4142 14.4142C17.7893 14.0391 18 13.5304 18 13C18 12.4696 17.7893 11.9609 17.4142 11.5858C17.0391 11.2107 16.5304 11 16 11C15.4696 11 14.9609 11.2107 14.5858 11.5858C14.2107 11.9609 14 12.4696 14 13Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <p class="text-white">New Clients</p>
+                        <h5 class="text-white">{{clients_count}}</h5>
+                    </div>
+                    
+                </div> {% endcomment %}
+                {% if request.user|has_permission:'mainapp.view_client' %}
+                <a class="col-md-4" href="/{{request.LANGUAGE_CODE}}/all_clients" style="text-decoration: none;">
+                    <div>
+                        <div class="dashboard-box" style="background: #1897F3; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="text-white" style="text-decoration: none;">{% trans "Clients" %}</h4>
+                                <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
+                                    <path
+                                        d="M8 12V10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H12M8 20V22C8 22.5304 8.21071 23.0391 8.58579 23.4142C8.96086 23.7893 9.46957 24 10 24H12M20 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V12M20 24H22C22.5304 24 23.0391 23.7893 23.4142 23.4142C23.7893 23.0391 24 22.5304 24 22V20M12 20C12 19.4696 12.2107 18.9609 12.5858 18.5858C12.9609 18.2107 13.4696 18 14 18H18C18.5304 18 19.0391 18.2107 19.4142 18.5858C19.7893 18.9609 20 19.4696 20 20M14 13C14 13.5304 14.2107 14.0391 14.5858 14.4142C14.9609 14.7893 15.4696 15 16 15C16.5304 15 17.0391 14.7893 17.4142 14.4142C17.7893 14.0391 18 13.5304 18 13C18 12.4696 17.7893 11.9609 17.4142 11.5858C17.0391 11.2107 16.5304 11 16 11C15.4696 11 14.9609 11.2107 14.5858 11.5858C14.2107 11.9609 14 12.4696 14 13Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <p class="text-white">{% trans "Clients" %}</p>
+                            <h5 class="text-white">{{clients_count}}</h5>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+
+                {% if request.user|has_permission:'mainapp.view_customuser' %}
+                <a class="col-md-4" href="/{{request.LANGUAGE_CODE}}/all_employee" style="text-decoration: none;">
+                    <div>
+                        <div class="dashboard-box" style="background: #0A1629; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="text-white">{% trans "Employees" %}</h4>
+                                <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
+                                    <path
+                                        d="M16 19.5C11.58 19.5 8 21.29 8 23.5V25.5H24V23.5C24 21.29 20.42 19.5 16 19.5ZM12 13.5C12 14.5609 12.4214 15.5783 13.1716 16.3284C13.9217 17.0786 14.9391 17.5 16 17.5C17.0609 17.5 18.0783 17.0786 18.8284 16.3284C19.5786 15.5783 20 14.5609 20 13.5M15.5 6.5C15.2 6.5 15 6.71 15 7V10H14V7.5C14 7.5 11.75 8.36 11.75 11.25C11.75 11.25 11 11.39 11 12.5H21C20.95 11.39 20.25 11.25 20.25 11.25C20.25 8.36 18 7.5 18 7.5V10H17V7C17 6.71 16.81 6.5 16.5 6.5H15.5Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+                            <p class="text-white">{% trans "Total" %} {% trans "Employees" %}</p>
+                            <h5 class="text-white">{{employees_count}}</h5>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+
+                {% if request.user|has_permission:'mainapp.view_request' %}
+                <a class="col-md-4" href="/{{request.LANGUAGE_CODE}}/list_employee_request_form" style="text-decoration: none;">
+                    <div>
+                        <div class="dashboard-box" style="background: #E34320; border-radius: 9.771px;">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="text-white">{% trans "Requests" %}</h4>
+                                <svg class="d-block d-md-none d-lg-block" width="34" height="33" viewBox="0 0 34 33"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="34" height="33" rx="8" fill="white" fill-opacity="0.2" />
+                                    <path
+                                        d="M13 12V10C13 9.46957 13.2107 8.96086 13.5858 8.58579C13.9609 8.21071 14.4696 8 15 8H19C19.5304 8 20.0391 8.21071 20.4142 8.58579C20.7893 8.96086 21 9.46957 21 10V12M17 17V17.01M8 18C10.7916 19.4067 13.874 20.1394 17 20.1394C20.126 20.1394 23.2084 19.4067 26 18M8 14C8 13.4696 8.21071 12.9609 8.58579 12.5858C8.96086 12.2107 9.46957 12 10 12H24C24.5304 12 25.0391 12.2107 25.4142 12.5858C25.7893 12.9609 26 13.4696 26 14V23C26 23.5304 25.7893 24.0391 25.4142 24.4142C25.0391 24.7893 24.5304 25 24 25H10C9.46957 25 8.96086 24.7893 8.58579 24.4142C8.21071 24.0391 8 23.5304 8 23V14Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="text-white">{% trans "Requests" %}</p>
+                            <h5 class="text-white">{{requests_count}}</h5>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% if request.user|has_permission:'mainapp.view_customuser' or request.user|has_permission:'mainapp.view_request' %}
+        <div class="emp-proj">
+            <div class="row">
+
+                {% if request.user|has_permission:'mainapp.view_customuser' %}
+                <div class="col-md-7" style="height: 500px; overflow: auto;">
+                    <div class="employee-tab">
+                        <div class="d-flex justify-content-between emp-view">
+                            <h4>{% trans "Our" %} {% trans "Employees" %}</h4>
+                            <a href="/{{request.LANGUAGE_CODE}}/all_employee" style="text-decoration: none;color: #4365D0;">{% trans "View All" %}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" transform="rotate(90)"
+                                    style="position: relative; top: -1px;">
+                                    <path d="M18 15l-6-6-6 6" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="employee">
+                            <div class="row">
+                                {% for employee in employees %}
+                                <a class="col-xl-4 col-md-6" href="/{{request.LANGUAGE_CODE}}/employee/{{employee.id}}/"
+                                    style="text-decoration: none;">
+                                    <div class="mb-3">
+                                        <div class="emp-box" style="border-radius: 24px;
+                                    background: #F4F9FD;">
+                                            <div class="emp-img d-flex justify-content-center">
+                                                <svg class="d-block d-md-none d-lg-block" width="50" height="50"
+                                                    viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="50" height="50" rx="8" fill="white" fill-opacity="0.2">
+                                                    </rect>
+                                                    <path
+                                                        d="M16 19.5C11.58 19.5 8 21.29 8 23.5V25.5H24V23.5C24 21.29 20.42 19.5 16 19.5ZM12 13.5C12 14.5609 12.4214 15.5783 13.1716 16.3284C13.9217 17.0786 14.9391 17.5 16 17.5C17.0609 17.5 18.0783 17.0786 18.8284 16.3284C19.5786 15.5783 20 14.5609 20 13.5M15.5 6.5C15.2 6.5 15 6.71 15 7V10H14V7.5C14 7.5 11.75 8.36 11.75 11.25C11.75 11.25 11 11.39 11 12.5H21C20.95 11.39 20.25 11.25 20.25 11.25C20.25 8.36 18 7.5 18 7.5V10H17V7C17 6.71 16.81 6.5 16.5 6.5H15.5Z"
+                                                        fill="#4365D0"></path>
+                                                </svg>
+
+                                            </div>
+                                            <div class="emp-text">
+                                                <h5>{{employee.username}}</h5>
+                                                <p>{{employee.department.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if request.user|has_permission:'mainapp.view_request' %}
+                <div class="col-md-5" style="height: 500px; overflow: auto;">
+                    <div class="projects-tab">
+                        <h4>{% trans "Requests" %}</h4>
+                        <div class="projects-section">
+                            {% if requests %}
+                            {% for request in requests %}
+                            <a href="/request/{{request.id}}/" style="text-decoration: none;">
+                                <div class="projects">
+                                    <div class="projects-box">
+                                        <div class="proj-text-img d-flex" style="gap: 20px;">
+                                            <div class="proj-img">
+                                                <img src="{% static 'icons/proj-Image.png' %}" alt="">
+                                            </div>
+                                            <div class="project-text">
+                                                {% if request.status == 'ac' %}
+                                                <p style="color: green;">Active</p>
+                                                {% elif request.status == 'in' %}
+                                                <p style="color: red;">Inactive</p>
+                                                {% endif %}
+                                                <h5>{{ request }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="project-date pt-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24"
+                                                viewBox="0 0 26 24" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7.57414 2C7.57414 1.44772 8.02185 1 8.57414 1H8.67566C9.22795 1 9.67566 1.44772 9.67566 2V3H15.9802V2C15.9802 1.44772 16.4279 1 16.9802 1H17.0818C17.634 1 18.0818 1.44772 18.0818 2V3C20.403 3 22.2848 4.79086 22.2848 7V17C22.2848 19.2091 20.403 21 18.0818 21H7.57414C5.25286 21 3.37109 19.2091 3.37109 17V7C3.37109 4.79086 5.25286 3 7.57414 3V2ZM15.9802 5C15.9802 5.55228 16.4279 6 16.9802 6H17.0818C17.634 6 18.0818 5.55228 18.0818 5L18.2386 5.00549C19.326 5.08183 20.1833 5.94564 20.1833 7V8H5.47262V7L5.47838 6.85074C5.55861 5.81588 6.46626 5 7.57414 5C7.57414 5.55228 8.02185 6 8.57414 6H8.67566C9.22795 6 9.67566 5.55228 9.67566 5H15.9802Z"
+                                                    fill="#7D8592" />
+                                            </svg>
+                                            <span>{% trans "Created" %} <span>{{request.request_date}}</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                            {% else %}
+                            <p class="text-danger">{% trans "No Requests" %}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

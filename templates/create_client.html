@@ -1,0 +1,462 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Create" %} {% trans "Clients" %}{% endblock %}
+
+
+{% block content %}
+
+<div class="pt-4">
+    <div>
+        <div class="py-3" style="background-color: white; padding-bottom: 60px !important; border-radius: 18px;">
+            <h2 class="container-fluid" style="color: #0A1629;font-size: 24px; font-weight: 700; line-height: normal;">
+                {% trans "Create" %} {% trans "Clients" %}</h2>
+            <hr>
+
+            <form id="create_client_form" action="/create_client" method="post" class="container-fluid mt-4">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_name" class="form-label pb-1">{% trans "Name" %}:</label>
+    <input type="text" class="form-control py-2" id="client_name" name="client_name" placeholder="{% trans "Name" %}" style="border-radius: 13px;" required>
+    <small id="client_name_error" class="error text-danger">{% trans 'Name can only contain letters and spaces.' %}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="form-label pb-1" for="">{% trans "Status" %}:</p>
+                    <select class="py-2 px-2 w-100" name="client_status" id="client_status" style="border-radius: 13px; border:1px solid #ced4da;">
+<option class="form-control py-2" value="{% trans "Active" %}">{% trans "Active" %}</option>
+<option class="form-control py-2" value="{% trans "Inactive" %}">{% trans "Inactive" %}</option>
+</select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="job_grade" class="form-label pb-1">{% trans "Job Grade" %}:</label>
+                            <input type="text" class="form-control py-2" id="job_grade" name="job_grade"
+                                placeholder="{% trans "Job Grade" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="job_role" class="form-label pb-1">{% trans "Job Role" %}:</label>
+
+                            <div class="dropdown">
+        <input type="text" class="form-control py-2" id="job_role" name="job_role" placeholder="{% trans "Job Role" %}" style="border-radius: 13px; background: transparent;" readonly>
+        <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
+                                </svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                    data-bs-target="#workmodal"
+                                    style="position: absolute; cursor:pointer; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+                                    <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                        stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <ul id="job_role_modal_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+                                    <input class="w-100 dropdown-item" type="text" id="job-role-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                    {% for job_role in jobroles %}
+    <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{job_role.name}}', 'job_role',  'job_role_id','{{job_role.id}}')">
+    {{job_role.name}}
+    </li>
+    {% endfor %}
+    <input value="" type="hidden" id="job_role_id" name="job_role_id">
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="head_office" class="form-label pb-1">{% trans "Head Office" %}:</label>
+                            <input type="text" class="form-control py-2" id="head_office" name="head_office"
+                                placeholder="{% trans "Head Office" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="headquarter_name" class="form-label pb-1">{% trans "Headquarter Name" %}:</label>
+                            <input type="text" class="form-control py-2" id="headquarter_name" name="headquarter_name"
+                                placeholder="{% trans "Headquarter Name" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="main_headquarter" class="form-label pb-1">{% trans "Main Headquarter" %}:</label>
+                            <input type="text" class="form-control py-2" id="main_headquarter" name="main_headquarter"
+                                placeholder="{% trans "Main Headquarter" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_mobile" class="form-label pb-1">{% trans "Mobile" %}:</label>
+                            <input type="text" class="form-control py-2" id="client_mobile" name="client_mobile"
+                                placeholder="{% trans "Mobile" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+
+
+                    <script>
+                        var phoneInput = document.getElementById("client_mobile");
+                    
+                        phoneInput.value = "+971-";
+                    
+                        phoneInput.addEventListener("input", function(event) {
+                            var value = this.value;
+                    
+                            if (value.indexOf("+971-") !== 0) {
+                                this.value = "+971-";
+                                return;
+                            }
+                    
+                            var digitsOnly = value.replace(/\D/g, '');
+                    
+                            if (digitsOnly.length > 10) {
+                                this.value = value.slice(0, 4 + 10);
+                                return;
+                            }
+                        });
+                       
+                        phoneInput.onkeydown = function(event) {
+                            // Only allow if the e.key value is a number or if it's 'Backspace'
+                            if(isNaN(event.key) && event.key !== 'Backspace') {
+                              event.preventDefault();
+                            }
+                          };
+                    </script>
+                    
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_birthdate" class="form-label pb-1">{% trans "Birth Date" %}:</label>
+                            <input type="date" class="form-control py-2" id="client_birthdate" name="client_birthdate"
+                                placeholder="{% trans "Birth Date" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_designation_date" class="form-label pb-1">{% trans "Designation Date" %}:</label>
+                            <input type="date" class="form-control py-2" id="client_designation_date"
+                                name="client_designation_date" placeholder="Designation Date"
+                                style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_uid" class="form-label pb-1">{% trans "UID" %}:</label>
+                            <input type="text" class="form-control py-2" id="client_uid" name="client_uid"
+                                placeholder="{% trans "UID" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_id_number" class="form-label pb-1">{% trans "ID Number" %}:</label>
+                            <input type="text" class="form-control py-2" id="client_id_number" name="client_id_number"
+                                placeholder="{% trans "ID Number" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_work_location" class="form-label pb-1">{% trans "Work Locations" %}:</label>
+
+                            <div class="dropdown">
+        <input type="text" class="form-control py-2" id="client_work_location" name="client_work_location" placeholder="{% trans "Work Locations" %}" style="border-radius: 13px; background: transparent;" required readonly>
+        <small id="work_location_error" class="error text-danger" style="display: none;">{% trans 'Worklocation is required' %}</small>
+                                <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                    width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                        fill="#0A1629" />
+                                </svg>
+                                <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
+                                    data-bs-target="#workmodal"
+                                    style="position: absolute; right: 40px; top: 10px; cursor: pointer;">
+                                    <path
+                                        d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                        stroke="#0A1629" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg> -->
+                                <ul id="worklocation_modal_ul" class="dropdown-menu pt-0"
+                                    aria-labelledby="dropdownMenuButton">
+                                    <input class="w-100 dropdown-item" type="text" id="worklocation-Input"
+                                            placeholder="{% trans 'Search' %}"
+                                            style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+                                    {% for worklocation in worklocations %}
+                                    <li class="dropdown-item" style="cursor: pointer;"
+                                        onclick="updateInput('{{worklocation.name}}', 'client_work_location',  'client_work_location_id','{{worklocation.id}}')">
+                                        {{worklocation.name}}
+                                    </li>
+                                    {% endfor %}
+                                    <input value="" type="hidden" id="client_work_location_id"
+                                        name="client_work_location_id" required>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="client_email" class="form-label pb-1">{% trans "Email" %}:</label>
+                            <input type="email" class="form-control py-2" id="client_email" name="client_email"
+                                placeholder="{% trans "Email" %}" style="border-radius: 13px;" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    {% for error_message in error_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                    {% endfor %}
+
+                    {% for success_message in success_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                    {% endfor %}
+                </div>
+
+
+                <script>
+                    function updateInput(role, first_input, second_input, id) {
+                        document.getElementById(first_input).value = role;
+                        document.getElementById(second_input).value = id;
+                    }
+                </script>
+
+                <div class="button" style="padding-top: 5rem;">
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}" style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                </div>
+
+                <!-- Confirmation Popup -->
+            <div id="submitSucessModal">
+                <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+    <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+
+            <!-- WorkLocations Modal -->
+            <form id="worklocation_modal" action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_to" value="create_client_worklocation">
+                <div class="modal fade" id="workmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Job Role" %}</h5>
+    <button id="job_role_close_btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="job_role_name">{% trans "Name" %}:</label>
+                                    <input type="text" name="job_role_name" class="form-control" id="job_role_name" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        $('#client_name').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z\s]*$/;
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#client_name_error').css('display', 'block');
+            }
+            else{
+                $('#client_name_error').css('display', 'none');
+            }
+        })
+
+        $('#edit_last_name').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z\s]*$/; // Only letters and spaces
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#last_name_error').css('display', 'block');
+            }
+            else{
+                $('#last_name_error').css('display', 'none');
+            }
+        })
+
+        // Function to validate username on focus
+        $('#edit_username').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z\s]*$/; // Only letters and spaces
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#username_error').css('display', 'block');
+            }
+            else{
+                $('#username_error').css('display', 'none');
+            }
+        })
+
+        // Function to validate email on focus
+        // $('#email').keypress(function(event) {
+            // var inputValue = event.key;
+            // var validChars = /^[^\s@]+$/; // Basic email format with @ allowed
+            // if (!validChars.test(inputValue) && inputValue !== '@') {
+                // event.preventDefault(); // Prevent the input of invalid characters
+                // if (!validChars.test(inputValue)) {
+                    // event.preventDefault();
+                    // $('#email_error').css('display', 'block');
+                // }
+                // else{
+                    // $('#email_error').css('display', 'none');
+                // }
+            // }
+        // });
+
+        $("#worklocation_modal").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/client_job_role_api",
+                type: 'POST',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    name: document.getElementById('job_role_name').value
+                },
+                success: function (response) {
+                    $('#job_role_modal_ul').append(`<li class="dropdown-item" style="cursor: pointer;"
+        onclick="updateInput('${response.name}', 'job_role', 'job_role_id', '${response.id}')"> ${response.name}
+    </li>`);
+                    document.getElementById('job_role').value = response.name;
+                    document.getElementById('job_role_id').value = response.id;
+                    $("#job_role_close_btn").trigger("click");
+                    console.log(response);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+            return false;
+        });
+
+        $('#create_client_form').submit(function(event) {
+            var readonlyValue = $('#client_work_location').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#work_location_error').css('display', 'block');
+                $("#create_client_close_btn").trigger("click");
+            }
+            else{
+                $('#work_location_error').css('display', 'none');
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("#worklocation-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#worklocation_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#job-role-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#job_role_modal_ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                console.log($(this).toggle($(this).text().toLowerCase().indexOf(value) > -1))
+            });
+        });
+    });
+
+
+    $(document).ready(function(){
+        $('#client_id_number').on('input', function() {
+            var value = $(this).val();
+            var formattedValue = formatIdNumber(value);
+            $(this).val(formattedValue);
+        });
+        
+        function formatIdNumber(value) {
+            var cleanValue = value.replace(/[^\d]/g, '');
+            
+            var formattedValue = '';
+            for (var i = 0; i < cleanValue.length; i++) {
+                if (i === 3 || i === 7 || i === 14) {
+                    formattedValue += '-';
+                }
+                formattedValue += cleanValue[i];
+            }
+            formattedValue = formattedValue.substr(0, 18);
+            return formattedValue;
+        }
+    });
+
+    $(document).ready(function(){
+        $('#client_uid').on('input', function() {
+            var value = $(this).val();
+            var formattedValue = formatIdNumber(value);
+            $(this).val(formattedValue);
+        });
+        
+        function formatIdNumber(value) {
+            var cleanValue = value.replace(/[^\d]/g, '');
+            
+            var formattedValue = '';
+            for (var i = 0; i < cleanValue.length; i++) {
+                if (i === 3 || i === 7 || i === 14) {
+                    formattedValue += '-';
+                }
+                formattedValue += cleanValue[i];
+            }
+            formattedValue = formattedValue.substr(0, 18);
+            return formattedValue;
+        }
+    });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Attendance Report{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            {% for date in dates %}
+                <th>{{ date }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee, attendances in employee_attendance.items %}
+            <tr>
+                <td>{{ employee }}</td>
+                {% for attendance in attendances %}
+                    <td>{{ attendance }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Create" %} {% trans "Users" %}{% endblock %}
+
+
+{% block content %}
+
+<div class="pt-4">
+    <div>
+        <div class="py-3" style="background-color: white; padding-bottom: 60px !important; border-radius: 18px;">
+            <h2 class="container-fluid" style="color: #0A1629;font-size: 24px; font-weight: 700; line-height: normal;">
+                {% trans "Create" %} {% trans "Users" %}</h2>
+            <hr>
+
+            <form action="/create_user" method="post" class="container-fluid mt-4">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label pb-1">{% trans "First Name" %}:</label>
+                            <input value="{{ form_data.first_name }}" type="text" class="form-control py-2" id="first_name" name="first_name" placeholder="{% trans 'First Name' %}"
+                                style="border-radius: 13px;" required>
+    <small id="first_name_error" class="error text-danger">{% trans "First name can only contain letters and spaces." %}</small>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label pb-1">{% trans 'Last Name' %}:</label>
+                            <input value="{{ form_data.last_name }}" type="text" class="form-control py-2"
+                                id="last_name" name="last_name" placeholder="{% trans 'Last Name' %}"
+                                style="border-radius: 13px;" required>
+                            
+            <small id="last_name_error" class="error text-danger">{% trans 'Last name can only contain letters and spaces.' %}</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="username" class="form-label pb-1">{% trans "Username" %}:</label>
+                            <input value="{{ form_data.username }}" type="text" class="form-control py-2" id="username"
+                                name="username" placeholder="{% trans 'Username' %}" style="border-radius: 13px;"
+                                required>
+                                <small id="username_error" class="error text-danger">{% trans 'Username can only contain numbers, letters and spaces.' %}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label pb-1">{% trans "Email" %}:</label>
+                            <input type="email" class="form-control py-2" id="email"
+                                name="email" placeholder="{% trans 'Email' %}" style="border-radius: 13px;">
+                            <small id="email_error" class="error text-danger">{% trans 'Invalid email address.' %}</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="mb-3" style="position: relative;">
+    <label for="user_mobile_number" class="form-label pb-1">{% trans 'Mobile Number' %}:</label>
+    <input type="text" class="form-control py-2" id="user_mobile_number" name="user_mobile_number" placeholder="{% trans 'Mobile Number' %}" style="border-radius: 13px;">
+                        </div>
+                    </div>
+
+                    <script>
+                        var phoneInput = document.getElementById("user_mobile_number");
+                    
+                        phoneInput.value = "+971-";
+                    
+                        phoneInput.addEventListener("input", function(event) {
+                            var value = this.value;
+                    
+                            if (value.indexOf("+971-") !== 0) {
+                                this.value = "+971-";
+                                return;
+                            }
+                    
+                            var digitsOnly = value.replace(/\D/g, '');
+                    
+                            if (digitsOnly.length > 10) {
+                                this.value = value.slice(0, 4 + 10);
+                                return;
+                            }
+                        });
+                       
+                        phoneInput.onkeydown = function(event) {
+                            // Only allow if the e.key value is a number or if it's 'Backspace'
+                            if(isNaN(event.key) && event.key !== 'Backspace') {
+                              event.preventDefault();
+                            }
+                          };
+                    </script>
+                    
+                    
+                    <div class="col-md-6">
+                        <div class="mb-3">
+    <label for="user_worklocations" class="form-label pb-1">{% trans "Work Locations" %}:</label>
+
+    <div class="dropdown">
+    <input type="text" class="form-control py-2" id="user_worklocations" name="user_worklocations" placeholder="{% trans "Work Locations" %}" style="border-radius: 13px; background: transparent;" required readonly>
+    <small id="worklocation_error" class="error text-danger" style="display: none;">{% trans 'Worklocation is required' %}</small>
+    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+    fill="#0A1629" />
+    </svg>
+
+<ul id="user_worklocation_modal_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+<input class="w-100 dropdown-item" type="text" id="worklocation-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+{% for worklocation in worklocations %}
+<li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{worklocation.name}}', 'user_worklocations', 'user_worklocations_id', '{{worklocation.id}}')">
+{{worklocation.name}}
+</li>
+{% endfor %}
+
+<input value="" type="hidden" id="user_worklocations_id" name="user_worklocations_id">
+</ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-6">
+                        <div class="mb-3" style="position: relative;">
+                            <label for="user_password" class="form-label pb-1"> {% trans "Password" %}:</label>
+                            <input type="password" class="form-control py-2" id="user_password" name="user_password"
+                                placeholder="{% trans 'Password' %}" style="border-radius: 13px;" required>
+                            <svg class="user-select-none" id="password-toggle" xmlns="http://www.w3.org/2000/svg"
+                                width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 20px; {% else %}right: 20px; {% endif %} top: 45px; cursor: pointer;"
+                                onclick="passwordVisibility('user_password', 'lineThrough')">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11 2.75C7.90185 2.75 5.18953 4.24645 2.88334 6.70639C2.09103 7.55152 1.40296 8.45391 0.819808 9.35685L0.601313 9.70281C0.365565 10.085 0.196995 10.3896 0.0967751 10.5901C-0.0322584 10.8481 -0.0322584 11.1519 0.0967751 11.4099L0.199389 11.6066C0.338571 11.8644 0.545767 12.2188 0.819808 12.6431C1.40296 13.5461 2.09103 14.4485 2.88334 15.2936C5.18953 17.7536 7.90185 19.25 11 19.25C14.0982 19.25 16.8105 17.7536 19.1167 15.2936C19.909 14.4485 20.597 13.5461 21.1802 12.6431L21.3987 12.2972C21.6344 11.915 21.803 11.6104 21.9032 11.4099C22.0323 11.1519 22.0323 10.8481 21.9032 10.5901L21.8006 10.3934C21.6614 10.1356 21.4542 9.78117 21.1802 9.35685C20.597 8.45391 19.909 7.55152 19.1167 6.70639C16.8105 4.24645 14.0982 2.75 11 2.75ZM11 4.58333C13.5164 4.58333 15.7885 5.83688 17.7792 7.96028C18.4908 8.71932 19.1132 9.53568 19.6401 10.3515L19.7732 10.5608L19.8966 10.7616L20.0365 11L19.8966 11.2384C19.8176 11.3692 19.732 11.5062 19.6401 11.6485C19.1132 12.4643 18.4908 13.2807 17.7792 14.0397C15.7885 16.1631 13.5164 17.4167 11 17.4167C8.48357 17.4167 6.21151 16.1631 4.22083 14.0397C3.50923 13.2807 2.88675 12.4643 2.35988 11.6485L2.22682 11.4392L2.10339 11.2384L1.96258 11L2.10339 10.7616C2.18245 10.6308 2.26797 10.4938 2.35988 10.3515C2.88675 9.53568 3.50923 8.71932 4.22083 7.96028C6.21151 5.83688 8.48357 4.58333 11 4.58333ZM11 7.33333C8.97496 7.33333 7.33333 8.97496 7.33333 11C7.33333 13.025 8.97496 14.6667 11 14.6667C13.025 14.6667 14.6667 13.025 14.6667 11C14.6667 8.97496 13.025 7.33333 11 7.33333ZM11 9.16667C12.0125 9.16667 12.8333 9.98748 12.8333 11C12.8333 12.0125 12.0125 12.8333 11 12.8333C9.98748 12.8333 9.16667 12.0125 9.16667 11C9.16667 9.98748 9.98748 9.16667 11 9.16667Z"
+                                    fill="#7D8592" />
+                                <!-- Line through the eye -->
+                                <line style="display: none;" id="lineThrough" x1="3" y1="3" x2="19" y2="19"
+                                    stroke="#7D8592" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="mb-3" style="position: relative;">
+    <label for="user_confirm_password" class="form-label pb-1">{% trans "Confirm Password" %}:</label>
+    <input type="password" class="form-control py-2" id="user_confirm_password" name="user_confirm_password" placeholder="{% trans 'Password' %}" style="border-radius: 13px;" required>
+
+                            <svg class="user-select-none" id="password-toggle" xmlns="http://www.w3.org/2000/svg"
+                                width="22" height="22" viewBox="0 0 22 22" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 20px; {% else %}right: 20px; {% endif %} top: 45px; cursor: pointer;" onclick="passwordVisibility ('user_confirm_password', 'lineThrough_1')">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11 2.75C7.90185 2.75 5.18953 4.24645 2.88334 6.70639C2.09103 7.55152 1.40296 8.45391 0.819808 9.35685L0.601313 9.70281C0.365565 10.085 0.196995 10.3896 0.0967751 10.5901C-0.0322584 10.8481 -0.0322584 11.1519 0.0967751 11.4099L0.199389 11.6066C0.338571 11.8644 0.545767 12.2188 0.819808 12.6431C1.40296 13.5461 2.09103 14.4485 2.88334 15.2936C5.18953 17.7536 7.90185 19.25 11 19.25C14.0982 19.25 16.8105 17.7536 19.1167 15.2936C19.909 14.4485 20.597 13.5461 21.1802 12.6431L21.3987 12.2972C21.6344 11.915 21.803 11.6104 21.9032 11.4099C22.0323 11.1519 22.0323 10.8481 21.9032 10.5901L21.8006 10.3934C21.6614 10.1356 21.4542 9.78117 21.1802 9.35685C20.597 8.45391 19.909 7.55152 19.1167 6.70639C16.8105 4.24645 14.0982 2.75 11 2.75ZM11 4.58333C13.5164 4.58333 15.7885 5.83688 17.7792 7.96028C18.4908 8.71932 19.1132 9.53568 19.6401 10.3515L19.7732 10.5608L19.8966 10.7616L20.0365 11L19.8966 11.2384C19.8176 11.3692 19.732 11.5062 19.6401 11.6485C19.1132 12.4643 18.4908 13.2807 17.7792 14.0397C15.7885 16.1631 13.5164 17.4167 11 17.4167C8.48357 17.4167 6.21151 16.1631 4.22083 14.0397C3.50923 13.2807 2.88675 12.4643 2.35988 11.6485L2.22682 11.4392L2.10339 11.2384L1.96258 11L2.10339 10.7616C2.18245 10.6308 2.26797 10.4938 2.35988 10.3515C2.88675 9.53568 3.50923 8.71932 4.22083 7.96028C6.21151 5.83688 8.48357 4.58333 11 4.58333ZM11 7.33333C8.97496 7.33333 7.33333 8.97496 7.33333 11C7.33333 13.025 8.97496 14.6667 11 14.6667C13.025 14.6667 14.6667 13.025 14.6667 11C14.6667 8.97496 13.025 7.33333 11 7.33333ZM11 9.16667C12.0125 9.16667 12.8333 9.98748 12.8333 11C12.8333 12.0125 12.0125 12.8333 11 12.8333C9.98748 12.8333 9.16667 12.0125 9.16667 11C9.16667 9.98748 9.98748 9.16667 11 9.16667Z"
+                                    fill="#7D8592" />
+                                <!-- Line through the eye -->
+                                <line style="display: none;" id="lineThrough_1" x1="3" y1="3" x2="19" y2="19"
+                                    stroke="#7D8592" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                        <div class="true">
+                            <div class="checkboxes">
+                            <input type="checkbox" name="isEmployee" id="isEmployee" class="checkbox">
+                            <label for="isEmployee" class="checkbox-label form-label">{% trans "Is Employee?" %}</label>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+                    {% for error_message in error_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: red;">{{ error_message }}</p>
+                    {% endfor %}
+
+                    {% for success_message in success_messages %}
+                    <p class="text-bold" style="font-weight: bold; color: green;">{{ success_message }}</p>
+                    {% endfor %}
+                </div>
+                
+                <script>
+                    function updateInput(role, first_input, second_input, id) {
+                        document.getElementById(first_input).value = role;
+                        document.getElementById(second_input).value = id;
+                    }
+                    function passwordVisibility(iconID, lineID) {
+                        var Input = document.getElementById(iconID);
+                        var lineThrough = document.getElementById(lineID);
+                        if (Input.type === "password") {
+                            Input.type = "text";
+                            lineThrough.style.display = "block"
+                        } else {
+                            Input.type = "password";
+                            lineThrough.style.display = "none"
+                        }
+                    }
+                </script>
+
+                <div class="button" style="padding-top: 5rem;">
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button"
+                        value="{% trans 'Save' %}"
+                        style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                </div>
+
+                <!-- Confirmation Popup -->
+                <div id="submitSucessModal">
+                    <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}
+                                    </h5>
+    <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        // Function to validate first name on focus
+        $('#first_name').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z\s]*$/; // Only letters and spaces
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#first_name_error').css('display', 'block');
+            }
+            else{
+                $('#first_name_error').css('display', 'none');
+            }
+        })
+
+        $('#last_name').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z\s]*$/; // Only letters and spaces
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#last_name_error').css('display', 'block');
+            }
+            else{
+                $('#last_name_error').css('display', 'none');
+            }
+        })
+
+        // Function to validate username on focus
+        $('#username').keypress(function(event) {
+            var inputValue = event.key;
+            var validChars = /^[a-zA-Z0-9\s]*$/; // Only letters and spaces
+            if (!validChars.test(inputValue)) {
+                event.preventDefault();
+                $('#username_error').css('display', 'block');
+            }
+            else{
+                $('#username_error').css('display', 'none');
+            }
+        })
+
+        // Function to validate email on focus
+        // $('#email').keypress(function(event) {
+            // var inputValue = event.key;
+            // var validChars = /^[^\s@]+$/; // Basic email format with @ allowed
+            // if (!validChars.test(inputValue) && inputValue !== '@') {
+                // event.preventDefault(); // Prevent the input of invalid characters
+                // if (!validChars.test(inputValue)) {
+                    // event.preventDefault();
+                    // $('#email_error').css('display', 'block');
+                // }
+                // else{
+                    // $('#email_error').css('display', 'none');
+                // }
+            // }
+        // });
+    });
+</script>
+
+{% endblock %}

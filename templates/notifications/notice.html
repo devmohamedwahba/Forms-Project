@@ -1,0 +1,137 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{% static 'icons/logo.png' %}">
+  <title>{% trans 'All Unread Notifications' %}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .notification {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .notification-icon {
+      flex-shrink: 0;
+      margin-right: 15px;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .notification-icon i {
+      color: #fff;
+    }
+
+    .notification-content {
+      flex-grow: 1;
+    }
+
+    .notification-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .notification-message {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .notification-actions {
+      margin-top: 10px;
+    }
+
+    .notification-actions a {
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .notification-actions a:hover {
+      background-color: #0056b3;
+    }
+
+    .notification-close {
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    @media(max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="notification"
+      style="{% if notice.unread %} border-left: 6px solid red; {% else %} border-left: 6px solid #007bff; {% endif %}">
+      <div class="notification-icon"
+        style=" {% if notice.unread %} background-color: red; {% else %} background-color: #007bff; {% endif %}">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="notification-content">
+        <h3 class="notification-title">{% trans 'New Notifications' %}</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <p class="notification-message" style="padding-top: 10px; padding-bottom: 5px;">{{ notice.verb }}</p>
+          <p class="notification-message">{{ notice.timesince }} {% trans 'ago' %}</p>
+        </div>
+
+        <small class="notification-message" style="padding-bottom: 10px; font-size: 13px;"> -
+          {{ notice.description|linebreaksbr }}</small>
+        {% if notice.unread %}
+        <small class="notification-message" style="padding-bottom: 10px; font-size: 13px; color: red;"> -
+          {% trans 'Unread' %}
+        </small>
+        {% else %}
+        <small class="notification-message" style="padding-bottom: 10px; font-size: 13px; color: #007bff;"> -
+          {% trans 'Read' %}
+        </small>
+        {% endif %}
+
+
+
+        {% if notice.unread %}
+        <div class="notification-actions">
+          <a href="{% url 'notifications:mark_as_read' notice.slug %}">{% trans 'Mark as Read' %}
+            {% if '/inbox/notifications/unread/' in request.path %}
+            <a style="margin-left: 15px;" href="/inbox/notifications/">{% trans 'All Notifications' %}
+          </a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <!-- <div style="display: flex; align-items: center; justify-content: center;">
+        <i class="fas fa-times"></i>
+      </div> -->
+    </div>
+  </div>
+</body>
+
+</html>

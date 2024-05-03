@@ -1,0 +1,18 @@
+{% load static %}
+{% load i18n %}
+{% load custom_filters %}
+{% load notifications_tags %}
+
+{% if LANGUAGE_CODE == 'ar' %}
+    <html lang="{{ LANGUAGE_CODE }}" dir="rtl">
+{% elif LANGUAGE_CODE == 'en' %}
+    <html lang="{{ LANGUAGE_CODE }}">
+{% else %}
+    {% if 'ar' not in request.path and 'en' not in request.path %}
+        <html lang="ar" dir="rtl">
+    {% elif 'ar' in request.path %}
+        <html lang="ar" dir="rtl">
+    {% elif 'en' in request.path %}
+        <html lang="en">
+    {% endif %}
+{% endif %}

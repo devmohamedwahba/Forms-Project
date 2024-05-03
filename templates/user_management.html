@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Users" %} {% trans "Management" %}{% endblock %}
+
+{% block content %}
+
+<div class="pt-4">
+
+    <ul class="nav nav-pills user_management mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link active px-3 active-link" id="pills-role-tab" data-bs-toggle="pill" href="#pills-role"
+                role="tab" aria-controls="pills-role" aria-selected="true" style="border-radius: 20px;">{% trans "Role" %}</a>
+                
+        </li>
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link user-management px-3" id="pills-role-permission-tab" data-bs-toggle="pill"
+                href="#pills-roles-permission" role="tab" aria-controls="pills-role-permission" aria-selected="false"
+                style="border-radius: 20px;">{% trans "Role Permission" %}</a>
+        </li>
+        <li class="nav-item text-center" style="width: 33.3%;">
+            <a class="nav-link user-management px-3" id="pills-permission-tab" data-bs-toggle="pill"
+                href="#pills-permission" role="tab" aria-controls="pills-permission" aria-selected="false"
+                style="border-radius: 20px;">{% trans "User Permission" %}</a>
+        </li>
+    </ul>
+
+    <!-- Role -->
+
+    <div class="tab-content user_management-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-role" role="tabpanel" aria-labelledby="pills-role-tab">
+            <div class="py-3" style="background-color: white; height: 420px; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans "Role" %}</h2>
+                <hr>
+
+                <form method="post" action="/role_assign" class="container-fluid mt-4">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label for="role" class="form-label pb-1">{% trans "Role" %}:</label>
+                                <input type="text" class="form-control py-2" id="role" name="role"
+                                    placeholder="{% trans "Role" %}" style="border-radius: 13px;" required>
+                            </div>
+
+                            <div class="button" style="padding-top: 5rem;">
+                                <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}"
+                                    style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                            </div>
+            
+                            <!-- Confirmation Popup -->
+                        <div id="submitSucessModal">
+                            <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+        <button id="" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                            </div>
+            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- Role Permissions -->
+
+        <div class="tab-pane fade" id="pills-roles-permission" role="tabpanel"
+            aria-labelledby="pills-role-permission-tab">
+
+            <div class="py-3" style="background-color: white; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans "Role Permission" %}</h2>
+                <hr>
+
+                <form id="update_permissions" class="container-fluid mt-4" method="post" action="/update_permissions">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="role_permission" class="form-label pb-1">{% trans "Role" %}:</label>
+
+                                <div class="dropdown">
+    <input type="text" class="form-control py-2" id="role_permission" name="role_permission" placeholder="{% trans "Role" %}" style="border-radius: 13px; background: transparent;" readonly required>
+    <small id="role_permission_error" class="error text-danger" style="display: none;">{% trans "Role is required" %}.</small>
+                                    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                        width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                            fill="#0A1629" />
+                                    </svg>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        {% for group in groups %}
+    <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{group.name}}', 'role_permission', 'role_permission_id', '{{group.id}}')">
+                                            {{group.name}}
+                                        </li>
+                                        {% endfor %}
+    <input value="" type="hidden" id="role_permission_id" name="role_permission_id">
+                                    </ul>
+                                </div>
+
+                                <script>
+                                    function updateInput(role) {
+                                        document.getElementById('role_permission').value = role;
+                                    }
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="available_permissions" class="form-label pb-1">{% trans "Available Permissions" %}</label>
+    <div class="pb-2">
+    <small>{% trans "Double Click to Add Permissions" %}</small>
+    </div>
+    <input type="text" id="search_available_permissions" class="form-control" placeholder="{% trans 'Search' %}">
+    <select name="available_permissions" id="available_permissions" style="width: 100%; height: 300px;" multiple ondblclick="moveOptions('available_permissions', 'chosen_permissions')">
+    {% for permission in all_permissions %}
+
+    <option value="{{ permission.id }}">{{ permission.codename }} - {{ permission.name }}
+    </option>
+    {% endfor %}
+    </select>
+                        </div>
+
+    <div class="mb-3 col-md-6">
+    <label for="chosen_permissions" class="form-label pb-1">{% trans "Chosen Permissions" %}</label>
+    
+    <div class="pb-2">
+    <small>{% trans "Double Click to Remove Permissions" %}</small>
+    
+    </div>
+    <input type="text" id="search_chosen_permissions" class="form-control" placeholder="{% trans 'Search' %}">
+    <select name="chosen_permissions" id="chosen_permissions" style="width: 100%; height: 300px;" multiple ondblclick="moveOptions('chosen_permissions', 'available_permissions')">
+    </select>
+                        </div>
+                    </div>
+
+                    <script>
+                        function moveOptions(sourceId, targetId) {
+                            var sourceSelect = document.getElementById(sourceId);
+                            var targetSelect = document.getElementById(targetId);
+                    
+                            for (var i = 0; i < sourceSelect.options.length; i++) {
+                                if (sourceSelect.options[i].selected) {
+                                    var optionValue = sourceSelect.options[i].value;
+                                    var optionText = sourceSelect.options[i].text;
+                                    
+                                    var optionExists = Array.from(targetSelect.options).some(function (option) {
+                                        return option.value === optionValue;
+                                    });
+                    
+                                    if (!optionExists) {
+                                        var newOption = new Option(optionText, optionValue);
+                                        targetSelect.add(newOption);
+                                        newOption.selected = true;
+                                    }
+                    
+                                    sourceSelect.remove(i);
+                                    i--;
+                                }
+                            }
+                        }
+                    </script>
+                    
+
+                    <div class="button" style="padding-top: 5rem;">
+                        <input data-bs-toggle="modal" data-bs-target="#submitRolePermissionModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}"
+                            style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                    </div>
+    
+                    <!-- Confirmation Popup -->
+                <div id="submitSucessModal">
+                    <div class="modal fade" id="submitRolePermissionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+                                    <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"  data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    </div>
+    
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="update_permission_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- User Permissions -->
+
+        <div class="tab-pane fade" id="pills-permission" role="tabpanel" aria-labelledby="pills-permission-tab">
+
+            <div class="py-3" style="background-color: white; border-radius: 18px;">
+                <h2 class="container-fluid">{% trans "User Permission" %}</h2>
+                <hr>
+
+                <form id="user_permission_form" class="container-fluid mt-4" method="post" action="/user_permission">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label for="user_permission_group" class="form-label pb-1">{% trans "Role" %}:</label>
+
+                                <div class="dropdown">
+    <input type="text" class="form-control py-2" id="user_permission_group" name="user_permission_group" placeholder="{% trans "Role" %}" style="border-radius: 13px; background: transparent;" required readonly>
+<small id="user_permission_group_error" class="error text-danger" style="display: none;">{% trans 'Role is required' %}</small>
+                                    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                        width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
+                                    </svg>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        {% for group in groups %}
+                                        <li class="dropdown-item" style="cursor: pointer;"
+                                            onclick="updateInput('{{group.name}}', 'user_permission_group', 'user_permission_group_id', '{{group.id}}')">
+                                            {{group.name}}
+                                        </li>
+                                        {% endfor %}
+                                        <input value="" type="hidden" id="user_permission_group_id"
+                                            name="user_permission_group_id">
+                                    </ul>
+                                </div>
+
+                                <script>
+                                    function updateInput(role, first_input, second_input, id) {
+                                        document.getElementById(first_input).value = role;
+                                        document.getElementById(second_input).value = id;
+                                        $("#" + second_input).trigger('change')
+                                    }
+                                </script>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label for="user_permission_user" class="form-label pb-1">{% trans "Users" %}:</label>
+
+                                <div class="dropdown">
+                                    <input type="text" class="form-control py-2" id="user_permission_user" name="user_permission_user" placeholder="{% trans "Users" %}" style="border-radius: 13px; background: transparent;" required readonly>
+                                    <small id="user_permission_user_error" class="error text-danger" style="display: none;">{% trans 'User is required' %}</small>
+                                    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
+                                        width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
+                                            fill="#0A1629" />
+                                    </svg>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        {% for user in users %}
+                                        <li class="dropdown-item" style="cursor: pointer;"
+                                            onclick="updateInput('{{user.username}}', 'user_permission_user', 'user_permission_user_id', '{{user.id}}')">
+                                            {{user.username}}
+                                        </li>
+                                        {% endfor %}
+                                        <input value="" type="hidden" id="user_permission_user_id"
+                                            name="user_permission_user_id">
+                                    </ul>
+                                </div>
+
+    <script>
+    function updateInput(role, first_input, second_input, id) {
+    document.getElementById(first_input).value = role;
+    document.getElementById(second_input).value = id;
+    $("#" + second_input).trigger('change')
+                                    }
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="button" style="padding-top: 5rem;">
+                        <input data-bs-toggle="modal" data-bs-target="#submitUserPermissionModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}"
+                            style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                    </div>
+    
+                    <!-- Confirmation Popup -->
+                <div id="submitSucessModal">
+                    <div class="modal fade" id="submitUserPermissionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+                                    <button type="button"class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    </div>
+    
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="user_permission_modal_btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+                                    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+    $(document).ready(function() {
+        $('#role_permission_id').change(function () {
+            $.ajax({
+                url: "/group_permissions_api",
+                type: 'GET',
+                data: { group_id: $('#role_permission_id').val() },
+                success: function(response) {
+                    console.log(response);
+                    
+                    $('#chosen_permissions').empty();
+                
+                    response.forEach(function(permission) {
+                        $('#chosen_permissions').append($('<option>', {
+                            value: permission.id,
+                            text: permission.name,
+                            selected: true
+                        }));
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+    
+    
+    $(document).ready(function() {
+        $('#search_available_permissions').on('input', function() {
+            var searchTerm = $(this).val().toLowerCase();
+            $('#available_permissions option').each(function() {
+                var text = $(this).text().toLowerCase();
+                var match = text.indexOf(searchTerm) > -1;
+                $(this).toggle(match);
+            });
+        });
+
+        $('#search_chosen_permissions').on('input', function() {
+            var searchTerm = $(this).val().toLowerCase();
+            $('#chosen_permissions option').each(function() {
+                var text = $(this).text().toLowerCase();
+                var match = text.indexOf(searchTerm) > -1;
+                $(this).toggle(match);
+            });
+        });
+
+        
+    });
+    $(document).ready(function() {
+        $('#update_permissions').submit(function(event) {
+            var readonlyValue = $('#role_permission').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#role_permission_error').css('display', 'block');
+                $("#update_permission_btn").trigger("click");
+            }
+            else{
+                $('#role_permission_error').css('display', 'none');
+            }
+        });
+        $('#user_permission_form').submit(function(event) {
+            var readonlyValue = $('#user_permission_group').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#user_permission_group_error').css('display', 'block');
+                $("#user_permission_modal_btn").trigger("click");
+            }
+            else{
+                $('#user_permission_group_error').css('display', 'none');
+            }
+        });
+        $('#user_permission_form').submit(function(event) {
+            var readonlyValue = $('#user_permission_user').val();
+            if (!readonlyValue) {
+                event.preventDefault();
+                $('#user_permission_user_error').css('display', 'block');
+                $("#user_permission_modal_btn").trigger("click");
+            }
+            else{
+                $('#user_permission_user_error').css('display', 'none');
+            }
+        });
+        
+    });
+</script>
+{% endblock %}

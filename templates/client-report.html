@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load custom_filters %}
+
+{% block title %}{% trans "Client Report" %}{% endblock %}
+
+{% block content %}
+
+<style>
+    .dashboard-box p {
+        color: #0A1629 !important;
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-family: Nunito-Sans-regular !important;
+        line-height: 21px !important;
+    }
+
+    .dashboard-box h5 {
+        color: #4365D0 !important;
+        font-size: 20px !important;
+        font-style: normal !important;
+        font-family: Nunito-Sans-bold !important;
+        line-height: 16px !important;
+        /* 80% */
+    }
+
+    .right-side {
+        box-shadow: 0px 6px 58px 0px rgba(196, 203, 214, 0.10);
+    }
+</style>
+
+<div class="pt-4">
+    <div class="row">
+        <div class="col-md-8 lef-side">
+            <div class="colors-box">
+
+                <div class="client-reports-content pt-4 pb-3">
+                    <h5 class="main-heading">{% trans "Clients" %}</h5>
+
+
+                    <div class="row">
+                        <!-- <div class="col-xl-3 col-md-6">
+                            <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                                <div class="d-flex justify-content-between">
+
+                                    <svg class="mb-2" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="33.8947" height="33.8947" rx="7.1579" fill="#4365D0"
+                                            fill-opacity="0.2" />
+                                        <g clip-path="url(#clip0_507_2022)">
+                                            <path
+                                                d="M14.0205 10.2803C14.3852 10.2803 14.7349 10.4251 14.9928 10.683C15.2506 10.9409 15.3955 11.2906 15.3955 11.6553C15.3955 12.0199 15.2506 12.3697 14.9928 12.6275C14.7349 12.8854 14.3852 13.0303 14.0205 13.0303C13.6558 13.0303 13.3061 12.8854 13.0482 12.6275C12.7904 12.3697 12.6455 12.0199 12.6455 11.6553C12.6455 11.2906 12.7904 10.9409 13.0482 10.683C13.3061 10.4251 13.6558 10.2803 14.0205 10.2803ZM12.9893 13.7178H15.0518C15.4164 13.7178 15.7662 13.8626 16.024 14.1205C16.2819 14.3784 16.4268 14.7281 16.4268 15.0928V18.874H15.3955V24.0303H12.6455V18.874H11.6143V15.0928C11.6143 14.7281 11.7591 14.3784 12.017 14.1205C12.2748 13.8626 12.6246 13.7178 12.9893 13.7178ZM20.208 10.2803C20.5727 10.2803 20.9224 10.4251 21.1803 10.683C21.4381 10.9409 21.583 11.2906 21.583 11.6553C21.583 12.0199 21.4381 12.3697 21.1803 12.6275C20.9224 12.8854 20.5727 13.0303 20.208 13.0303C19.8433 13.0303 19.4936 12.8854 19.2357 12.6275C18.9779 12.3697 18.833 12.0199 18.833 11.6553C18.833 11.2906 18.9779 10.9409 19.2357 10.683C19.4936 10.4251 19.8433 10.2803 20.208 10.2803ZM19.1768 13.7178H21.2393C21.6039 13.7178 21.9537 13.8626 22.2115 14.1205C22.4694 14.3784 22.6143 14.7281 22.6143 15.0928V18.874H21.583V24.0303H18.833V18.874H17.8018V15.0928C17.8018 14.7281 17.9466 14.3784 18.2045 14.1205C18.4623 13.8626 18.8121 13.7178 19.1768 13.7178Z"
+                                                fill="#4365D0" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_507_2022">
+                                                <rect width="16" height="16" fill="white"
+                                                    transform="translate(8.94727 8.94727)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="mt-2">New clients</p>
+                                <h5>600</h5>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                                <div class="d-flex justify-content-between">
+                                    <svg class="mb-2" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="33.8947" height="33.8947" rx="7.1579" fill="#E34320"
+                                            fill-opacity="0.2" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M14.2806 13.6139C14.2806 12.9067 14.5616 12.2284 15.0616 11.7283C15.5617 11.2282 16.24 10.9473 16.9473 10.9473C17.6545 10.9473 18.3328 11.2282 18.8329 11.7283C19.333 12.2284 19.6139 12.9067 19.6139 13.6139C19.6139 14.3212 19.333 14.9995 18.8329 15.4996C18.3328 15.9996 17.6545 16.2806 16.9473 16.2806C16.24 16.2806 15.5617 15.9996 15.0616 15.4996C14.5616 14.9995 14.2806 14.3212 14.2806 13.6139ZM14.2806 17.6139C13.3965 17.6139 12.5487 17.9651 11.9236 18.5902C11.2985 19.2154 10.9473 20.0632 10.9473 20.9473C10.9473 21.4777 11.158 21.9864 11.5331 22.3615C11.9081 22.7366 12.4168 22.9473 12.9473 22.9473H20.9473C21.4777 22.9473 21.9864 22.7366 22.3615 22.3615C22.7366 21.9864 22.9473 21.4777 22.9473 20.9473C22.9473 20.0632 22.5961 19.2154 21.971 18.5902C21.3458 17.9651 20.498 17.6139 19.6139 17.6139H14.2806Z"
+                                            fill="#E34320" />
+                                    </svg>
+
+                                </div>
+                                <p class="text-white mt-2">Old clients</p>
+                                <h5 class="text-white">318<h5>
+                            </div>
+                        </div> -->
+                        {% if perms.mainapp.view_client %}
+                        <a class="col-xl-6 col-md-6" href="/all_clients" style="text-decoration: none;">
+                            <div>
+                                <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                                    <div class="d-flex justify-content-between">
+                                        <svg class="mb-2" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="33.8947" height="33.8947" rx="7.1579" fill="#E9AC10"
+                                                fill-opacity="0.2" />
+                                            <g clip-path="url(#clip0_507_2040)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M17.7436 11.3084C17.7436 11.9346 17.4948 12.5352 17.052 12.978C16.6092 13.4208 16.0086 13.6696 15.3824 13.6696C14.7562 13.6696 14.1556 13.4208 13.7128 12.978C13.27 12.5352 13.0213 11.9346 13.0213 11.3084C13.0213 10.6822 13.27 10.0816 13.7128 9.63883C14.1556 9.19603 14.7562 8.94727 15.3824 8.94727C16.0086 8.94727 16.6092 9.19603 17.052 9.63883C17.4948 10.0816 17.7436 10.6822 17.7436 11.3084ZM17.0944 24.4901L17.5401 22.2684H19.2796C19.5607 22.2684 19.7916 22.0398 19.8167 21.7473C19.8191 21.7128 19.8164 21.6781 19.8087 21.6444C19.724 21.2357 19.6455 20.8258 19.5733 20.4147C19.0876 17.7313 18.5253 14.633 15.3824 14.633C12.2396 14.633 11.6773 17.7313 11.1916 20.4136C11.115 20.8387 11.0396 21.2536 10.9561 21.6433C10.9484 21.677 10.9457 21.7116 10.9481 21.7461C10.9561 21.8845 11.0157 22.0148 11.1152 22.1113C11.2147 22.2078 11.3467 22.2635 11.4853 22.2673H13.2236L13.6704 24.489C13.6965 24.6183 13.7666 24.7345 13.8686 24.8181C13.9707 24.9016 14.0985 24.9472 14.2304 24.9473H16.5344C16.6663 24.9472 16.7941 24.9016 16.8962 24.8181C16.9983 24.7345 17.0683 24.6183 17.0944 24.489V24.4901Z"
+                                                    fill="#E9AC10" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M21.7461 13.8657C21.7461 14.3745 21.5498 14.8625 21.2004 15.2222C20.8509 15.582 20.377 15.7841 19.8828 15.7841C19.3886 15.7841 18.9147 15.582 18.5653 15.2222C18.2158 14.8625 18.0195 14.3745 18.0195 13.8657C18.0195 13.3569 18.2158 12.8689 18.5653 12.5092C18.9147 12.1494 19.3886 11.9473 19.8828 11.9473C20.377 11.9473 20.8509 12.1494 21.2004 12.5092C21.5498 12.8689 21.7461 13.3569 21.7461 13.8657ZM21.2338 24.5758L21.5856 22.7707H22.9582C23.1801 22.7707 23.3623 22.585 23.3821 22.3473C23.384 22.3192 23.3819 22.2911 23.3758 22.2637C23.309 21.9316 23.247 21.5986 23.19 21.2646C22.8067 19.0843 22.363 16.5669 19.8828 16.5669C17.4026 16.5669 16.9589 19.0843 16.5756 21.2636C16.5152 21.6091 16.4556 21.9461 16.3898 22.2628C16.3837 22.2901 16.3816 22.3183 16.3835 22.3463C16.3898 22.4588 16.4368 22.5647 16.5153 22.6431C16.5938 22.7215 16.6981 22.7667 16.8074 22.7698H18.1792L18.5318 24.5749C18.5524 24.6799 18.6077 24.7744 18.6882 24.8423C18.7688 24.9102 18.8696 24.9472 18.9737 24.9473H20.7919C20.896 24.9472 20.9969 24.9102 21.0774 24.8423C21.158 24.7744 21.2132 24.6799 21.2338 24.5749V24.5758Z"
+                                                    fill="#E9AC10" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_507_2040">
+                                                    <rect width="16" height="16" fill="white"
+                                                        transform="translate(8.94727 8.94727)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+        <p class="text-white mt-2">{% trans "Clients" %}</p>
+        <h5 class="text-white">{{clients_count}}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                        {% if perms.mainapp.view_request %}
+                        <a class="col-xl-6 col-md-6" href="/list_employee_request_form" style="text-decoration: none;">
+                            <div>
+                                <div class="dashboard-box" style="background: #ffffff; border-radius: 9.771px;">
+                                    <div class="d-flex justify-content-between">
+                                        <svg class="mb-2" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="33.8947" height="33.8947" rx="7.1579" fill="#9243D0"
+                                                fill-opacity="0.2" />
+                                            <g clip-path="url(#clip0_507_2051)">
+                                                <path
+                                                    d="M16.1473 18.5473H9.74727V23.3473C9.74727 23.7716 9.91584 24.1786 10.2159 24.4786C10.516 24.7787 10.9229 24.9473 11.3473 24.9473H22.5473C22.9716 24.9473 23.3786 24.7787 23.6786 24.4786C23.9787 24.1786 24.1473 23.7716 24.1473 23.3473V18.5473H17.7473V20.1473H16.1473V18.5473ZM16.1473 17.7473H8.94727V12.9473C8.94727 12.0673 9.66727 11.3473 10.5473 11.3473H13.7473V10.5473C13.7473 10.1229 13.9158 9.71595 14.2159 9.41589C14.516 9.11584 14.9229 8.94727 15.3473 8.94727H18.5473C18.9716 8.94727 19.3786 9.11584 19.6786 9.41589C19.9787 9.71595 20.1473 10.1229 20.1473 10.5473V11.3473H23.3473C23.7716 11.3473 24.1786 11.5158 24.4786 11.8159C24.7787 12.116 24.9473 12.5229 24.9473 12.9473V17.7473H17.7473V16.1473H16.1473V17.7473ZM18.5473 11.3473V10.5473H15.3473V11.3473H18.5473Z"
+                                                    fill="#9243D0" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_507_2051">
+                                                    <rect width="16" height="16" fill="white"
+                                                        transform="translate(8.94727 8.94727)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p class="text-white mt-2">{% trans "Requests" %}</p>
+                                    <h5 class="text-white">{{clients_requests}}</h5>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if perms.mainapp.view_client %}
+            <div>
+                <div>
+                    <h5><b>{% trans "Clients" %} {{clients_count}}</b></h5>
+                </div>
+                <div class="py-3 container-fluid bg-white"
+                    style="height: 500px; border-radius: 18px; overflow-x: auto; margin: 0; margin-top: 20px;">
+                    <table class="table table-hover custom-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans "ID" %}</th>
+                                <th scope="col">{% trans "Name" %}</th>
+                                <th scope="col">{% trans "Mobile" %}</th>
+                                <th scope="col">{% trans "Email" %}</th>
+                                <th scope="col">{% trans "Address" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for client in clients %}
+                            <tr>
+                                <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.id}}</a></td>
+                                <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.name}}</a></td>
+                                <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.mobile}}</a>
+                                </td>
+                                <td style="padding: 30px 10px;"><a href="/client/{client.id}}">{{client.email}}</a>
+                                </td>
+                                <td style="padding: 30px 10px;"><a
+                                        href="/client/{client.id}}">{{client.work_location.address}}</a></td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="right-side col-md-4">
+            <div class="bg-white px-1 pb-1"
+                style="border-radius: 10px; margin-top: 56px; box-shadow: 0px 6px 58px 0px rgba(196, 203, 214, 0.10);">
+                {% if request.user|has_permission:'mainapp.view_request' %}
+                <div class="col-md-12" style="height: 500px; overflow: auto;">
+                    <div class="projects-tab p-3">
+                        <h4 style="color: #0A1629; font-size: 22px; font-style: normal; font-family: Nunito-Sans-bold; line-height: normal;">
+                            {% trans "Requests" %}</h4>
+                        <div class="projects-section">
+                            {% if requests %}
+                            {% for request in requests %}
+                            <a href="/request/{{request.id}}/" style="text-decoration: none;">
+                                <div class="projects" style="padding-top: 15px; border-bottom: 1px solid #7D8592">
+                                    <div class="projects-box">
+                                        <div class="proj-text-img d-flex" style="gap: 20px;">
+                                            <div class="proj-img">
+                                                <img src="{% static 'icons/proj-Image.png' %}" alt="">
+                                            </div>
+                                            <div class="project-text">
+                                                {% if request.status == 'ac' %}
+                                                <p style="color: green;margin-bottom: 0;">Active</p>
+                                                {% elif request.status == 'in' %}
+                                                <p style="color: red;">Inactive</p>
+                                                {% endif %}
+                                                <h5
+                                                    style="color: #0A1629;font-size: 18px; font-style: normal; font-family: Nunito-Sans-bold;line-height: 26px;">
+                                                    {{ request }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="project-date py-3"
+                                            style="color: #7D8592; font-size: 14px;font-style: normal;font-weight: 600;line-height: 16px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24"
+                                                viewBox="0 0 26 24" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7.57414 2C7.57414 1.44772 8.02185 1 8.57414 1H8.67566C9.22795 1 9.67566 1.44772 9.67566 2V3H15.9802V2C15.9802 1.44772 16.4279 1 16.9802 1H17.0818C17.634 1 18.0818 1.44772 18.0818 2V3C20.403 3 22.2848 4.79086 22.2848 7V17C22.2848 19.2091 20.403 21 18.0818 21H7.57414C5.25286 21 3.37109 19.2091 3.37109 17V7C3.37109 4.79086 5.25286 3 7.57414 3V2ZM15.9802 5C15.9802 5.55228 16.4279 6 16.9802 6H17.0818C17.634 6 18.0818 5.55228 18.0818 5L18.2386 5.00549C19.326 5.08183 20.1833 5.94564 20.1833 7V8H5.47262V7L5.47838 6.85074C5.55861 5.81588 6.46626 5 7.57414 5C7.57414 5.55228 8.02185 6 8.57414 6H8.67566C9.22795 6 9.67566 5.55228 9.67566 5H15.9802Z"
+                                                    fill="#7D8592" />
+                                            </svg>
+                                            <span>{% trans "Created" %} <span>{{request.request_date}}</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                            {% else %}
+                            <p class="text-danger">{% trans "No Requests" %}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

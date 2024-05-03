@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Attendence Single{% endblock %}
+
+{% block content %}
+
+<style>
+    .single-attendence-content {
+        border-radius: 20px;
+        box-shadow: 0px 6px 58px 0px rgba(196, 203, 214, 0.10);
+        padding: 60px 20px !important;
+    }
+
+    .single-attendence-content .row {
+        --bs-gutter-x: 0;
+    }
+
+    .attendence-profile h2 {
+        padding-top: 20px;
+        color: #0A1629;
+        font-size: 22px;
+        font-style: normal;
+        font-family: Nunito-Sans-bold;
+        line-height: normal;
+    }
+
+    .attendence-profile p {
+        color: #0A1629;
+        font-size: 14px;
+        font-style: normal;
+        font-family: Nunito-Sans-regular;
+        line-height: 21px;
+    }
+
+    .attendence-profile .emp-info h5 {
+        color: #0A1629;
+        font-size: 16px;
+        font-style: normal;
+        font-family: Nunito-Sans-regular;
+        line-height: 24px;
+        margin-bottom: 5px;
+    }
+
+    .attendence-profile .emp-info p {
+        color: #7D8592;
+        font-size: 14px;
+        font-style: normal;
+        font-family: Nunito-Sans-regular;
+        line-height: 24px;
+    }
+
+    .days-schedule h2 {
+        color: #0A1629;
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-family: Nunito-Sans-bold;
+        line-height: 26px;
+    }
+
+    .days-schedule p {
+        color: #91929E;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-family: Nunito-Sans-regular;
+        line-height: normal;
+    }
+
+    .days-schedule svg text {
+        font-size: 22px;
+        font-style: normal;
+        font-family: Nunito-Sans-bold;
+        line-height: normal;
+    }
+</style>
+
+<div class="pt-4">
+    <div class="bg-white single-attendence-content mb-4">
+        <div class="row">
+            <div class="ps-0 ps-lg-5 col-12 col-lg-5 d-flex justify-content-center justify-content-lg-between">
+                <div class="attendence-profile d-flex align-items-center  flex-column flex-sm-row gap-4">
+                    <div class="attendence-dp">
+                        <img src="{% static 'icons/attendence-img.png' %}" alt="">
+                        <h2>Evan Yates</h2>
+                        <p>UI/UX Designer</p>
+                    </div>
+                    <div class="emp-info">
+                        <div class="mobile">
+                            <h5>Mobile Number</h5>
+                            <p>+1 675 343 23-10</p>
+                        </div>
+                        <div class="mobile">
+                            <h5>Mobile Number</h5>
+                            <p>+1 675 343 23-10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pe-0 pe-lg-5 col-12 col-lg-7 flex-column flex-sm-row days-schedule d-flex justify-content-center justify-content-lg-end gap-0 gap-sm-5">
+                <div class="vocations">
+                    <svg class="d-flex justify-content-center w-100" xmlns="http://www.w3.org/2000/svg" width="114"
+                        height="114" viewBox="0 0 114 114" fill="none">
+                        sfh
+                        <path
+                            d="M97.8379 56.8423C97.8379 79.7621 79.4816 98.3423 56.8379 98.3423C34.1942 98.3423 15.8379 79.7621 15.8379 56.8423C15.8379 33.9225 34.1942 15.3423 56.8379 15.3423C79.4816 15.3423 97.8379 33.9225 97.8379 56.8423ZM19.0223 56.8423C19.0223 77.9819 35.9529 95.119 56.8379 95.119C77.7229 95.119 94.6535 77.9819 94.6535 56.8423C94.6535 35.7026 77.7229 18.5655 56.8379 18.5655C35.9529 18.5655 19.0223 35.7026 19.0223 56.8423Z"
+                            fill="#EDECFE" />
+                        <path
+                            d="M72.8924 20.8117C73.2506 20.0078 72.8903 19.0626 72.0731 18.7358C65.6863 16.1821 58.7511 15.2717 51.9056 16.1005C44.532 16.9933 37.5391 19.8707 31.6724 24.4257C25.8057 28.9807 21.2853 35.0426 18.5932 41.965C15.9012 48.8873 15.1384 56.4105 16.3862 63.7324C17.634 71.0542 20.8456 77.9001 25.6786 83.54C30.5116 89.1798 36.7847 93.4023 43.829 95.7569C50.8733 98.1116 58.4245 98.5102 65.6776 96.9103C72.4112 95.425 78.6533 92.2688 83.8338 87.7437C84.4966 87.1647 84.5235 86.1535 83.9192 85.5137C83.3149 84.8738 82.3084 84.8478 81.6437 85.4246C76.8841 89.5548 71.1613 92.4369 64.991 93.798C58.3013 95.2736 51.3366 94.906 44.8394 92.7342C38.3423 90.5624 32.5564 86.6679 28.0988 81.4661C23.6411 76.2642 20.6789 69.9501 19.528 63.1969C18.3771 56.4438 19.0807 49.5049 21.5637 43.1202C24.0466 36.7355 28.216 31.1444 33.627 26.9432C39.038 22.7419 45.4878 20.0881 52.2887 19.2646C58.5614 18.5051 64.9158 19.329 70.7748 21.6494C71.5931 21.9735 72.5341 21.6156 72.8924 20.8117Z"
+                            fill="#E9AC10" />
+                        <text x="50%" y="51%" dominant-baseline="middle" text-anchor="middle" font-size="22"
+                            fill="#E9AC10">08</text>
+                    </svg>
+                    <h2>Vocations</h2>
+                    <p>20 days available</p>
+                </div>
+                <div class="remotely">
+                    <svg class="d-flex justify-content-center w-100" xmlns="http://www.w3.org/2000/svg" width="115"
+                        height="114" viewBox="0 0 115 114" fill="none">
+                        <path
+                            d="M98.1768 56.8423C98.1768 79.7621 79.8204 98.3423 57.1768 98.3423C34.5331 98.3423 16.1768 79.7621 16.1768 56.8423C16.1768 33.9225 34.5331 15.3423 57.1768 15.3423C79.8204 15.3423 98.1768 33.9225 98.1768 56.8423ZM19.3612 56.8423C19.3612 77.9819 36.2918 95.119 57.1768 95.119C78.0617 95.119 94.9923 77.9819 94.9923 56.8423C94.9923 35.7026 78.0617 18.5655 57.1768 18.5655C36.2918 18.5655 19.3612 35.7026 19.3612 56.8423Z"
+                            fill="#EDECFE" />
+                        <path
+                            d="M24.2322 35.1522C23.4971 34.6683 22.506 34.8705 22.051 35.6239C18.6897 41.1892 16.6949 47.4809 16.2413 53.9819C15.7507 61.0135 17.0796 68.0529 20.0999 74.4217C23.1202 80.7906 27.7301 86.274 33.4854 90.3435C39.2406 94.4131 45.9471 96.9316 52.9584 97.6562C59.9698 98.3809 67.0496 97.2873 73.5155 94.4808C79.9814 91.6744 85.6153 87.2497 89.8744 81.6332C94.1334 76.0168 96.874 69.3979 97.8318 62.4146C98.7174 55.9582 98.0516 49.3916 95.8996 43.2564C95.6083 42.4259 94.6795 42.0253 93.8609 42.3486C93.0423 42.672 92.6443 43.5967 92.9329 44.4282C94.8853 50.0533 95.4854 56.0676 94.6742 61.9815C93.7908 68.4224 91.2631 74.5272 87.3348 79.7074C83.4066 84.8877 78.2102 88.9687 72.2465 91.5572C66.2828 94.1457 59.7529 95.1543 53.2861 94.486C46.8193 93.8176 40.6337 91.4947 35.3255 87.7412C30.0173 83.9878 25.7654 78.9302 22.9796 73.0561C20.1939 67.1819 18.9682 60.6892 19.4208 54.2038C19.8363 48.2489 21.6537 42.4845 24.7154 37.3776C25.1679 36.6228 24.9674 35.6361 24.2322 35.1522Z"
+                            fill="#4365D0" />
+                        <text x="50%" y="51%" dominant-baseline="middle" text-anchor="middle" font-size="22"
+                            fill="#4365D0">03</text>
+                    </svg>
+                    <h2>Work Remotely</h2>
+                    <p>17 days availableI</p>
+                </div>
+                <div class="sick-leaves">
+                    <svg class="d-flex justify-content-center w-100" xmlns="http://www.w3.org/2000/svg" width="115"
+                        height="114" viewBox="0 0 115 114" fill="none">
+                        <path
+                            d="M98.5146 56.8423C98.5146 79.7621 80.1583 98.3423 57.5146 98.3423C34.871 98.3423 16.5146 79.7621 16.5146 56.8423C16.5146 33.9225 34.871 15.3423 57.5146 15.3423C80.1583 15.3423 98.5146 33.9225 98.5146 56.8423ZM19.6991 56.8423C19.6991 77.9819 36.6297 95.119 57.5146 95.119C78.3996 95.119 95.3302 77.9819 95.3302 56.8423C95.3302 35.7026 78.3996 18.5655 57.5146 18.5655C36.6297 18.5655 19.6991 35.7026 19.6991 56.8423Z"
+                            fill="#EDECFE" />
+                        <path
+                            d="M18.8851 64.7995C18.0231 64.9771 17.4652 65.8209 17.6762 66.6753C19.5442 74.2408 23.5314 81.1298 29.1848 86.5249C35.223 92.2873 42.8749 96.0713 51.1194 97.3722C59.364 98.6731 67.8092 97.4289 75.3284 93.8057C82.8475 90.1824 89.083 84.3525 93.2029 77.0936C97.3228 69.8347 99.1312 61.492 98.3868 53.1787C97.6425 44.8654 94.3807 36.9768 89.0368 30.5652C83.6929 24.1537 76.5209 19.5242 68.4777 17.2944C60.9471 15.2068 52.9881 15.3156 45.535 17.5907C44.6932 17.8476 44.2548 18.7592 44.5443 19.5903C44.8337 20.4215 45.7414 20.8572 46.584 20.603C53.424 18.5395 60.7204 18.4513 67.6262 20.3658C75.0447 22.4224 81.6597 26.6923 86.5886 32.6058C91.5174 38.5194 94.5258 45.7953 95.2124 53.463C95.8989 61.1306 94.231 68.8253 90.4311 75.5204C86.6311 82.2155 80.88 87.5926 73.9448 90.9345C67.0097 94.2763 59.2204 95.4238 51.6162 94.224C44.0119 93.0242 36.9544 89.534 31.3851 84.2192C26.2008 79.2717 22.5356 72.9621 20.8003 66.0315C20.5865 65.1777 19.7471 64.6218 18.8851 64.7995Z"
+                            fill="#E34320" />
+                        <text x="50%" y="51%" dominant-baseline="middle" text-anchor="middle" font-size="22"
+                            fill="#E34320">01</text>
+                    </svg>
+                    <h2>Sick Leaves</h2>
+                    <p>22 days available</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="pills-single-attendance">
+        <div style="background-color: white; border-radius: 18px;">
+            <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
+                style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                <h5 class="me-3 mb-0 text-white">January Month Attendance</h5>
+            </div>
+            <div class="attendence-table container-fluid" style="overflow-x:auto;">
+                <table class="table table-hover table-borderless">
+                    <thead>
+                        <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
+                            <th scope="col" style="padding: 1rem 0.5rem;">Date</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Check In</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Check Out</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Working Hours</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Shift</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Status</th>
+                            <th scope="col" style="padding: 1rem 0.5rem;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3">01-01-2024</td>
+                            <td class="py-3">10:38</td>
+                            <td class="py-3">19:15</td>
+                            <td class="py-3">08:04</td>
+                            <td class="py-3">Night</td>
+                            <td class="py-3" style="color: #1897F3;">Present</td>
+                            <td class="py-3">
+                                <!-- Edit -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M7 7.00012H6C5.46957 7.00012 4.96086 7.21084 4.58579 7.58591C4.21071 7.96098 4 8.46969 4 9.00012V18.0001C4 18.5306 4.21071 19.0393 4.58579 19.4143C4.96086 19.7894 5.46957 20.0001 6 20.0001H15C15.5304 20.0001 16.0391 19.7894 16.4142 19.4143C16.7893 19.0393 17 18.5306 17 18.0001V17.0001M16 5.00012L19 8.00012M20.385 6.58511C20.7788 6.19126 21.0001 5.65709 21.0001 5.10011C21.0001 4.54312 20.7788 4.00895 20.385 3.61511C19.9912 3.22126 19.457 3 18.9 3C18.343 3 17.8088 3.22126 17.415 3.61511L9 12.0001V15.0001H12L20.385 6.58511Z"
+                                        stroke="#4365D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <!-- Delete -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7"
+                                        stroke="#BA3316" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">01-01-2024</td>
+                            <td class="py-3">10:38</td>
+                            <td class="py-3">19:15</td>
+                            <td class="py-3">08:04</td>
+                            <td class="py-3">Night</td>
+                            <td class="py-3" style="color: #1897F3;">Present</td>
+                            <td class="py-3">
+                                <!-- Edit -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M7 7.00012H6C5.46957 7.00012 4.96086 7.21084 4.58579 7.58591C4.21071 7.96098 4 8.46969 4 9.00012V18.0001C4 18.5306 4.21071 19.0393 4.58579 19.4143C4.96086 19.7894 5.46957 20.0001 6 20.0001H15C15.5304 20.0001 16.0391 19.7894 16.4142 19.4143C16.7893 19.0393 17 18.5306 17 18.0001V17.0001M16 5.00012L19 8.00012M20.385 6.58511C20.7788 6.19126 21.0001 5.65709 21.0001 5.10011C21.0001 4.54312 20.7788 4.00895 20.385 3.61511C19.9912 3.22126 19.457 3 18.9 3C18.343 3 17.8088 3.22126 17.415 3.61511L9 12.0001V15.0001H12L20.385 6.58511Z"
+                                        stroke="#4365D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <!-- Delete -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7"
+                                        stroke="#BA3316" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">01-01-2024</td>
+                            <td class="py-3">10:38</td>
+                            <td class="py-3">19:15</td>
+                            <td class="py-3">08:04</td>
+                            <td class="py-3">Night</td>
+                            <td class="py-3" style="color: #1897F3;">Present</td>
+                            <td class="py-3">
+                                <!-- Edit -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M7 7.00012H6C5.46957 7.00012 4.96086 7.21084 4.58579 7.58591C4.21071 7.96098 4 8.46969 4 9.00012V18.0001C4 18.5306 4.21071 19.0393 4.58579 19.4143C4.96086 19.7894 5.46957 20.0001 6 20.0001H15C15.5304 20.0001 16.0391 19.7894 16.4142 19.4143C16.7893 19.0393 17 18.5306 17 18.0001V17.0001M16 5.00012L19 8.00012M20.385 6.58511C20.7788 6.19126 21.0001 5.65709 21.0001 5.10011C21.0001 4.54312 20.7788 4.00895 20.385 3.61511C19.9912 3.22126 19.457 3 18.9 3C18.343 3 17.8088 3.22126 17.415 3.61511L9 12.0001V15.0001H12L20.385 6.58511Z"
+                                        stroke="#4365D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <!-- Delete -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7"
+                                        stroke="#BA3316" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">01-01-2024</td>
+                            <td class="py-3">10:38</td>
+                            <td class="py-3">19:15</td>
+                            <td class="py-3">08:04</td>
+                            <td class="py-3">Night</td>
+                            <td class="py-3" style="color: #1897F3;">Present</td>
+                            <td class="py-3">
+                                <!-- Edit -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M7 7.00012H6C5.46957 7.00012 4.96086 7.21084 4.58579 7.58591C4.21071 7.96098 4 8.46969 4 9.00012V18.0001C4 18.5306 4.21071 19.0393 4.58579 19.4143C4.96086 19.7894 5.46957 20.0001 6 20.0001H15C15.5304 20.0001 16.0391 19.7894 16.4142 19.4143C16.7893 19.0393 17 18.5306 17 18.0001V17.0001M16 5.00012L19 8.00012M20.385 6.58511C20.7788 6.19126 21.0001 5.65709 21.0001 5.10011C21.0001 4.54312 20.7788 4.00895 20.385 3.61511C19.9912 3.22126 19.457 3 18.9 3C18.343 3 17.8088 3.22126 17.415 3.61511L9 12.0001V15.0001H12L20.385 6.58511Z"
+                                        stroke="#4365D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <!-- Delete -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7"
+                                        stroke="#BA3316" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3">01-01-2024</td>
+                            <td class="py-3">10:38</td>
+                            <td class="py-3">19:15</td>
+                            <td class="py-3">08:04</td>
+                            <td class="py-3">Night</td>
+                            <td class="py-3" style="color: #1897F3;">Present</td>
+                            <td class="py-3">
+                                <!-- Edit -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M7 7.00012H6C5.46957 7.00012 4.96086 7.21084 4.58579 7.58591C4.21071 7.96098 4 8.46969 4 9.00012V18.0001C4 18.5306 4.21071 19.0393 4.58579 19.4143C4.96086 19.7894 5.46957 20.0001 6 20.0001H15C15.5304 20.0001 16.0391 19.7894 16.4142 19.4143C16.7893 19.0393 17 18.5306 17 18.0001V17.0001M16 5.00012L19 8.00012M20.385 6.58511C20.7788 6.19126 21.0001 5.65709 21.0001 5.10011C21.0001 4.54312 20.7788 4.00895 20.385 3.61511C19.9912 3.22126 19.457 3 18.9 3C18.343 3 17.8088 3.22126 17.415 3.61511L9 12.0001V15.0001H12L20.385 6.58511Z"
+                                        stroke="#4365D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <!-- Delete -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M4 7H20M10 11V17M14 11V17M5 7L6 19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H16C16.5304 21 17.0391 20.7893 17.4142 20.4142C17.7893 20.0391 18 19.5304 18 19L19 7M9 7V4C9 3.73478 9.10536 3.48043 9.29289 3.29289C9.48043 3.10536 9.73478 3 10 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V7"
+                                        stroke="#BA3316" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
