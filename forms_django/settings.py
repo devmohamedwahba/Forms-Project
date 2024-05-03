@@ -35,7 +35,7 @@ DEBUG = env("DEBUG")
 #     import mimetypes
 #     mimetypes.add_type("application/javascript", ".js", True)
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
