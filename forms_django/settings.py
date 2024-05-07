@@ -15,13 +15,15 @@ from datetime import timedelta
 import os
 import environ
 from django.utils.translation import gettext_lazy as _
-env = environ.Env()
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -37,7 +39,6 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,7 +53,6 @@ INSTALLED_APPS = [
     'mainapp',
     'rosetta',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -106,7 +106,6 @@ DATABASES = {
     }
 }
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -136,10 +135,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 
 
 TIME_ZONE = 'UTC'
@@ -150,19 +147,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-
-prefix_default_language=False
+prefix_default_language = False
 
 LANGUAGE_CODE = 'ar'
 LANGUAGES = (
-    
+
     ('ar', _('Arabic')),
     ('en', _('English')),
 )
-
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -184,5 +176,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+handler404 = 'mainapp.views.custom_404'
