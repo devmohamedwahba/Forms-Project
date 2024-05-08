@@ -5,19 +5,16 @@
 {% load custom_filters %}
 
 
-{% block title %}{% trans "Dashboard" %}{% endblock %}
+{% block title %} لوحة التحكم {% endblock %}
 
 {% block content %}
-
 <div class="pt-4">
-    
     <div class="container">
-
     </div>
     <div class="dashboard-content">
         <div class="heading">
-            <p> {% trans "Welcome Back" %}, <span class="text-capitalize"> {{request.user.username}}!</span></p>
-            <h4>{% trans "Dashboard" %}</h4>
+            <p> مرحبًا بعودتك, <span class="text-capitalize"> {{request.user.username}}!</span></p>
+            <h4>لوحة التحكم </h4>
         </div>
         <div class="colors-box">
             <div class="row">
@@ -25,7 +22,7 @@
                     
                     <div class="dashboard-box" style="background: #4365D0; border-radius: 9.771px;">
                         <div class="d-flex justify-content-between">
-                            <h4 class="text-white">{% trans "Clients" %}</h4>
+                            <h4 class="text-white">العملاء</h4>
                             <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
@@ -35,7 +32,7 @@
                             </svg>
 
                         </div>
-                        <p class="text-white">New Clients</p>
+                        <p class="text-white">عملاء جدد</p>
                         <h5 class="text-white">{{clients_count}}</h5>
                     </div>
                     
@@ -45,7 +42,7 @@
                     <div>
                         <div class="dashboard-box" style="background: #1897F3; border-radius: 9.771px;">
                             <div class="d-flex justify-content-between">
-                                <h4 class="text-white" style="text-decoration: none;">{% trans "Clients" %}</h4>
+                                <h4 class="text-white" style="text-decoration: none;">العملاء</h4>
                                 <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
@@ -56,7 +53,7 @@
                                 </svg>
 
                             </div>
-                            <p class="text-white">{% trans "Clients" %}</p>
+                            <p class="text-white">العملاء</p>
                             <h5 class="text-white">{{clients_count}}</h5>
                         </div>
                     </div>
@@ -68,7 +65,7 @@
                     <div>
                         <div class="dashboard-box" style="background: #0A1629; border-radius: 9.771px;">
                             <div class="d-flex justify-content-between">
-                                <h4 class="text-white">{% trans "Employees" %}</h4>
+                                <h4 class="text-white">الموظفين</h4>
                                 <svg class="d-block d-md-none d-lg-block" width="32" height="32" viewBox="0 0 32 32"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="32" height="32" rx="8" fill="white" fill-opacity="0.2" />
@@ -77,7 +74,7 @@
                                         fill="white" />
                                 </svg>
                             </div>
-                            <p class="text-white">{% trans "Total" %} {% trans "Employees" %}</p>
+                            <p class="text-white">مجموع الموظفين</p>
                             <h5 class="text-white">{{employees_count}}</h5>
                         </div>
                     </div>
@@ -89,7 +86,7 @@
                     <div>
                         <div class="dashboard-box" style="background: #E34320; border-radius: 9.771px;">
                             <div class="d-flex justify-content-between">
-                                <h4 class="text-white">{% trans "Requests" %}</h4>
+                                <h4 class="text-white">الطلبات</h4>
                                 <svg class="d-block d-md-none d-lg-block" width="34" height="33" viewBox="0 0 34 33"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="34" height="33" rx="8" fill="white" fill-opacity="0.2" />
@@ -99,7 +96,7 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <p class="text-white">{% trans "Requests" %}</p>
+                            <p class="text-white">الطلبات</p>
                             <h5 class="text-white">{{requests_count}}</h5>
                         </div>
                     </div>
@@ -115,8 +112,9 @@
                 <div class="col-md-7" style="height: 500px; overflow: auto;">
                     <div class="employee-tab">
                         <div class="d-flex justify-content-between emp-view">
-                            <h4>{% trans "Our" %} {% trans "Employees" %}</h4>
-                            <a href="/{{request.LANGUAGE_CODE}}/all_employee" style="text-decoration: none;color: #4365D0;">{% trans "View All" %}
+                            <h4>موظفينا</h4>
+                            <a href="/{{request.LANGUAGE_CODE}}/all_employee" style="text-decoration: none;color: #4365D0;">
+                                عرض الكل
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" transform="rotate(90)"
@@ -162,7 +160,7 @@
                 {% if request.user|has_permission:'mainapp.view_request' %}
                 <div class="col-md-5" style="height: 500px; overflow: auto;">
                     <div class="projects-tab">
-                        <h4>{% trans "Requests" %}</h4>
+                        <h4>الطلبات</h4>
                         <div class="projects-section">
                             {% if requests %}
                             {% for request in requests %}
@@ -189,14 +187,14 @@
                                                     d="M7.57414 2C7.57414 1.44772 8.02185 1 8.57414 1H8.67566C9.22795 1 9.67566 1.44772 9.67566 2V3H15.9802V2C15.9802 1.44772 16.4279 1 16.9802 1H17.0818C17.634 1 18.0818 1.44772 18.0818 2V3C20.403 3 22.2848 4.79086 22.2848 7V17C22.2848 19.2091 20.403 21 18.0818 21H7.57414C5.25286 21 3.37109 19.2091 3.37109 17V7C3.37109 4.79086 5.25286 3 7.57414 3V2ZM15.9802 5C15.9802 5.55228 16.4279 6 16.9802 6H17.0818C17.634 6 18.0818 5.55228 18.0818 5L18.2386 5.00549C19.326 5.08183 20.1833 5.94564 20.1833 7V8H5.47262V7L5.47838 6.85074C5.55861 5.81588 6.46626 5 7.57414 5C7.57414 5.55228 8.02185 6 8.57414 6H8.67566C9.22795 6 9.67566 5.55228 9.67566 5H15.9802Z"
                                                     fill="#7D8592" />
                                             </svg>
-                                            <span>{% trans "Created" %} <span>{{request.request_date}}</span></span>
+                                            <span>تم الانشاء <span>{{request.request_date}}</span></span>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                             {% endfor %}
                             {% else %}
-                            <p class="text-danger">{% trans "No Requests" %}</p>
+                            <p class="text-danger">لايوجد طلبات</p>
                             {% endif %}
                         </div>
                     </div>

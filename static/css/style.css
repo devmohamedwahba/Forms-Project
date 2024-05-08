@@ -108,9 +108,9 @@ textarea:focus {
 }
 
 .logout-btn {
-    bottom: 30px !important;
-    position: absolute !important;
-    width: 93% !important;
+    /* bottom: 30px !important; */
+    /* position: absolute !important; */
+    /* width: 93% !important; */
 }
 
 .table {
