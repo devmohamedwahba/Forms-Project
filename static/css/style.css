@@ -98,7 +98,7 @@ textarea:focus {
 
 .full-sidebar {
     width: 285px !important;
-    height: 1550px !important;
+    height: fit-content;
     position: relative;
     margin-left: 0;
     position: sticky;
@@ -107,12 +107,14 @@ textarea:focus {
     z-index: 999 !important;
 }
 
-.logout-btn {
-    /* bottom: 30px !important; */
-    /* position: absolute !important; */
-    /* width: 93% !important; */
+#user_mobile_number{
+    text-align: left;
 }
-
+.logout_icon{
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+}
 .table {
     
     border-top: 1px solid #ced4da;
