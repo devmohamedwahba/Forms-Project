@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Employee Duty" %}{% endblock %}
+{% block title %}واجب الموظف{% endblock %}
 
 
 {% block content %}
@@ -11,7 +11,7 @@
     <div>
         <div class="py-3" style="background-color: white; padding-bottom: 60px !important; border-radius: 18px;">
             <h2 class="container-fluid" style="color: #0A1629;font-size: 24px; font-weight: 700; line-height: normal;">
-                {% trans "Employee Duty" %}</h2>
+                واجب الموظف</h2>
             <hr>
 
             <form id="employee_duty_form" action="/employee_duty" method="post" class="container-fluid mt-4">
@@ -19,16 +19,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="employee_duty" class="form-label pb-1">{% trans "Employees" %}:</label>
+                            <label for="employee_duty" class="form-label pb-1">الموظفين:</label>
 
                             <div class="dropdown">
-            <input type="text" class="form-control py-2" id="employee_duty" name="employee_duty" placeholder="{% trans "Employees" %}" style="border-radius: 13px; background: transparent;" required readonly>
-            <small id="employee_error" class="error text-danger" style="display: none;">{% trans 'Employee is required' %}</small>
+            <input type="text" class="form-control py-2" id="employee_duty" name="employee_duty" placeholder="الموظفين" style="border-radius: 13px; background: transparent;" required readonly>
+            <small id="employee_error" class="error text-danger" style="display: none;">مطلوب موظف</small>
             <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
                                 </svg>
         <ul id="employee-ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
-        <input class="w-100 dropdown-item" type="text" id="employee-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+        <input class="w-100 dropdown-item" type="text" id="employee-Input" placeholder="البحث" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
         {% for employee in employees %}
         <li class="dropdown-item" style="cursor: pointer;" onclick="updateInput('{{employee.username}}', 'employee_duty', 'employee_duty_id', '{{employee.id}}')"> {{employee.username}}
         </li>
@@ -44,8 +44,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-   <label for="duty_title" class="form-label pb-1">{% trans "Title" %}:</label>
-    <input type="text" class="form-control py-2" id="duty_title" name="duty_title" placeholder="{% trans "Title" %}" style="border-radius: 13px;" required>
+   <label for="duty_title" class="form-label pb-1">العنوان:</label>
+    <input type="text" class="form-control py-2" id="duty_title" name="duty_title" placeholder="العنوان" style="border-radius: 13px;" required>
     
                         </div>
                     </div>
@@ -54,17 +54,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="duty_desc" class="form-label pb-1">{% trans "Description" %}:</label>
-                            <textarea class="form-control py-2" name="duty_desc" placeholder="{% trans "Description" %}"
+                            <label for="duty_desc" class="form-label pb-1">وصف:</label>
+                            <textarea class="form-control py-2" name="duty_desc" placeholder="وصف"
                                 id="duty_desc" cols="20" rows="5" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p class="form-label pb-1" for="">{% trans "Status" %}:</p>
+                        <p class="form-label pb-1" for="">الحالة:</p>
                         <select class="py-2 px-2 w-100" name="duty_status" id="duty_status"
                             style="border-radius: 13px; border:1px solid #ced4da;">
-                            <option class="form-control py-2" value="{% trans "Active" %}">{% trans "Active" %}</option>
-                            <option class="form-control py-2" value="{% trans "Active" %}">{% trans "Inactive" %}</option>
+                            <option class="form-control py-2" value="فعال">فعال</option>
+                            <option class="form-control py-2" value="غير فعال">غير فعال</option>
                         </select>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="button" style="padding-top: 5rem;">
-                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}"
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="حفظ"
                         style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
                 </div>
 
@@ -91,19 +91,19 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
-                                <button id="duty_modal_close_btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"  data-bs-dismiss="modal"
+                                <h5 class="modal-title" id="exampleModalLabel">رسالة تأكيد</h5>
+                                <button id="duty_modal_close_btn" type="button" class="btn-close m-0"  data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    <p> هل أنت متأكد من أنك تريد الارسال</p>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                             </div>
                         </div>
                     </div>

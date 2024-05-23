@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Attendance" %}{% endblock %}
+{% block title %}الحضور{% endblock %}
 
 {% block content %}
 
@@ -12,12 +12,12 @@
             <li class="nav-item text-center" style="width: 50%;">
                 <a class="nav-link active px-3 active-link" id="pills-today-attendance-tab" data-bs-toggle="pill"
                     href="#pills-today-attendance" role="tab" aria-controls="pills-today-attendance"
-                    aria-selected="true" style="border-radius: 20px;">{% trans "Today Attendance" %}</a>
+                    aria-selected="true" style="border-radius: 20px;">الحضور اليومي</a>
             </li>
             <li class="nav-item text-center" style="width: 50%;">
                 <a class="nav-link attendance-tab px-3" id="pills-attendance-sheet-tab" data-bs-toggle="pill"
                     href="#pills-attendance-sheet" role="tab" aria-controls="pills-attendance-sheet"
-                    aria-selected="false" style="border-radius: 20px;">{% trans "Attendance Sheet" %}</a>
+                    aria-selected="false" style="border-radius: 20px;">ورقة الحضور</a>
             </li>
             <!-- <li class="nav-item text-center" style="width: 33.3%;">
                 <a class="nav-link attendance-tab px-3" id="pills-employee-sheet-tab" data-bs-toggle="pill"
@@ -33,7 +33,7 @@
                 <div style="background-color: white; border-radius: 18px;">
                     <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
                         style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                        <h5 class="me-3 mb-0 text-white">{% trans "Today Attendance" %} <span
+                        <h5 class="me-3 mb-0 text-white">الحضور اليومي <span
                                 style="text-decoration: underline;" class="ms-2">{{today_date}}
                             </span>
                         </h5>
@@ -42,15 +42,15 @@
                         <table class="table table-hover table-borderless" id="todayAttendenceTable">
                             <thead>
                                 <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
-                                    <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans "ID" %}
+                                    <th scope="col" class="" style="padding: 1rem 0.5rem;">المعرف
                                     </th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Name" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Checked In" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Break" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Checked Out" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Total" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Status" %}</th>
-                                    <th scope="col" style="padding: 1rem 0.5rem;">{% trans "Shift" %}</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">الاسم</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">حضور</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">استراحة</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">انصراف</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">المجموع</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">الحاله</th>
+                                    <th scope="col" style="padding: 1rem 0.5rem;">المناوبة</th>
                                 </tr>
                             </thead>
 
@@ -68,7 +68,7 @@
                 <div style="background-color: white; border-radius: 18px;">
                     <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
                         style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                        <h5 class="me-3 mb-0 text-white">{% trans "Attendance Sheet" %}</h5>
+                        <h5 class="me-3 mb-0 text-white">ورقة الحضور</h5>
                     </div>
                     <div class="attendence-table container-fluid" style="overflow-x:auto;">
                         <table class="table table-hover table-borderless" id="attendanceReportTable">
@@ -209,7 +209,7 @@
 
                 dates.sort();
 
-                let tableHeader = '<thead><tr><th>{% trans "Name" %}</th>';
+                let tableHeader = '<thead><tr><th>الاسم</th>';
                 dates.forEach(function (date) {
                     tableHeader += `<th>${date}</th>`;
                 });

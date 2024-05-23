@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "List All" %} {% trans "Company" %}  {% trans "Attendance" %}{% endblock %}
+{% block title %}عرض كل حضور الشركة{% endblock %}
 
 {% block content %}
 
@@ -10,22 +10,22 @@
     <div style="background-color: white; border-radius: 18px;">
         <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
             style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-            <h5 class="me-3 mb-0 text-white">{% trans "List All" %} {% trans "Company" %}  {% trans "Attendance" %}</h5>
+            <h5 class="me-3 mb-0 text-white">عرض كل حضور الشركة</h5>
         </div>
         <div class="attendence-table container-fluid" style="overflow-x:auto;">
             <table class="table table-hover table-borderless" id="departmentFormTable">
                 <thead>
                     <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
-                        <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans 'ID' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Employees' %} {% trans 'Name' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Company' %} {% trans 'Name' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Duty' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'City' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Plate' %} {% trans 'Number' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Plate' %} {% trans 'Type' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Milage' %} {% trans 'Start' %} {% trans 'KM' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Milage' %} {% trans 'Finish' %} {% trans 'KM' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Spend' %} {% trans 'Time' %}</th>
+                        <th scope="col" class="" style="padding: 1rem 0.5rem;">المعرف</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> اسم الموظفين</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> اسم الشركة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> الوظيفة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> المدينة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;">رقم اللوحة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> نوع اللوحة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> عداد الاميال استلام العداد   كيلومتر</th>
+        <th scope="col" style="padding: 1rem 0.5rem;">  عداد الاميال تسليم العداد  كيلومتر</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> وقت الاستخدام</th>
                     </tr>
                 </thead>
                 

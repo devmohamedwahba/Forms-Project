@@ -11,7 +11,7 @@
     <div>
         <div class="py-3" style="background-color: white; padding-bottom: 60px !important; border-radius: 18px;">
             <h2 class="container-fluid" style="color: #0A1629;font-size: 24px; font-weight: 700; line-height: normal;">
-                {% trans "Create" %} {% trans "Routine" %}</h2>
+                انشاء نظام العمل</h2>
             <hr>
 
             <form id="create_routine_form" action="/create_routine" method="post" class="container-fluid mt-4">
@@ -19,22 +19,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="shift_name" class="form-label pb-1">{% trans "Shift" %}:</label>
+                            <label for="shift_name" class="form-label pb-1">المناوبة:</label>
 
                             <div class="dropdown">
                                 
-                                <input type="text" class="form-control py-2" id="shift_name" name="shift_name" placeholder="{% trans "Shift" %}" style="border-radius: 13px; background: transparent;" required readonly>
-                                    <small id="shift_name_error" class="error text-danger" style="display: none;">{% trans 'Shift is required' %}</small>
+                                <input type="text" class="form-control py-2" id="shift_name" name="shift_name" placeholder="المناوبة" style="border-radius: 13px; background: transparent;" required readonly>
+                                    <small id="shift_name_error" class="error text-danger" style="display: none;">التحول مطلوب</small>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal"
                                     data-bs-target="#workmodal"
-                                    style="position: absolute; cursor:pointer; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+                                    style="position: absolute; cursor:pointer; left: 40px;  top: 10px; cursor: pointer;">
                                     <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg"
                                     width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                    style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                    style="position: absolute; left: 6px;  top: 7px; cursor: pointer;">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                         fill="#0A1629" />
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="routine_start_time" class="form-label pb-1">{% trans 'Start Time'%}:</label>
+                            <label for="routine_start_time" class="form-label pb-1">وقت البداية:</label>
                             <input type="time" class="form-control py-2" id="routine_start_time" name="routine_start_time"
                                 placeholder="" style="border-radius: 13px;" required>
                         </div>
@@ -70,14 +70,14 @@
                 <div class="row">
                     <div class="col-md-6">
     <div class="mb-3">
-    <label for="routine_break_time" class="form-label pb-1">{% trans 'Break Duration'%} - HH:MM:SS:</label>
+    <label for="routine_break_time" class="form-label pb-1">مدة الاستراحة - HH:MM:SS:</label>
     <input type="text" class="form-control py-2" id="routine_break_time" name="routine_break_time" placeholder="HH:MM:SS" style="border-radius: 13px;">
-    <p id="break_time_error" class="error text-danger">{% trans 'Break duration cannot be more than the difference between start time and end time.' %}</p>
+    <p id="break_time_error" class="error text-danger">لا يمكن أن تكون مدة الاستراحة أكثر من الفرق بين وقت البدء ووقت الانتهاء.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="routine_end_time" class="form-label pb-1">{% trans 'End Time'%}:</label>
+                            <label for="routine_end_time" class="form-label pb-1">وقت الانتهاء:</label>
                             <input type="time" class="form-control py-2" id="routine_end_time" name="routine_end_time"
                                 placeholder="" style="border-radius: 13px;" required>
                             
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="button" style="padding-top: 5rem;">
-                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="{% trans 'Save' %}" style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
+                    <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary" type="button" value="حفظ" style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
                 </div>
 
                 <!-- Confirmation Popup -->
@@ -106,18 +106,18 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">رسالة تأكيد</h5>
                                 <button id="routine_modal_close_btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+                                    <p> هل أنت متأكد من أنك تريد الارسال</p>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق </button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                             </div>
                         </div>
                     </div>
@@ -141,18 +141,19 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Shift" %}</h5>
-    <button id="job_role_close_btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <h5 class="modal-title" id="exampleModalLabel">انشاء نظام العمل
+    </h5>
+    <button id="job_role_close_btn" type="button" class="btn-close me-auto ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="modal_shift_name">{% trans "Name" %}:</label>
+                                    <label for="modal_shift_name">الاسم:</label>
                                     <input type="text" name="modal_shift_name" class="form-control" id="modal_shift_name" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                                <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                                <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                             </div>
                         </div>
                     </div>

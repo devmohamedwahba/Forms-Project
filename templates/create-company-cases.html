@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Company" %} {% trans "Cases" %}{% endblock %}
+{% block title %}قضايا الشركه{% endblock %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
 
                     <input type="hidden" name="created_request_id_name" id="created_request_id">
                     <h2 class="container-fluid" style="font-weight: bold; color: #0A1629; font-size: 24px;">
-                        {% trans "Company" %} {% trans "Cases" %}</h2>
+                        قضايا الشركه</h2>
                     <hr>
 
                     <div class="container-fluid">
@@ -27,7 +27,7 @@
                         <div class="row pb-1">
                             <div class="col-md-5">
                                 <div class="mb-3">
-                                    <label for="employee_duty" class="form-label pb-1">{% trans "Employees" %}:</label>
+                                    <label for="employee_duty" class="form-label pb-1">الموظفين:</label>
 
                                     <div class="dropdown">
                                         <input value="{{employee.username}}" type="text" class="form-control py-2"
@@ -59,17 +59,17 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="mb-3">
-                                    <label for="request_clients" class="form-label pb-1">{% trans "City" %}:</label>
+                                    <label for="request_clients" class="form-label pb-1">المدينة:</label>
 
                                     <div class="dropdown">
                                         <input type="text" class="form-control py-2" id="request_clients"
-                                            name="request_clients" placeholder="{% trans " City" %}"
+                                            name="request_clients" placeholder="المدينة"
                                             style="border-radius: 13px; background: transparent;" required readonly>
                                         <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"
                                             xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 30 30" fill="none"
-                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            style="position: absolute; left: 6px; top: 7px; cursor: pointer;">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                                 fill="#0A1629" />
@@ -77,7 +77,7 @@
                                         <ul id="client-ul" class="dropdown-menu pt-0"
                                             aria-labelledby="dropdownMenuButton">
                                             <input class="w-100 dropdown-item" type="text" id="client-Input"
-                                                placeholder="{% trans 'Search' %}"
+                                                placeholder="البحث"
                                                 style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             {% for worklocation in worklocations %}
                                             <li class="dropdown-item" style="cursor: pointer;"
@@ -101,17 +101,17 @@
 
                             <div class="col-md-5">
                                 <div class="mb-3">
-                                    <label for="request_duty" class="form-label pb-1">{% trans "Duty" %}:</label>
+                                    <label for="request_duty" class="form-label pb-1">الوظيفة:</label>
 
                                     <div class="dropdown">
                                         <input type="text" class="form-control py-2" id="request_duty"
-                                            name="request_duty" placeholder="{% trans " Duty" %}"
+                                            name="request_duty" placeholder="الوظيفة"
                                             style="border-radius: 13px; background: transparent;" required readonly>
                                         <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"
                                             xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 30 30" fill="none"
-                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            style="position: absolute; left: 6px; top: 7px; cursor: pointer;">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                                 fill="#0A1629" />
@@ -119,7 +119,7 @@
                                         <ul id="duty-ul" class="dropdown-menu pt-0"
                                             aria-labelledby="dropdownMenuButton">
                                             <input class="w-100 dropdown-item" type="text" id="duty-Input"
-                                                placeholder="{% trans 'Search' %}"
+                                                placeholder="البحث"
                                                 style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             {% for duty in dutys %}
                                             <li class="dropdown-item" style="cursor: pointer;"
@@ -138,7 +138,7 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="mb-2">
-    <label for="request_corresponding_id" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Employee Routine" %}:</label>
+    <label for="request_corresponding_id" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">روتين الموظف:</label>
 
                                     <div class="dropdown">
                                         <input value="{{routine}}" type="text" class="form-control py-2"
@@ -158,18 +158,18 @@
 
                             <div class="col-md-5">
                                 <div class="mb-3">
-    <label for="cases_company" class="form-label pb-1">{% trans "Company" %}:</label>
+    <label for="cases_company" class="form-label pb-1">الشركه:</label>
 
                                     <div class="dropdown">
-    <input type="text" class="form-control py-2" id="cases_company" name="cases_company" placeholder="{% trans "Company" %}" style="border-radius: 13px; background: transparent;" required readonly>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#companymodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+    <input type="text" class="form-control py-2" id="cases_company" name="cases_company" placeholder="الشركه" style="border-radius: 13px; background: transparent;" required readonly>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#companymodal" style="position: absolute; left: 40px; top: 10px; cursor: pointer;">
         <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
                                         <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"
                                             xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 30 30" fill="none"
-                                            style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+                                            style="position: absolute; left: 6px; top: 7px; cursor: pointer;">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                                 fill="#0A1629" />
@@ -177,7 +177,7 @@
                                         <ul id="company-ul" class="dropdown-menu pt-0"
                                             aria-labelledby="dropdownMenuButton">
                                             <input class="w-100 dropdown-item" type="text" id="company-Input"
-                                                placeholder="{% trans 'Search' %}"
+                                                placeholder="البحث"
                                                 style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             {% for company in companys %}
                                             <li class="dropdown-item" style="cursor: pointer;"
@@ -197,15 +197,15 @@
 
                             <div class="col-md-5">
                                 <div class="mb-3">
-<label for="cases_company_guard" class="form-label pb-1">{% trans "Company" %} {% trans "Guard" %}:</label>
+<label for="cases_company_guard" class="form-label pb-1">الشركه الحارس:</label>
 
                                     <div class="dropdown">
-    <input type="text" class="form-control py-2" id="cases_company_guard" name="cases_company_guard" placeholder="{% trans "Company" %} {% trans "Guard" %}" style="border-radius: 13px; background: transparent;" required readonly>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#guardmodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+    <input type="text" class="form-control py-2" id="cases_company_guard" name="cases_company_guard" placeholder="حارس الشركه" style="border-radius: 13px; background: transparent;" required readonly>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#guardmodal" style="position: absolute; left: 40px;  top: 10px; cursor: pointer;">
     <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
 
-<svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+<svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; left: 6px; top: 7px; cursor: pointer;">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                                 fill="#0A1629" />
@@ -213,7 +213,7 @@
                                         <ul id="company-guard-ul" class="dropdown-menu pt-0"
                                             aria-labelledby="dropdownMenuButton">
                                             <input class="w-100 dropdown-item" type="text" id="company-guard-Input"
-                                                placeholder="{% trans 'Search' %}"
+                                                placeholder="البحث"
                                                 style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             {% for company_guard in company_guards %}
                                             <li class="dropdown-item" style="cursor: pointer;"
@@ -237,12 +237,12 @@
                         <div class="row pb-1">
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <label for="routine_routine" class="form-label pb-1">{% trans 'Groups' %}:</label>
+                                    <label for="routine_routine" class="form-label pb-1">المجموعات:</label>
 
                                     <div class="dropdown">
                                         <input value="{{group.name}}" type="text" class="form-control py-2"
                                             id="routine_routine" name="routine_routine"
-                                            placeholder="{% trans 'Groups' %}"
+                                            placeholder="المجموعات"
                                             style="border-radius: 13px; background: transparent;" required readonly>
                                         <!-- <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"
@@ -256,7 +256,7 @@
                                         <ul id="department-ul" class="dropdown-menu pt-0"
                                             aria-labelledby="dropdownMenuButton">
                                             <input class="w-100 dropdown-item" type="text" id="department-Input"
-                                                placeholder="{% trans 'Search' %}"
+                                                placeholder="البحث"
                                                 style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             <li class="dropdown-item" style="cursor: pointer;"
                                                 onclick="updateInput('{{group.name}}', 'routine_routine', 'employee_department_id', '{{group.id}}')">
@@ -274,22 +274,22 @@
                             <div class="col-md-5">
                                 <div class="mb-2">
                                     <label for="cases_zone" class="form-label pb-1"
-                                        style="font-weight: bold; color: #7D8592;">{% trans "Zone" %}:</label>
+                                        style="font-weight: bold; color: #7D8592;">المنطقة:</label>
 
                                     <input type="text" class="form-control py-2" id="cases_zone" name="cases_zone"
-                                        placeholder="{% trans " Zone" %}" style="border-radius: 13px;" required>
+                                        placeholder="المنطقة" style="border-radius: 13px;" required>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="mb-2">
                                     <label for="report_no" class="form-label pb-1"
-                                        style="font-weight: bold; color: #7D8592;">{% trans "Reports" %}:</label>
+                                        style="font-weight: bold; color: #7D8592;">التقارير:</label>
 
 
                                     <div class="dropdown">
 
                                         <input type="text" class="form-control py-2" id="report_no" name="report_no"
-                                            placeholder="{% trans "Reports" %}" style="border-radius: 13px;" required>
+                                            placeholder="التقارير" style="border-radius: 13px;" required>
 
                                     </div>
                                 </div>
@@ -299,9 +299,9 @@
                         <div class="row pb-1">
                             <div class="col-md-10">
                                 <div class="mb-2">
-   <label for="case_summart" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">{% trans "Cases" %} {% trans "Summart" %}:</label>
+   <label for="case_summart" class="form-label pb-1" style="font-weight: bold; color: #7D8592;">ملخص الحالات :</label>
 
-    <textarea class="form-control py-2" id="case_summart" rows="4" name="case_summart" placeholder="{% trans "Cases" %} {% trans "Summart" %}" style="border-radius: 13px;" required></textarea>
+    <textarea class="form-control py-2" id="case_summart" rows="4" name="case_summart" placeholder="ملخص الحالات" style="border-radius: 13px;" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -310,10 +310,10 @@
                             <div class="col-md-10">
                                 <div class="mb-2">
                                     <label for="case_comment" class="form-label pb-1"
-                                        style="font-weight: bold; color: #7D8592;">{% trans "Comments" %}:</label>
+                                        style="font-weight: bold; color: #7D8592;">تعليقات:</label>
 
                                     <textarea class="form-control py-2" id="case_comment" rows="4" name="case_comment"
-                                        placeholder="{% trans "Comments" %}" style="border-radius: 13px;"
+                                        placeholder="تعليقات" style="border-radius: 13px;"
                                         required></textarea>
                                 </div>
                             </div>
@@ -323,21 +323,21 @@
 
                             <div class="col-md-5">
                                 <div class="mb-3">
-    <label for="request_reason" class="form-label pb-1">{% trans "Cases" %} {% trans "Description" %}:</label>
+    <label for="request_reason" class="form-label pb-1">وصف الحالات :</label>
 
     <div class="dropdown">
-    <input type="text" class="form-control py-2" id="request_reason" name="request_reason" placeholder="{% trans "Cases" %} {% trans "Description" %}" style="border-radius: 13px; background: transparent;" required readonly>
-    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 6px; {% else %}right: 6px; {% endif %} top: 7px; cursor: pointer;">
+    <input type="text" class="form-control py-2" id="request_reason" name="request_reason" placeholder="وصف الحالات" style="border-radius: 13px; background: transparent;" required readonly>
+    <svg class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" style="position: absolute; left: 6px; top: 7px; cursor: pointer;">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="#0A1629" />
     </svg>
 
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#reasonmodal" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %}left: 40px; {% else %}right: 40px; {% endif %} top: 10px; cursor: pointer;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#reasonmodal" style="position: absolute; left: 40px;  top: 10px; cursor: pointer;">
     <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
 
 
     <ul id="request_reason_ul" class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
-    <input class="w-100 dropdown-item" type="text" id="request-reason-Input" placeholder="{% trans 'Search' %}" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
+    <input class="w-100 dropdown-item" type="text" id="request-reason-Input" placeholder="البحث" style="padding: 0px; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; border: 1px solid #ced4da;">
                                             {% for desc in cases_descs %}
                                             <li class="dropdown-item" style="cursor: pointer;"
                                                 onclick="updateInput('{{desc.name}}', 'request_reason', 'case_description_id', '{{desc.id}}')">
@@ -354,15 +354,15 @@
 
     <div class="col-md-5">
     <div class="w-100">
-    <p class="form-label pb-1" style="margin-bottom: 0.5rem;" for="">{% trans "Type of Case" %}:
+    <p class="form-label pb-1" style="margin-bottom: 0.5rem;" for="">نوع القضية:
     </p>
 
     <select class="col-md-12 py-2 px-2" name="status" id="edit_request_status" style="border-radius: 13px; border:1px solid #ced4da;">
-    <option class="form-control py-2" value="{% trans "Security" %}">{% trans "Security" %}</option>
-    <option class="form-control py-2" value="{% trans 'Traffic' %}">{% trans 'Traffic' %}</option>
-    <option class="form-control py-2" value="{% trans 'Maintainance' %}">{% trans 'Maintainance' %}</option>
-    <option class="form-control py-2" value="{% trans 'Security Info' %}">{% trans 'Security Info' %}</option>
-    <option class="form-control py-2" value="{% trans 'Other' %}">{% trans 'Other' %}</option>
+    <option class="form-control py-2" value="الحماية">الحماية</option>
+    <option class="form-control py-2" value="السجل المروري">السجل المروري</option>
+    <option class="form-control py-2" value="الصيانة">الصيانة</option>
+    <option class="form-control py-2" value="معلومة أمنية">معلومة أمنية</option>
+    <option class="form-control py-2" value="آخر">آخر</option>
                                     </select>
                                 </div>
                             </div>
@@ -372,11 +372,11 @@
 
                         <div class="row pb-1">
                             <div class="col-md-10" style="position: relative;">
-                                <label for="company_case_action" class="form-label pb-1">{% trans "Action" %}</label>
+                                <label for="company_case_action" class="form-label pb-1">اجراء</label>
         <div class="pb-2">
         </div>
-        <input type="text" id="search_available_permissions" class="form-control" placeholder="{% trans 'Search' %}">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#actionmodall" style="position: absolute; cursor: pointer; {% if LANGUAGE_CODE == 'ar' %} right: 68px; top: 2px; {% else %} left: 68px; top: 1px; {% endif %}">
+        <input type="text" id="search_available_permissions" class="form-control" placeholder="البحث">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#actionmodall" style="position: absolute; cursor: pointer;  right: 68px; top: 2px;">
             <path d="M9 12H15M12 9V15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="#0A1629" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         <select name="company_case_action" id="company_case_action" style="width: 100%; height: 300px;" multiple>
@@ -424,7 +424,7 @@
 
                         <div class="button" style="padding-top: 5rem;">
                             <input data-bs-toggle="modal" data-bs-target="#submitModal" class="btn btn-primary"
-                                type="button" value="{% trans 'Save' %}"
+                                type="button" value="حفظ"
                                 style="width: 158px; height: 44px; border-radius: 16px; background-color: #4365D0; box-shadow: 0px 6px 12px 0px #3F8CFF43;">
                         </div>
                         </div>
@@ -433,7 +433,7 @@
                             <div class="mt-4">
                                 <p class="text-bold" id="error_message" style="font-weight: bold; color: red;"></p>
     
-                                <p class="text-bold" id="success_message" style="font-weight: bold; color: green; display: none;">{% trans 'Company Cases created successfully' %}</p>
+                                <p class="text-bold" id="success_message" style="font-weight: bold; color: green; display: none;">تم إنشاء حالات الشركة بنجاح</p>
                             </div>
                             </div>
 
@@ -444,18 +444,18 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
     <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{% trans 'Confirmation Message' %}</h5>
-    <button id="request-form-btn" type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
+    <h5 class="modal-title" id="exampleModalLabel">رسالة تأكيد</h5>
+    <button id="request-form-btn" type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
     <div class="form-group">
-    <p> {% trans "Are You Sure Want to Submit this?" %}</p>
+    <p> هل أنت متأكد من أنك تريد الارسال</p>
                                             </div>
 
                                         </div>
                                         <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-    <button type="submit" class="btn btn-primary" id="submitReview">{% trans 'Save' %}</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                                         </div>
                                     </div>
                                 </div>
@@ -474,15 +474,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Request
-                                Method" %}
+                            <h5 class="modal-title" id="exampleModalLabel">انشاء طريقة الطلب
                             </h5>
-                            <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}"
+                            <button type="button" class="btn-close m-0"
                                 id="request_method_close_btn" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="note_name">{% trans "Name" %}:</label>
+                                <label for="note_name">الاسم:</label>
                                 <input type="text" name="request_method_name" class="form-control"
                                     id="request_method_name" required>
                                 <p class="text-bold block mt-3" id="request_method_error_message"
@@ -492,8 +491,8 @@
                         </div>
                         <div class="modal-footer">
                             <button id="btnCloseRequestMethod" type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                                data-bs-dismiss="modal">اغلاق</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -508,20 +507,20 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-   <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Action" %} </h5>
-    <button type="button" class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" id="action_close_btn" data-bs-dismiss="modal" aria-label="Close"></button>
+   <h5 class="modal-title" id="exampleModalLabel">انشاء اجراءات </h5>
+    <button type="button" class="btn-close m-0 " id="action_close_btn" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
     <div class="form-group">
-    <label for="action_modal_name">{% trans "Name" %}:</label>
+    <label for="action_modal_name">الاسم:</label>
     <input type="text" name="action_modal_name" class="form-control" id="action_modal_name" required>
     <p class="text-bold block mt-3" id="action_error_message" style="font-weight: bold; color: red;"></p>
 
                             </div>
                         </div>
     <div class="modal-footer">
-    <button id="btnCloseRequestMethod" type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-    <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+    <button id="btnCloseRequestMethod" type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -536,15 +535,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Case" %} {% trans "Description" %}
+    <h5 class="modal-title" id="exampleModalLabel">انشاء وصف القضية
                             </h5>
                             <button id="request_reason_close_btn" type="button"
-                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                class="btn-close m-0" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="case_description_name">{% trans "Name" %}:</label>
+                                <label for="case_description_name">الاسم:</label>
                                 <input type="text" name="case_description_name" class="form-control"
                                     id="case_description_name" required>
                                 <p class="text-bold block mt-3" id="request_reason_error_message"
@@ -552,39 +551,37 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
 
-        <!-- Request Note Modal -->
+        <!-- طلب ملاحظة Modal -->
         <form id="request_note_modal" action="#" method="post">
             {% csrf_token %}
             <div class="modal fade" id="notemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Request Note"
-                                %}
+                            <h5 class="modal-title" id="exampleModalLabel">انشاء طلب ملاحظة
                             </h5>
                             <button id="request_note_close_btn" type="button"
-                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                class="btn-close m-0" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="note_name">{% trans "Name" %}:</label>
+                                <label for="note_name">الاسم:</label>
                                 <input type="text" name="note_name" class="form-control" id="note_name" required>
                                 <input id="note_user" type="hidden" value="{{request.user.id}}">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close'
-                                %}</button>
-                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -597,21 +594,21 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Company" %}
+    <h5 class="modal-title" id="exampleModalLabel">انشاء الشركه
                             </h5>
                             <button id="company_close_btn" type="button"
-                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                class="btn-close m-0" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="company_modal_name">{% trans "Name" %}:</label>
+                                <label for="company_modal_name">الاسم:</label>
                                 <input type="text" name="company_modal_name" class="form-control" id="company_modal_name" required>
                             </div>
                         </div>
                         <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-    <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+    <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -626,22 +623,22 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">{% trans "Create" %} {% trans "Company" %} {% trans "Guard" %}
+    <h5 class="modal-title" id="exampleModalLabel">انشاء الشركه الحارس
                             </h5>
                             <button id="company_guard_close_btn" type="button"
-                                class="btn-close {% if LANGUAGE_CODE == 'ar' %}m-0 {% endif %}" data-bs-dismiss="modal"
+                                class="btn-close m-0" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="guard_name" class="form-label pb-1">{% trans "Name" %}:</label>
+                                <label for="guard_name" class="form-label pb-1">الاسم:</label>
                                 <input type="text" name="guard_name" class="form-control mb-3" id="guard_name" required>
-    <label class="form-label pb-1" for="guard_nationality">{% trans "Nationality" %}:</label>
+    <label class="form-label pb-1" for="guard_nationality">جنسية الحارس:</label>
                                 <input type="text" name="guard_nationality" class="form-control mb-3"
                                     id="guard_nationality" required>
                                 <input id="note_user" type="hidden" value=" {{request.user.id}}">
                                 <div class="mb-3" bis_skin_checked="1">
-    <label for="guard_company" class="form-label pb-1">{% trans 'Company' %}:</label>
+    <label for="guard_company" class="form-label pb-1">الشركه:</label>
 
     <div class="dropdown" bis_skin_checked="1">
     <input type="text" class="form-control py-2" id="guard_company" name="guard_company" placeholder="Company" style="border-radius: 13px; background: transparent;" readonly>
@@ -651,7 +648,7 @@
                                             aria-haspopup="true" aria-expanded="false"
                                             xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 30 30" fill="none"
-                                            style="position: absolute; top: 7px; cursor: pointer; {% if LANGUAGE_CODE == 'ar' %} left: 6px; {% else %} right: 6px; {% endif %}">
+                                            style="position: absolute; top: 7px; cursor: pointer;  left: 6px;">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z"
                                                 fill="#0A1629"></path>
@@ -677,8 +674,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-                            <button type="submit" class="btn btn-primary" id="submitReview">{% trans "Save" %}</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                            <button type="submit" class="btn btn-primary" id="submitReview">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -822,7 +819,7 @@
         return false;
     });
 
-    // Request Note Modal
+    // طلب ملاحظة Modal
     $("#request_note_modal").submit(function (event) {
         event.preventDefault();
         $.ajax({
