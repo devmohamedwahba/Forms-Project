@@ -204,6 +204,7 @@ textarea:focus {
 @media (min-width: 992px) {
     #mySideBar {
         margin-left: 0 !important;
+        margin-top: 4rem;
     }
 }
 

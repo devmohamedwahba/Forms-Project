@@ -425,7 +425,7 @@
     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
     <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="{% if request.path == '/en/create_client' %} #4365D0 {% elif request.path == '/en/all_clients' %} #4365D0  {% elif request.path == '/ar/create_client' %} #4365D0 {% elif request.path == '/ar/all_clients' %} #4365D0 {% else %} white {% endif %}"/>
     </svg>
-    <span>مخول</span>
+    <span>المخولين</span>
     <svg id="clients-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"   aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="clientsCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_client' %} rotate(180deg) {% elif request.path == '/en/all_clients' %} rotate(180deg)  {% elif request.path == '/ar/create_client' %} rotate(180deg) {% elif request.path == '/ar/all_clients' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
     </svg>
@@ -493,7 +493,7 @@
     <a href="/{{request.LANGUAGE_CODE}}/trafic_log" class="collapse-item {% if request.path == '/en/trafic_log' %} text-white {% elif request.path == '/ar/trafic_log' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> سجل المرور"</a>
+    </svg> سجل المرور</a>
     {% endif %}
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/person_id" class="collapse-item {% if request.path == '/en/person_id' %} text-white {% elif request.path == '/ar/person_id' %} text-white {% endif %}">
@@ -602,7 +602,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> انشاء حضور الشركه/a>
+                                    </svg> انشاء حضور الشركه  </a>
                                     {% endif %}
 
                                 {% if perms.mainapp.view_companyattendance %}
@@ -711,7 +711,11 @@
                                 style="text-align: center; background: #4365D0; border-radius: 10px; padding-left: 0.8rem; padding-right: 0.8rem;">
                               
                                 <span>  تسجيل الخروج </span>
-                                <img class="logout_icon" src="../static/icons/logout.svg" alt="">
+                                <!-- <img class="logout_icon" src="../static/icons/logout.svg" alt=""> -->
+                                <img class="logout_icon" src="{% static 'icons/logout.svg' %}" alt="">
+                               
+                               
+                                
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     class="me-2">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
