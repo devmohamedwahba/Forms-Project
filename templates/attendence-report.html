@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Attendence Report" %}{% endblock %}
+{% block title %}تقرير الحضور{% endblock %}
 
 {% block content %}
 
@@ -130,7 +130,7 @@
                             </div>
                             <p class="mt-3 text-primary"
                                 style="font-size: 22px !important; font-weight: bold !important; color:#4365D0 !important;">
-                                {% trans "Checked In" %}</p>
+                                حضور</p>
                             <h5 class="mt-1" style="margin-top: 20px !important;">{{ check_in_count }}</h5>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                             </div>
                             <p class="mt-3 text-primary"
                                 style="font-size: 22px !important; font-weight: bold !important; color:#27B410 !important;">
-                                {% trans "Checked Out" %}</p>
+                                انصراف</p>
                             <h5 class="mt-1" style="margin-top: 20px !important;">{{ check_out_count }}</h5>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
         <div style="background-color: white; border-radius: 18px;">
             <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
                 style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                <h5 class="me-3 mb-0 text-white">{% trans "All Employees Monthly Attendance" %}</h5>
+                <h5 class="me-3 mb-0 text-white">الحضور الشهري لجميع الموظفين</h5>
             </div>
             <div class="attendence-table container-fluid" style="overflow-x:auto;">
                 <table class="table table-hover table-borderless" id="attendanceReportTable">
@@ -283,7 +283,7 @@
 
                 dates.sort();
 
-                let tableHeader = '<thead><tr><th>{% trans "Name" %}</th>';
+                let tableHeader = '<thead><tr><th>الاسم</th>';
                 dates.forEach(function (date) {
                     tableHeader += `<th>${date}</th>`;
                 });

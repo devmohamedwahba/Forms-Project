@@ -325,17 +325,17 @@
     <a href="/{{request.LANGUAGE_CODE}}/dashboard" class="nav-link {% if request.path == '/en/dashboard' %}dashboard-active  {% elif request.path == '/ar/dashboard' %}dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 3C4.34315 3 3 4.34315 3 6V8C3 9.65685 4.34315 11 6 11H8C9.65685 11 11 9.65685 11 8V6C11 4.34315 9.65685 3 8 3H6ZM16 3C14.3431 3 13 4.34315 13 6V8C13 9.65685 14.3431 11 16 11H18C19.6569 11 21 9.65685 21 8V6C21 4.34315 19.6569 3 18 3H16ZM3 16C3 14.3431 4.34315 13 6 13H8C9.65685 13 11 14.3431 11 16V18C11 19.6569 9.65685 21 8 21H6C4.34315 21 3 19.6569 3 18V16ZM16 13C14.3431 13 13 14.3431 13 16V18C13 19.6569 14.3431 21 16 21H18C19.6569 21 21 19.6569 21 18V16C21 14.3431 19.6569 13 18 13H16Z" fill="{% if request.path == '/dashboard' %}#4365D0 {% elif request.path == '/ar/dashboard' %} #4365D0 {% elif request.path == '/en/dashboard' %} #4365D0 {% else %}white {% endif %}" />
-                            </svg> <span> {% trans "Dashboard" %}
+                            </svg> <span> لوحة التحكم
                             </span></a>
     
     {% if perms.mainapp.add_customuser or perms.mainapp.view_customuser or perms.auth.add_group or perms.mainapp.add_routine or perms.mainapp.view_shift or perms.mainapp.view_routine or perms.mainapp.add_employeeroutine or perms.mainapp.view_employeeroutine or perms.mainapp.add_duty %}
 
-    <button id="userManagement" href="/user_management" class="text-right nav-link {% if request.path == '/en/user_management' %} dashboard-active {% elif request.path == '/en/create_user' %} dashboard-active {% elif request.path == '/en/all_users' %} dashboard-active {% elif request.path == '/en/employee_routine' %} dashboard-active {% elif request.path == '/en/employee_duty' %} dashboard-active {% elif request.path == '/en/all_employee' %} dashboard-active  {% elif request.path == '/en/create_employee' %} dashboard-active {% elif request.path == '/en/create_routine' %} dashboard-active  {% elif request.path == '/en/all_routine' %} dashboard-active {% elif request.path == '/en/all_shift' %} dashboard-active {% elif request.path == '/en/create_shift' %} dashboard-active {% elif request.path == '/ar/user_management' %} dashboard-active {% elif request.path == '/ar/create_user' %} dashboard-active {% elif request.path == '/ar/all_users' %} dashboard-active {% elif request.path == '/ar/employee_routine' %} dashboard-active {% elif request.path == '/ar/employee_duty' %} dashboard-active {% elif request.path == '/ar/all_employee' %} dashboard-active  {% elif request.path == '/ar/create_employee' %} dashboard-active {% elif request.path == '/ar/create_routine' %} dashboard-active {% elif request.path == '/ar/all_routine' %} dashboard-active {% elif request.path == '/ar/all_shift' %} dashboard-active {% elif request.path == '/ar/create_shift' %}dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
+    <button data-bs-toggle="collapse" data-bs-target="#userCollapse" onclick="rotateIcon('user-collapse-icon')" id="userManagement" href="/user_management" class="text-right nav-link {% if request.path == '/en/user_management' %} dashboard-active {% elif request.path == '/en/create_user' %} dashboard-active {% elif request.path == '/en/all_users' %} dashboard-active {% elif request.path == '/en/employee_routine' %} dashboard-active {% elif request.path == '/en/employee_duty' %} dashboard-active {% elif request.path == '/en/all_employee' %} dashboard-active  {% elif request.path == '/en/create_employee' %} dashboard-active {% elif request.path == '/en/create_routine' %} dashboard-active  {% elif request.path == '/en/all_routine' %} dashboard-active {% elif request.path == '/en/all_shift' %} dashboard-active {% elif request.path == '/en/create_shift' %} dashboard-active {% elif request.path == '/ar/user_management' %} dashboard-active {% elif request.path == '/ar/create_user' %} dashboard-active {% elif request.path == '/ar/all_users' %} dashboard-active {% elif request.path == '/ar/employee_routine' %} dashboard-active {% elif request.path == '/ar/employee_duty' %} dashboard-active {% elif request.path == '/ar/all_employee' %} dashboard-active  {% elif request.path == '/ar/create_employee' %} dashboard-active {% elif request.path == '/ar/create_routine' %} dashboard-active {% elif request.path == '/ar/all_routine' %} dashboard-active {% elif request.path == '/ar/all_shift' %} dashboard-active {% elif request.path == '/ar/create_shift' %}dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 20 18" fill="none" class="me-2">
     <path d="M7.18013 0.795746C8.2683 0.795746 9.31189 1.22802 10.0813 1.99747C10.8508 2.76691 11.2831 3.81051 11.2831 4.89867C11.2831 5.98684 10.8508 7.03043 10.0813 7.79988C9.31189 8.56933 8.2683 9.0016 7.18013 9.0016C6.09197 9.0016 5.04837 8.56933 4.27892 7.79988C3.50947 7.03043 3.0772 5.98684 3.0772 4.89867C3.0772 3.81051 3.50947 2.76691 4.27892 1.99747C5.04837 1.22802 6.09197 0.795746 7.18013 0.795746ZM5.71526 10.5402H8.64501C9.02325 10.5402 9.39507 10.5787 9.75087 10.646C9.68356 11.239 9.98808 11.7871 10.4497 12.082C9.91756 12.4218 9.59381 13.0949 9.80857 13.7905C9.93679 14.204 10.1099 14.6079 10.3343 14.9957C10.5586 15.3836 10.8215 15.7362 11.1164 16.0535C11.6196 16.5952 12.3857 16.6433 12.9499 16.3324V16.3612C12.9499 16.6561 13.0364 16.9542 13.2031 17.2042H0.952008C0.42632 17.2075 0 16.7811 0 16.2554C0 13.0981 2.55792 10.5402 5.71526 10.5402ZM13.9756 7.78995C13.9756 7.56558 14.1199 7.36363 14.3378 7.31555C14.6744 7.23862 15.027 7.19695 15.386 7.19695C15.745 7.19695 16.0976 7.23862 16.4342 7.31555C16.6521 7.36363 16.7964 7.56558 16.7964 7.78995V8.35731C16.7964 8.60733 16.9502 8.83171 17.1682 8.95672C17.3862 9.08173 17.6522 9.10097 17.867 8.97596L18.3093 8.72273C18.5049 8.61054 18.7485 8.63618 18.9023 8.79966C19.1459 9.0593 19.3607 9.35099 19.5466 9.67153C19.7325 9.99207 19.8768 10.3254 19.9794 10.6652C20.0467 10.88 19.9441 11.1044 19.7486 11.2165L19.287 11.4826C19.0786 11.6012 18.9664 11.832 18.9664 12.0724C18.9664 12.3128 19.0786 12.5436 19.287 12.6622L19.7486 12.9282C19.9441 13.0404 20.0435 13.2648 19.9794 13.4796C19.8736 13.8193 19.7293 14.1527 19.5466 14.4732C19.3639 14.7938 19.1459 15.0855 18.9023 15.3451C18.7485 15.5086 18.5017 15.5342 18.3093 15.422L17.867 15.1688C17.6522 15.0438 17.383 15.063 17.1682 15.188C16.9502 15.3131 16.7964 15.5374 16.7964 15.7875V16.3548C16.7964 16.5792 16.6521 16.7811 16.4342 16.8292C16.0976 16.9061 15.745 16.9478 15.386 16.9478C15.027 16.9478 14.6744 16.9061 14.3378 16.8292C14.1199 16.7811 13.9756 16.5792 13.9756 16.3548V15.7907C13.9756 15.5374 13.8185 15.3131 13.6006 15.1848C13.3826 15.0598 13.1134 15.0406 12.8954 15.1656L12.4627 15.4156C12.2671 15.5278 12.0235 15.5022 11.8697 15.3387C11.626 15.0791 11.4113 14.7874 11.2254 14.4668C11.0395 14.1463 10.8952 13.8129 10.7926 13.4731C10.7253 13.2584 10.8279 13.034 11.0234 12.9218L11.4722 12.6622C11.6805 12.5404 11.7959 12.3064 11.7959 12.066C11.7959 11.8256 11.6837 11.5916 11.4722 11.4698L11.0234 11.2101C10.8279 11.0979 10.7285 10.8736 10.7926 10.6588C10.8984 10.319 11.0395 9.98566 11.2254 9.66512C11.4113 9.34458 11.626 9.05289 11.8697 8.79325C12.0235 8.62977 12.2671 8.60413 12.4627 8.71632L12.8986 8.96634C13.1166 9.09135 13.3858 9.07212 13.6038 8.94711C13.825 8.8221 13.9788 8.59451 13.9788 8.34128V7.78995H13.9756ZM16.9278 12.0692C16.9373 11.861 16.9045 11.6531 16.8314 11.4579C16.7583 11.2628 16.6463 11.0845 16.5024 10.9338C16.3584 10.7831 16.1854 10.6632 15.9938 10.5813C15.8022 10.4993 15.596 10.4571 15.3876 10.4571C15.1792 10.4571 14.973 10.4993 14.7814 10.5813C14.5898 10.6632 14.4168 10.7831 14.2728 10.9338C14.1288 11.0845 14.0169 11.2628 13.9438 11.4579C13.8707 11.6531 13.8379 11.861 13.8474 12.0692C13.8379 12.2774 13.8707 12.4853 13.9438 12.6804C14.0169 12.8756 14.1288 13.0539 14.2728 13.2045C14.4168 13.3552 14.5898 13.4751 14.7814 13.5571C14.973 13.639 15.1792 13.6813 15.3876 13.6813C15.596 13.6813 15.8022 13.639 15.9938 13.5571C16.1854 13.4751 16.3584 13.3552 16.5024 13.2045C16.6463 13.0539 16.7583 12.8756 16.8314 12.6804C16.9045 12.4853 16.9373 12.2774 16.9278 12.0692Z" fill="{% if request.path == '/en/user_management' %} #4365D0 {% elif request.path == '/en/create_user' %} #4365D0 {% elif request.path == '/en/all_users' %} #4365D0 {% elif request.path == '/en/employee_routine' %} #4365D0 {% elif request.path == '/en/employee_duty' %} #4365D0 {% elif request.path == '/en/all_employee' %} #4365D0 {% elif request.path == '/en/create_employee' %} #4365D0 {% elif request.path == '/en/create_shift' %} #4365D0 {% elif request.path == '/en/create_department' %} #4365D0 {% elif request.path == '/en/all_shift' %} #4365D0 {% elif request.path == '/en/create_routine' %} #4365D0 {% elif request.path == '/en/all_routine' %} #4365D0 {% elif request.path == '/ar/user_management' %} #4365D0 {% elif request.path == '/ar/create_user' %} #4365D0 {% elif request.path == '/ar/all_users' %} #4365D0 {% elif request.path == '/ar/employee_routine' %} #4365D0 {% elif request.path == '/ar/employee_duty' %} #4365D0 {% elif request.path == '/ar/all_employee' %} #4365D0 {% elif request.path == '/ar/create_employee' %} #4365D0 {% elif request.path == '/ar/create_shift' %} #4365D0 {% elif request.path == '/ar/create_department' %} #4365D0 {% elif request.path == '/ar/all_shift' %} #4365D0 {% elif request.path == '/ar/create_routine' %} #4365D0 {% elif request.path == '/ar/all_routine' %} #4365D0 {% else %} white {% endif %}" />
                             </svg>
-    <span> {% trans "Users" %} </span>
-    <svg id="user-collapse-icon" class="collapse-icon" onclick="rotateIcon('user-collapse-icon')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" data-bs-toggle="collapse" data-bs-target="#userCollapse" aria-expanded="{% if request.path == '/create_user' %} true {% elif request.path == '/all_users' %} true {% elif request.path == '/user_management' %} true {% else %} false {% endif %}" aria-controls="userCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_user' %} rotate(180deg) {% elif request.path == '/en/all_users' %} rotate(180deg) {% elif request.path == '/en/user_management' %} rotate(180deg) {% elif request.path == '/en/employee_routine' %} rotate(180deg) {% elif request.path == '/en/employee_duty' %} rotate(180deg) {% elif request.path == '/en/all_employee' %} rotate(180deg) {% elif request.path == '/en/create_employee' %} rotate(180deg) {% elif request.path == '/en/create_shift' %} rotate(180deg) {% elif request.path == '/en/all_shift' %} rotate(180deg) {% elif request.path == '/en/create_routine' %} rotate(180deg) {% elif request.path == '/en/all_routine' %} rotate(180deg) {% elif request.path == '/ar/create_user' %} rotate(180deg) {% elif request.path == '/ar/all_users' %} rotate(180deg) {% elif request.path == '/ar/user_management' %} rotate(180deg) {% elif request.path == '/ar/employee_routine' %} rotate(180deg) {% elif request.path == '/ar/employee_duty' %} rotate(180deg) {% elif request.path == '/ar/all_employee' %} rotate(180deg) {% elif request.path == '/ar/create_employee' %} rotate(180deg) {% elif request.path == '/ar/create_shift' %} rotate(180deg) {% elif request.path == '/ar/all_shift' %} rotate(180deg) {% elif request.path == '/ar/create_routine' %} rotate(180deg) {% elif request.path == '/ar/all_routine' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
+    <span> المستخدمين </span>
+    <svg id="user-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"  aria-expanded="{% if request.path == '/create_user' %} true {% elif request.path == '/all_users' %} true {% elif request.path == '/user_management' %} true {% else %} false {% endif %}" aria-controls="userCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_user' %} rotate(180deg) {% elif request.path == '/en/all_users' %} rotate(180deg) {% elif request.path == '/en/user_management' %} rotate(180deg) {% elif request.path == '/en/employee_routine' %} rotate(180deg) {% elif request.path == '/en/employee_duty' %} rotate(180deg) {% elif request.path == '/en/all_employee' %} rotate(180deg) {% elif request.path == '/en/create_employee' %} rotate(180deg) {% elif request.path == '/en/create_shift' %} rotate(180deg) {% elif request.path == '/en/all_shift' %} rotate(180deg) {% elif request.path == '/en/create_routine' %} rotate(180deg) {% elif request.path == '/en/all_routine' %} rotate(180deg) {% elif request.path == '/ar/create_user' %} rotate(180deg) {% elif request.path == '/ar/all_users' %} rotate(180deg) {% elif request.path == '/ar/user_management' %} rotate(180deg) {% elif request.path == '/ar/employee_routine' %} rotate(180deg) {% elif request.path == '/ar/employee_duty' %} rotate(180deg) {% elif request.path == '/ar/all_employee' %} rotate(180deg) {% elif request.path == '/ar/create_employee' %} rotate(180deg) {% elif request.path == '/ar/create_shift' %} rotate(180deg) {% elif request.path == '/ar/all_shift' %} rotate(180deg) {% elif request.path == '/ar/create_routine' %} rotate(180deg) {% elif request.path == '/ar/all_routine' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
     </svg>
     </button>
@@ -349,7 +349,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Create" %} {% trans "Users" %}</a>
+                                    </svg> انشاء المستخدمين</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.view_customuser %}
@@ -357,7 +357,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Users" %}</a>
+                                    </svg> عرض جميع المستخدمين</a>
                                     {% endif %}
 
                                     {% if perms.auth.add_group %}
@@ -365,7 +365,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Users" %} {% trans "Management" %}</a>
+                                    </svg> اداره المستخدمين</a>
 
                                     {% endif %}
 
@@ -375,7 +375,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Shift" %}</a>
+                                    </svg> عرض جميع الورديات</a>
                                     {% endif %}
 
 
@@ -384,7 +384,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Create" %} {% trans "Routine" %}</a>
+                                    </svg>انشاء نظام العمل</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.view_routine %}
@@ -393,7 +393,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Routine" %}</a>
+                                    </svg> عرض جميع نظام العمل</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.add_employeeroutine %}
@@ -401,7 +401,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Assign" %} {% trans "Routine" %}</a>
+                                    </svg> تعيين نظام العمل</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.add_duty %}
@@ -410,7 +410,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Assign" %} {% trans "Duty" %}</a>
+                                    </svg> تعيين الوظيفة</a>
                                     {% endif %}
                             </div>
                         </div>
@@ -421,12 +421,12 @@
 
 {% if perms.mainapp.add_client or perms.mainapp.view_client %}
 
-<button class="nav-link {% if request.path == '/en/create_client' %} dashboard-active {% elif request.path == '/en/all_clients' %} dashboard-active  {% elif request.path == '/ar/create_client' %} dashboard-active {% elif request.path == '/ar/all_clients' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
+<button data-bs-toggle="collapse" data-bs-target="#clientsCollapse" onclick="rotateIcon('clients-collapse-icon')" class="nav-link  {% if request.path == '/en/create_client' %} dashboard-active {% elif request.path == '/en/all_clients' %} dashboard-active  {% elif request.path == '/ar/create_client' %} dashboard-active {% elif request.path == '/ar/all_clients' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
     <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="{% if request.path == '/en/create_client' %} #4365D0 {% elif request.path == '/en/all_clients' %} #4365D0  {% elif request.path == '/ar/create_client' %} #4365D0 {% elif request.path == '/ar/all_clients' %} #4365D0 {% else %} white {% endif %}"/>
     </svg>
-    <span>{% trans "Authorized" %}</span>
-    <svg id="clients-collapse-icon" class="collapse-icon" onclick="rotateIcon('clients-collapse-icon')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" data-bs-toggle="collapse" data-bs-target="#clientsCollapse" aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="clientsCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_client' %} rotate(180deg) {% elif request.path == '/en/all_clients' %} rotate(180deg)  {% elif request.path == '/ar/create_client' %} rotate(180deg) {% elif request.path == '/ar/all_clients' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
+    <span>مخول</span>
+    <svg id="clients-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"   aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="clientsCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_client' %} rotate(180deg) {% elif request.path == '/en/all_clients' %} rotate(180deg)  {% elif request.path == '/ar/create_client' %} rotate(180deg) {% elif request.path == '/ar/all_clients' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
     </svg>
     </button>
@@ -438,14 +438,15 @@
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
     </svg>
-    {% trans "Create" %} {% trans "Clients" %}</a>
+    انشاء العملاء
+    </a>
     {% endif %}
 
     {% if perms.mainapp.view_client %}
     <a href="/{{request.LANGUAGE_CODE}}/all_clients" class="collapse-item {% if request.path == '/en/all_clients' %} text-white {% elif request.path == '/ar/all_clients' %} text-white {% endif %}" style="cursor:pointer;">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "All" %} {% trans "Clients" %}</a>
+    </svg> عرض جميع العملاء</a>
     {% endif %}
 
     </div>
@@ -456,16 +457,16 @@
     <a href="/{{request.LANGUAGE_CODE}}/attendence" class="nav-link {% if request.path == '/en/attendence' %}dashboard-active {% elif request.path == '/ar/attendence' %}dashboard-active{% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %}">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
     <path d="M19 19H5V8H19M19 3H18V1H16V3H8V1H6V3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3ZM16.53 11.06L15.47 10L10.59 14.88L8.47 12.76L7.41 13.82L10.59 17L16.53 11.06Z" fill="{% if request.path == '/en/attendence' %}#4365D0 {% elif request.path == '/ar/attendence' %}#4365D0 {% else %}white {% endif %}" />
-                            </svg>{% trans "Attendance" %}</a>
+                            </svg>الحضور</a>
                             {% endif %}
 
     {% if perms.mainapp.add_request or perms.mainapp.view_request %}
                         
-    <button class="nav-link {% if request.path == '/en/request_form' %} dashboard-active {% elif request.path == '/en/list_employee_request_form' %} dashboard-active {% elif request.path == '/en/list_client_request_form' %} dashboard-active {% elif request.path == '/en/client_request_forms' %} dashboard-active {% elif request.path == '/en/list_all_attachments' %} dashboard-active {% elif request.path == '/ar/request_form' %} dashboard-active {% elif request.path == '/ar/list_employee_request_form' %} dashboard-active {% elif request.path == '/ar/list_client_request_form' %} dashboard-active {% elif request.path == '/ar/client_request_forms' %} dashboard-active {% elif request.path == '/ar/list_all_attachments' %}  dashboard-active {% elif request.path == '/en/cases_log' %} dashboard-active {% elif request.path == '/ar/cases_log' %} dashboard-active {% elif request.path == '/en/trafic_log' %} dashboard-active {% elif request.path == '/ar/trafic_log' %} dashboard-active {% elif request.path == '/en/person_id' %} dashboard-active {% elif request.path == '/ar/person_id' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
+    <button data-bs-toggle="collapse" data-bs-target="#formCollapse"  onclick="rotateIcon('forms-collapse-icon')" class="nav-link {% if request.path == '/en/request_form' %} dashboard-active {% elif request.path == '/en/list_employee_request_form' %} dashboard-active {% elif request.path == '/en/list_client_request_form' %} dashboard-active {% elif request.path == '/en/client_request_forms' %} dashboard-active {% elif request.path == '/en/list_all_attachments' %} dashboard-active {% elif request.path == '/ar/request_form' %} dashboard-active {% elif request.path == '/ar/list_employee_request_form' %} dashboard-active {% elif request.path == '/ar/list_client_request_form' %} dashboard-active {% elif request.path == '/ar/client_request_forms' %} dashboard-active {% elif request.path == '/ar/list_all_attachments' %}  dashboard-active {% elif request.path == '/en/cases_log' %} dashboard-active {% elif request.path == '/ar/cases_log' %} dashboard-active {% elif request.path == '/en/trafic_log' %} dashboard-active {% elif request.path == '/ar/trafic_log' %} dashboard-active {% elif request.path == '/en/person_id' %} dashboard-active {% elif request.path == '/ar/person_id' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
     <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM7 7H9V9H7V7ZM7 11H9V13H7V11ZM7 15H9V17H7V15ZM17 17H11V15H17V17ZM17 13H11V11H17V13ZM17 9H11V7H17V9Z" fill="{% if request.path == '/en/request_form' %} #4365D0 {% elif request.path == '/en/client_request_forms' %} #4365D0 {% elif request.path == '/en/list_employee_request_form' %} #4365D0 {% elif request.path == '/en/list_client_request_form' %} #4365D0 {% elif request.path == '/en/list_all_attachments' %} #4365D0 {% elif request.path == '/ar/request_form' %} #4365D0 {% elif request.path == '/ar/client_request_forms' %} #4365D0 {% elif request.path == '/ar/list_employee_request_form' %} #4365D0 {% elif request.path == '/ar/list_client_request_form' %} #4365D0 {% elif request.path == '/ar/list_all_attachments' %} #4365D0 {% elif request.path == '/en/cases_log' %} #4365D0 {% elif request.path == '/ar/cases_log' %} #4365D0 {% elif request.path == '/en/trafic_log' %} #4365D0 {% elif request.path == '/ar/trafic_log' %} #4365D0 {% elif request.path == '/en/person_id' %} #4365D0 {% elif request.path == '/ar/person_id' %} #4365D0 {% else %} white {% endif %}" />
-                            </svg><span>{% trans "Requests" %}</span>
-    <svg id="forms-collapse-icon" class="collapse-icon" onclick="rotateIcon('forms-collapse-icon')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" data-bs-toggle="collapse" data-bs-target="#formCollapse" aria-expanded="{% if request.path == '/request_form' %} true {% elif request.path == '/information_form' %} true {% elif request.path == '/client_request_forms' %} true {% else %} false {% endif %}" aria-controls="formCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/request_form' %} rotate(180deg) {% elif request.path == '/en/client_request_forms' %} rotate(180deg) {% elif request.path == '/en/list_employee_request_form' %} rotate(180deg) {% elif request.path == '/en/list_client_request_form' %} rotate(180deg) {% elif request.path == '/en/list_all_attachments' %} rotate(180deg) {% elif request.path == '/ar/request_form' %} rotate(180deg) {% elif request.path == '/ar/client_request_forms' %} rotate(180deg) {% elif request.path == '/ar/list_employee_request_form' %} rotate(180deg) {% elif request.path == '/ar/list_client_request_form' %} rotate(180deg) {% elif request.path == '/ar/list_all_attachments' %} rotate(180deg) {% elif request.path == '/en/cases_log' %} rotate(180deg) {% elif request.path == '/ar/cases_log' %} rotate(180deg) {% elif request.path == '/en/trafic_log' %} rotate(180deg) {% elif request.path == '/ar/trafic_log' %} rotate(180deg) {% elif request.path == '/en/person_id' %} rotate(180deg) {% elif request.path == '/ar/person_id' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
+                            </svg><span>الطلبات</span>
+    <svg id="forms-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" aria-expanded="{% if request.path == '/request_form' %} true {% elif request.path == '/information_form' %} true {% elif request.path == '/client_request_forms' %} true {% else %} false {% endif %}" aria-controls="formCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/request_form' %} rotate(180deg) {% elif request.path == '/en/client_request_forms' %} rotate(180deg) {% elif request.path == '/en/list_employee_request_form' %} rotate(180deg) {% elif request.path == '/en/list_client_request_form' %} rotate(180deg) {% elif request.path == '/en/list_all_attachments' %} rotate(180deg) {% elif request.path == '/ar/request_form' %} rotate(180deg) {% elif request.path == '/ar/client_request_forms' %} rotate(180deg) {% elif request.path == '/ar/list_employee_request_form' %} rotate(180deg) {% elif request.path == '/ar/list_client_request_form' %} rotate(180deg) {% elif request.path == '/ar/list_all_attachments' %} rotate(180deg) {% elif request.path == '/en/cases_log' %} rotate(180deg) {% elif request.path == '/ar/cases_log' %} rotate(180deg) {% elif request.path == '/en/trafic_log' %} rotate(180deg) {% elif request.path == '/ar/trafic_log' %} rotate(180deg) {% elif request.path == '/en/person_id' %} rotate(180deg) {% elif request.path == '/ar/person_id' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
     </svg>
     </button>
@@ -477,7 +478,7 @@
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
     </svg>
-    {% trans "Requests" %}
+    الطلبات
     </a>
     {% endif %}
     
@@ -485,34 +486,34 @@
     <a href="/{{request.LANGUAGE_CODE}}/cases_log" class="collapse-item {% if request.path == '/en/cases_log' %} text-white {% elif request.path == '/ar/cases_log' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Cases Log" %}</a>
+    </svg> سجل القضايا</a>
     {% endif %}
     
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/trafic_log" class="collapse-item {% if request.path == '/en/trafic_log' %} text-white {% elif request.path == '/ar/trafic_log' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Trafic Log" %}</a>
+    </svg> سجل المرور"</a>
     {% endif %}
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/person_id" class="collapse-item {% if request.path == '/en/person_id' %} text-white {% elif request.path == '/ar/person_id' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Person ID" %}</a>
+    </svg> الرقم الموحد</a>
     {% endif %}
 
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/list_employee_request_form" class="collapse-item {% if request.path == '/en/list_employee_request_form' %} text-white {% elif request.path == '/ar/list_employee_request_form' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "List All" %} {% trans "Requests" %}</a>
+    </svg> عرض جميع الطلبات</a>
     {% endif %}
 
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/list_all_attachments" class="collapse-item {% if request.path == '/en/list_all_attachments' %} text-white {% elif request.path == '/ar/list_all_attachments' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "List All" %} {% trans "Attachment" %}</a>
+    </svg> عرض جميع المرفقات</a>
     {% endif %}
 
                                     
@@ -535,12 +536,12 @@
 
                         {% if perms.mainapp.add_vehicle or perms.mainapp.view_vehicle or perms.mainapp.add_vehiclefailures or perms.mainapp.view_vehiclefailures or perms.mainapp.add_companycases or perms.mainapp.view_companycases or perms.mainapp.add_companyattendance or perms.mainapp.view_companyattendance %}
 
-                        <button class="nav-link {% if request.path == '/en/create_vehicle_type' %} dashboard-active {% elif request.path == '/en/all_vehicle_type' %} dashboard-active {% elif request.path == '/en/create_vehicle' %} dashboard-active {% elif request.path == '/en/all_vehicle' %} dashboard-active {% elif request.path == '/en/create_vehicle_failures' %} dashboard-active {% elif request.path == '/en/all_vehicle_failures' %} dashboard-active {% elif request.path == '/en/create_company' %} dashboard-active {% elif request.path == '/en/all_company' %} dashboard-active {% elif request.path == '/en/create_company_cases' %} dashboard-active {% elif request.path == '/en/all_company_cases' %} dashboard-active {% elif request.path == '/en/create_company_attendance' %} dashboard-active {% elif request.path == '/en/all_company_attendance' %} dashboard-active {% elif request.path == '/en/create_action' %} dashboard-active {% elif request.path == '/en/all_action' %} {% elif request.path == '/ar/create_vehicle_type' %} dashboard-active {% elif request.path == '/ar/all_vehicle_type' %} dashboard-active {% elif request.path == '/ar/create_vehicle' %} dashboard-active {% elif request.path == '/ar/all_vehicle' %} dashboard-active {% elif request.path == '/ar/create_vehicle_failures' %} dashboard-active {% elif request.path == '/ar/all_vehicle_failures' %} dashboard-active {% elif request.path == '/ar/create_company' %} dashboard-active {% elif request.path == '/ar/all_company' %} dashboard-active {% elif request.path == '/ar/create_company_cases' %} dashboard-active {% elif request.path == '/ar/all_company_cases' %} dashboard-active {% elif request.path == '/ar/create_company_attendance' %} dashboard-active {% elif request.path == '/ar/all_company_attendance' %} dashboard-active {% elif request.path == '/ar/create_action' %} dashboard-active {% elif request.path == '/ar/all_action' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
+                        <button data-bs-toggle="collapse" data-bs-target="#companyCollapse"  onclick="rotateIcon('company-collapse-icon')" class="nav-link {% if request.path == '/en/create_vehicle_type' %} dashboard-active {% elif request.path == '/en/all_vehicle_type' %} dashboard-active {% elif request.path == '/en/create_vehicle' %} dashboard-active {% elif request.path == '/en/all_vehicle' %} dashboard-active {% elif request.path == '/en/create_vehicle_failures' %} dashboard-active {% elif request.path == '/en/all_vehicle_failures' %} dashboard-active {% elif request.path == '/en/create_company' %} dashboard-active {% elif request.path == '/en/all_company' %} dashboard-active {% elif request.path == '/en/create_company_cases' %} dashboard-active {% elif request.path == '/en/all_company_cases' %} dashboard-active {% elif request.path == '/en/create_company_attendance' %} dashboard-active {% elif request.path == '/en/all_company_attendance' %} dashboard-active {% elif request.path == '/en/create_action' %} dashboard-active {% elif request.path == '/en/all_action' %} {% elif request.path == '/ar/create_vehicle_type' %} dashboard-active {% elif request.path == '/ar/all_vehicle_type' %} dashboard-active {% elif request.path == '/ar/create_vehicle' %} dashboard-active {% elif request.path == '/ar/all_vehicle' %} dashboard-active {% elif request.path == '/ar/create_vehicle_failures' %} dashboard-active {% elif request.path == '/ar/all_vehicle_failures' %} dashboard-active {% elif request.path == '/ar/create_company' %} dashboard-active {% elif request.path == '/ar/all_company' %} dashboard-active {% elif request.path == '/ar/create_company_cases' %} dashboard-active {% elif request.path == '/ar/all_company_cases' %} dashboard-active {% elif request.path == '/ar/create_company_attendance' %} dashboard-active {% elif request.path == '/ar/all_company_attendance' %} dashboard-active {% elif request.path == '/ar/create_action' %} dashboard-active {% elif request.path == '/ar/all_action' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
                             <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
                             <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="{% if request.path == '/en/create_vehicle_type' %} #4365D0 {% elif request.path == '/en/all_vehicle_type' %} #4365D0 {% elif request.path == '/en/create_vehicle' %} #4365D0 {% elif request.path == '/en/all_vehicle' %} #4365D0 {% elif request.path == '/en/create_vehicle_failures' %} #4365D0 {% elif request.path == '/en/all_vehicle_failures' %} #4365D0 {% elif request.path == '/en/create_company' %} #4365D0 {% elif request.path == '/en/all_company' %} #4365D0 {% elif request.path == '/en/create_company_cases' %} #4365D0 {% elif request.path == '/en/all_company_cases' %} #4365D0 {% elif request.path == '/en/create_company_attendance' %} #4365D0 {% elif request.path == '/en/all_company_attendance' %} #4365D0 {% elif request.path == '/en/create_action' %} #4365D0 {% elif request.path == '/en/all_action' %} #4365D0 {% elif request.path == '/ar/create_vehicle_type' %} #4365D0 {% elif request.path == '/ar/all_vehicle_type' %} #4365D0 {% elif request.path == '/ar/create_vehicle' %} #4365D0 {% elif request.path == '/ar/all_vehicle' %} #4365D0 {% elif request.path == '/ar/create_vehicle_failures' %} #4365D0 {% elif request.path == '/ar/all_vehicle_failures' %} #4365D0 {% elif request.path == '/ar/create_company' %} #4365D0 {% elif request.path == '/ar/all_company' %} #4365D0 {% elif request.path == '/ar/create_company_cases' %} #4365D0 {% elif request.path == '/ar/all_company_cases' %} #4365D0 {% elif request.path == '/ar/create_company_attendance' %} #4365D0 {% elif request.path == '/ar/all_company_attendance' %} #4365D0 {% elif request.path == '/ar/create_action' %} #4365D0 {% elif request.path == '/ar/all_action' %} #4365D0 {% else %} white {% endif %}"/>
                             </svg>
-                            <span>{% trans "Company" %}</span>
-                            <svg id="company-collapse-icon" class="collapse-icon" onclick="rotateIcon('company-collapse-icon')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" data-bs-toggle="collapse" data-bs-target="#companyCollapse" aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="companyCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_vehicle_type' %} rotate(180deg) {% elif request.path == '/en/all_vehicle_type' %} rotate(180deg) {% elif request.path == '/en/create_vehicle' %} rotate(180deg) {% elif request.path == '/en/all_vehicle' %} rotate(180deg) {% elif request.path == '/en/create_vehicle_failures' %} rotate(180deg) {% elif request.path == '/en/all_vehicle_failures' %} rotate(180deg) {% elif request.path == '/en/create_company' %} rotate(180deg) {% elif request.path == '/en/all_company' %} rotate(180deg) {% elif request.path == '/en/create_company_cases' %} rotate(180deg) {% elif request.path == '/en/all_company_cases' %} rotate(180deg) {% elif request.path == '/en/create_company_attendance' %} rotate(180deg) {% elif request.path == '/en/all_company_attendance' %} rotate(180deg) {% elif request.path == '/en/create_action' %} rotate(180deg) {% elif request.path == '/en/all_action' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle_type' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle_type' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle_failures' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle_failures' %} rotate(180deg) {% elif request.path == '/ar/create_company' %} rotate(180deg) {% elif request.path == '/ar/all_company' %} rotate(180deg) {% elif request.path == '/ar/create_company_cases' %} rotate(180deg) {% elif request.path == '/ar/all_company_cases' %} rotate(180deg) {% elif request.path == '/ar/create_company_attendance' %} rotate(180deg) {% elif request.path == '/ar/all_company_attendance' %} rotate(180deg) {% elif request.path == '/ar/create_action' %} rotate(180deg) {% elif request.path == '/ar/all_action' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
+                            <span> الشركه </span>
+                            <svg id="company-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="companyCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/create_vehicle_type' %} rotate(180deg) {% elif request.path == '/en/all_vehicle_type' %} rotate(180deg) {% elif request.path == '/en/create_vehicle' %} rotate(180deg) {% elif request.path == '/en/all_vehicle' %} rotate(180deg) {% elif request.path == '/en/create_vehicle_failures' %} rotate(180deg) {% elif request.path == '/en/all_vehicle_failures' %} rotate(180deg) {% elif request.path == '/en/create_company' %} rotate(180deg) {% elif request.path == '/en/all_company' %} rotate(180deg) {% elif request.path == '/en/create_company_cases' %} rotate(180deg) {% elif request.path == '/en/all_company_cases' %} rotate(180deg) {% elif request.path == '/en/create_company_attendance' %} rotate(180deg) {% elif request.path == '/en/all_company_attendance' %} rotate(180deg) {% elif request.path == '/en/create_action' %} rotate(180deg) {% elif request.path == '/en/all_action' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle_type' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle_type' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle' %} rotate(180deg) {% elif request.path == '/ar/create_vehicle_failures' %} rotate(180deg) {% elif request.path == '/ar/all_vehicle_failures' %} rotate(180deg) {% elif request.path == '/ar/create_company' %} rotate(180deg) {% elif request.path == '/ar/all_company' %} rotate(180deg) {% elif request.path == '/ar/create_company_cases' %} rotate(180deg) {% elif request.path == '/ar/all_company_cases' %} rotate(180deg) {% elif request.path == '/ar/create_company_attendance' %} rotate(180deg) {% elif request.path == '/ar/all_company_attendance' %} rotate(180deg) {% elif request.path == '/ar/create_action' %} rotate(180deg) {% elif request.path == '/ar/all_action' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
                             </svg>
                             </button>
@@ -551,7 +552,7 @@
     <a href="/{{request.LANGUAGE_CODE}}/create_vehicle" class="collapse-item {% if request.path == '/en/create_vehicle' %} text-white {% elif request.path == '/ar/create_vehicle' %} text-white {% endif %}">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Create" %} {% trans "Vehicle" %}
+    </svg> انشاء المركبة
 </a>
                                     {% endif %}
 
@@ -561,7 +562,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Vehicle" %}</a>
+                                    </svg>  عرض جميع المركبة </a>
                                     {% endif %}
 
                                     {% if perms.mainapp.add_vehiclefailures %}
@@ -569,7 +570,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Create" %} {% trans "Vehicle" %} {% trans "Failures" %}</a>
+                                    </svg>  انشاء الاعطال المركبة </a>
                                     {% endif %}
 
                                     {% if perms.mainapp.view_vehiclefailures %}
@@ -577,7 +578,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Vehicle" %} {% trans "Failures" %}</a>
+                                    </svg> عرض جميع اعطال المركبة</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.add_companycases %}
@@ -585,7 +586,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Create" %} {% trans "Company" %} {% trans "Cases" %}</a>
+                                    </svg> انشاء قضيه الشركه</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.view_companycases %}
@@ -593,7 +594,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Company" %} {% trans "Cases" %}</a>
+                                    </svg> عرض جميع قضايا الشركه</a>
                                     {% endif %}
 
                                     {% if perms.mainapp.add_companyattendance %}
@@ -601,7 +602,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "Create" %} {% trans "Company" %} {% trans "Attendance" %}</a>
+                                    </svg> انشاء حضور الشركه/a>
                                     {% endif %}
 
                                 {% if perms.mainapp.view_companyattendance %}
@@ -609,7 +610,7 @@
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2"
                                         viewBox="0 0 8 2" fill="none">
                                         <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-                                    </svg> {% trans "List All" %} {% trans "Company" %} {% trans "Attendance" %}</a>
+                                    </svg> عرض جميع حضور الشركه</a>
                                     {% endif %}
                         
                             </div>
@@ -619,12 +620,12 @@
 
     {% if perms.mainapp.view_attendencelog or perms.mainapp.view_request or perms.mainapp.view_client %}
 
-    <button class="nav-link {% if request.path == '/en/attendance_report' %} dashboard-active {% elif request.path == '/en/request_report' %} dashboard-active {% elif request.path == '/en/client_report' %} dashboard-active {% elif request.path == '/en/employee_report' %} dashboard-active {% elif request.path == '/ar/attendance_report' %} dashboard-active {% elif request.path == '/ar/request_report' %} dashboard-active {% elif request.path == '/ar/client_report' %} dashboard-active {% elif request.path == '/ar/employee_report' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
+    <button data-bs-toggle="collapse" data-bs-target="#reportsCollapse" onclick="rotateIcon('reports-collapse-icon')" class="nav-link {% if request.path == '/en/attendance_report' %} dashboard-active {% elif request.path == '/en/request_report' %} dashboard-active {% elif request.path == '/en/client_report' %} dashboard-active {% elif request.path == '/en/employee_report' %} dashboard-active {% elif request.path == '/ar/attendance_report' %} dashboard-active {% elif request.path == '/ar/request_report' %} dashboard-active {% elif request.path == '/ar/client_report' %} dashboard-active {% elif request.path == '/ar/employee_report' %} dashboard-active {% endif %}" type="button" style="{% if LANGUAGE_CODE == 'ar' %} text-align: right; {% else %} text-align: left; {% endif %} position: relative;">
     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="me-2">
     <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="{% if request.path == '/en/attendance_report' %} #4365D0 {% elif request.path == '/en/request_report' %} #4365D0 {% elif request.path == '/en/client_report' %} #4365D0 {% elif request.path == '/en/employee_report' %} #4365D0 {% elif request.path == '/ar/attendance_report' %} #4365D0 {% elif request.path == '/ar/request_report' %} #4365D0 {% elif request.path == '/ar/client_report' %} #4365D0 {% elif request.path == '/ar/employee_report' %} #4365D0 {% else %} white {% endif %}" />
     </svg>
-    <span>{% trans "Reports" %}</span>
-    <svg id="reports-collapse-icon" class="collapse-icon" onclick="rotateIcon('reports-collapse-icon')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none" data-bs-toggle="collapse" data-bs-target="#reportsCollapse" aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="reportsCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/attendance_report' %} rotate(180deg) {% elif request.path == '/en/request_report' %} rotate(180deg) {% elif request.path == '/en/client_report' %} rotate(180deg) {% elif request.path == '/en/employee_report' %} rotate(180deg) {% elif request.path == '/ar/attendance_report' %} rotate(180deg) {% elif request.path == '/ar/request_report' %} rotate(180deg) {% elif request.path == '/ar/client_report' %} rotate(180deg) {% elif request.path == '/ar/employee_report' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
+    <span>التقارير</span>
+    <svg id="reports-collapse-icon" class="collapse-icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"  aria-expanded="{% if request.path == '/attendance_report' %} true {% elif request.path == '/request_report' %} true {% elif request.path == '/client_report' %} true {% elif request.path == '/employee_report' %} true {% else %} false {% endif %}" aria-controls="reportsCollapse" style="position: absolute; {% if LANGUAGE_CODE == 'ar' %} left: 10px; {% else %} right: 10px; {% endif %} transform: {% if request.path == '/en/attendance_report' %} rotate(180deg) {% elif request.path == '/en/request_report' %} rotate(180deg) {% elif request.path == '/en/client_report' %} rotate(180deg) {% elif request.path == '/en/employee_report' %} rotate(180deg) {% elif request.path == '/ar/attendance_report' %} rotate(180deg) {% elif request.path == '/ar/request_report' %} rotate(180deg) {% elif request.path == '/ar/client_report' %} rotate(180deg) {% elif request.path == '/ar/employee_report' %} rotate(180deg) {% else %} rotate(0deg) {% endif %}">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8839 11.6161C21.3345 12.0667 21.3692 12.7758 20.9879 13.2661L20.8839 13.3839L15.8839 18.3839C15.4333 18.8345 14.7242 18.8692 14.2339 18.4879L14.1161 18.3839L9.11611 13.3839C8.62796 12.8957 8.62796 12.1043 9.11611 11.6161C9.56672 11.1655 10.2758 11.1308 10.7661 11.5121L10.8839 11.6161L15 15.7312L19.1161 11.6161C19.5667 11.1655 20.2758 11.1308 20.7661 11.5121L20.8839 11.6161Z" fill="white" />
     </svg>
     </button>
@@ -636,21 +637,21 @@
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
     </svg>
-    {% trans "Attendance" %} {% trans "Reports" %}</a>
+    تقارير الحضور</a>
     {% endif %}
 
     {% if perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/request_report" class="collapse-item {% if request.path == '/en/request_report' %} text-white {% elif request.path == '/ar/request_report' %} text-white {% endif %}" style="cursor:pointer;">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Requests" %} {% trans "Reports" %}</a>
+    </svg> تقارير الطلبات</a>
     {% endif %}
 
     {% if perms.mainapp.view_client or perms.mainapp.view_request %}
     <a href="/{{request.LANGUAGE_CODE}}/client_report" class="collapse-item {% if request.path == '/en/client_report' %} text-white {% elif request.path == '/ar/client_report' %} text-white {% endif %}" style="cursor:pointer;">
     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" fill="none">
     <path d="M0 1H8" stroke="#7D8592" stroke-width="2" />
-    </svg> {% trans "Clients" %} {% trans "Reports" %}</a>
+    </svg> تقارير العملاء</a>
     {% endif %}
                             </div>
                         </div>

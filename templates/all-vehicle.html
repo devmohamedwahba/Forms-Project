@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "List All" %} {% trans "Vehicle" %} {% endblock %}
+{% block title %} عرض جميع المركبات {% endblock %}
 
 {% block content %}
 
@@ -10,19 +10,19 @@
     <div style="background-color: white; border-radius: 18px;">
         <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
             style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-            <h5 class="me-3 mb-0 text-white"> {% trans "List All" %} {% trans "Vehicle" %}</h5>
+            <h5 class="me-3 mb-0 text-white"> عرض جميع المركبات</h5>
         </div>
         <div class="attendence-table container-fluid" style="overflow-x:auto;">
             <table class="table table-hover table-borderless" id="departmentFormTable">
                 <thead>
                     <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
-                        <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans 'ID' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Name' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Plate' %} {% trans 'Number' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Plate' %} {% trans 'Type' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Plate' %} {% trans 'Source' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Vehicle' %} {% trans 'Type' %}</th>
-                        <th scope="col" style="padding: 1rem 0.5rem;">{% trans 'Vehicle' %} {% trans 'Year' %}</th>
+                        <th scope="col" class="" style="padding: 1rem 0.5rem;">المعرف</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">الاسم</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">رقم اللوحة</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">نوع اللوحة</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">مصدر اللوحة</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">نوع المركبه</th>
+                        <th scope="col" style="padding: 1rem 0.5rem;">سنه المركبه</th>
                     </tr>
                 </thead>
                 

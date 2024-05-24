@@ -190,7 +190,7 @@ msgstr "تم تحديث الورديات بنجاح."
 
 #: .\mainapp\views.py:378 .\mainapp\views.py:1024 .\mainapp\views.py:1084
 msgid "Shift does not exist."
-msgstr "الورديات غير موجودة."
+msgstr "     غير موجودة."
 
 #: .\mainapp\views.py:380
 msgid "Failed to update Shift:"

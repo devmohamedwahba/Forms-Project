@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load custom_filters %}
 
-{% block title %}{% trans "Client Report" %}{% endblock %}
+{% block title %}تقرير العميل{% endblock %}
 
 {% block content %}
 
@@ -36,7 +36,7 @@
             <div class="colors-box">
 
                 <div class="client-reports-content pt-4 pb-3">
-                    <h5 class="main-heading">{% trans "Clients" %}</h5>
+                    <h5 class="main-heading">العملاء</h5>
 
 
                     <div class="row">
@@ -107,7 +107,7 @@
                                             </defs>
                                         </svg>
                                     </div>
-        <p class="text-white mt-2">{% trans "Clients" %}</p>
+        <p class="text-white mt-2">العملاء</p>
         <h5 class="text-white">{{clients_count}}</h5>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                                             </defs>
                                         </svg>
                                     </div>
-                                    <p class="text-white mt-2">{% trans "Requests" %}</p>
+                                    <p class="text-white mt-2">الطلبات</p>
                                     <h5 class="text-white">{{clients_requests}}</h5>
                                 </div>
                             </div>
@@ -147,18 +147,18 @@
             {% if perms.mainapp.view_client %}
             <div>
                 <div>
-                    <h5><b>{% trans "Clients" %} {{clients_count}}</b></h5>
+                    <h5><b>العملاء {{clients_count}}</b></h5>
                 </div>
                 <div class="py-3 container-fluid bg-white"
                     style="height: 500px; border-radius: 18px; overflow-x: auto; margin: 0; margin-top: 20px;">
                     <table class="table table-hover custom-table">
                         <thead>
                             <tr>
-                                <th scope="col">{% trans "ID" %}</th>
-                                <th scope="col">{% trans "Name" %}</th>
-                                <th scope="col">{% trans "Mobile" %}</th>
-                                <th scope="col">{% trans "Email" %}</th>
-                                <th scope="col">{% trans "Address" %}</th>
+                                <th scope="col">المعرف</th>
+                                <th scope="col">الاسم</th>
+                                <th scope="col">الموبايل</th>
+                                <th scope="col">البريد الالكتروني</th>
+                                <th scope="col">العنوان</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,10 +168,10 @@
                                 <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.name}}</a></td>
                                 <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.mobile}}</a>
                                 </td>
-                                <td style="padding: 30px 10px;"><a href="/client/{client.id}}">{{client.email}}</a>
+                                <td style="padding: 30px 10px;"><a href="/client/{{client.id}}">{{client.email}}</a>
                                 </td>
                                 <td style="padding: 30px 10px;"><a
-                                        href="/client/{client.id}}">{{client.work_location.address}}</a></td>
+                                        href="/client/{{client.id}}">{{client.work_location.address}}</a></td>
 
                             </tr>
                             {% endfor %}
@@ -188,7 +188,7 @@
                 <div class="col-md-12" style="height: 500px; overflow: auto;">
                     <div class="projects-tab p-3">
                         <h4 style="color: #0A1629; font-size: 22px; font-style: normal; font-family: Nunito-Sans-bold; line-height: normal;">
-                            {% trans "Requests" %}</h4>
+                            الطلبات</h4>
                         <div class="projects-section">
                             {% if requests %}
                             {% for request in requests %}
@@ -218,14 +218,14 @@
                                                     d="M7.57414 2C7.57414 1.44772 8.02185 1 8.57414 1H8.67566C9.22795 1 9.67566 1.44772 9.67566 2V3H15.9802V2C15.9802 1.44772 16.4279 1 16.9802 1H17.0818C17.634 1 18.0818 1.44772 18.0818 2V3C20.403 3 22.2848 4.79086 22.2848 7V17C22.2848 19.2091 20.403 21 18.0818 21H7.57414C5.25286 21 3.37109 19.2091 3.37109 17V7C3.37109 4.79086 5.25286 3 7.57414 3V2ZM15.9802 5C15.9802 5.55228 16.4279 6 16.9802 6H17.0818C17.634 6 18.0818 5.55228 18.0818 5L18.2386 5.00549C19.326 5.08183 20.1833 5.94564 20.1833 7V8H5.47262V7L5.47838 6.85074C5.55861 5.81588 6.46626 5 7.57414 5C7.57414 5.55228 8.02185 6 8.57414 6H8.67566C9.22795 6 9.67566 5.55228 9.67566 5H15.9802Z"
                                                     fill="#7D8592" />
                                             </svg>
-                                            <span>{% trans "Created" %} <span>{{request.request_date}}</span></span>
+                                            <span>تم الانشاء<span>{{request.request_date}}</span></span>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                             {% endfor %}
                             {% else %}
-                            <p class="text-danger">{% trans "No Requests" %}</p>
+                            <p class="text-danger">لايوجد طلبات</p>
                             {% endif %}
                         </div>
                     </div>

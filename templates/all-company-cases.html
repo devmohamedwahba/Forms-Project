@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "List All" %} {% trans "Company" %}  {% trans "Cases" %}{% endblock %}
+{% block title %}عرض الجميع حالات الشركة{% endblock %}
 
 {% block content %}
 
@@ -10,26 +10,26 @@
     <div style="background-color: white; border-radius: 18px;">
         <div class="container-fluid attendence-tab-head d-flex align-items-center py-3"
             style="background-color: #4365D0; border-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-            <h5 class="me-3 mb-0 text-white">{% trans "List All" %} {% trans "Company" %}  {% trans "Cases" %}</h5>
+            <h5 class="me-3 mb-0 text-white">عرض الجميع حالات الشركة</h5>
         </div>
         <div class="attendence-table container-fluid" style="overflow-x:auto;">
             <table class="table table-hover table-borderless" id="departmentFormTable">
                 <thead>
                     <tr class="py-1" style="border-bottom: 1px solid #C5CEDF;">
-                        <th scope="col" class="" style="padding: 1rem 0.5rem;">{% trans 'ID' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Employees' %} {% trans 'Name' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Company' %} {% trans 'Name' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Duty' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Reports' %}</th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Date of Case' %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'City' %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Zone' %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Type of Case' %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans "Case" %} {% trans "Description" %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans "Cases" %} {% trans "Summart" %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans "Company" %} {% trans "Guard" %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Guard' %} {% trans 'Nationality' %}</th></th>
-        <th scope="col" style="padding: 1rem 0.5rem;"> {% trans 'Comments' %}</th></th>
+                        <th scope="col" class="" style="padding: 1rem 0.5rem;">المعرف</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> اسم الموظفين</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> اسم الشركه</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> الوظيفة</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> التقارير</th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> تاريخ القضية</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> المدينة</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> المنطقة</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> نوع القضية</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> وصف القضيه</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> ملخص القضيه</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;">    حارس الشركه</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> جنسية الحارس</th></th>
+        <th scope="col" style="padding: 1rem 0.5rem;"> التعليقات</th></th>
                     </tr>
                 </thead>
                 

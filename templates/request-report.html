@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Request Report" %}{% endblock %}
+{% block title %}طلب تقرير{% endblock %}
 
 {% block content %}
 <style>
@@ -34,7 +34,7 @@
             <div class="colors-box">
 
                 <div class="employee-reports-content pt-4 pb-3">
-                    <h5 class="main-heading">{% trans "Request Report" %}</h5>
+                    <h5 class="main-heading">طلب تقرير</h5>
                     <style>
                         .employee-reports-content .col-md-2 {
                             width: 20%;
@@ -77,7 +77,7 @@
                                         </svg>
                                     </div>
 
-                                    <p class="mt-2"> {% trans "Employees" %}</p>
+                                    <p class="mt-2">الموظفين</p>
 
                                     <h5>{{employees_count}}</h5>
                                 </div>
@@ -166,7 +166,7 @@
                                                 fill="#E29808" />
                                         </svg>
                                     </div>
-                                    <p class="text-white mt-2">{% trans "Requests" %}</p>
+                                    <p class="text-white mt-2">الطلبات</p>
                                     <h5 class="text-white">{{requests_count}}</h5>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
             <div>
                 {% if perms.mainapp.view_customuser %}
                 <div>
-                    <h5><b>{% trans "Employees" %} {{employees_count}}</b></h5>
+                    <h5><b>الموظفين  {{employees_count}}</b></h5>
                 </div>
                 <div class="py-3 container-fluid" style="height: 100%; border-radius: 18px; margin: 0;">
                     {% for employee in employees %}
