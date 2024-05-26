@@ -8,7 +8,7 @@
 {% block title %} لوحة التحكم {% endblock %}
 
 {% block content %}
-<div class="pt-4">
+<div class="">
     <div class="container">
     </div>
     <div class="dashboard-content">
@@ -109,7 +109,7 @@
             <div class="row">
 
                 {% if request.user|has_permission:'mainapp.view_customuser' %}
-                <div class="col-md-7" style="height: 500px; overflow: auto;">
+                <div class="col-md-7">
                     <div class="employee-tab">
                         <div class="d-flex justify-content-between emp-view">
                             <h4>موظفينا</h4>
@@ -126,7 +126,7 @@
                         <div class="employee">
                             <div class="row">
                                 {% for employee in employees %}
-                                <a class="col-xl-4 col-md-6" href="/{{request.LANGUAGE_CODE}}/employee/{{employee.id}}/"
+                                <a class="col-xl-5 col-md-6" href="/{{request.LANGUAGE_CODE}}/employee/{{employee.id}}/"
                                     style="text-decoration: none;">
                                     <div class="mb-3">
                                         <div class="emp-box" style="border-radius: 24px;
@@ -158,7 +158,7 @@
                 {% endif %}
 
                 {% if request.user|has_permission:'mainapp.view_request' %}
-                <div class="col-md-5" style="height: 500px; overflow: auto;">
+                <div class="col-md-5">
                     <div class="projects-tab">
                         <h4>الطلبات</h4>
                         <div class="projects-section">

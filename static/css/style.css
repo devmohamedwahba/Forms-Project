@@ -80,6 +80,9 @@ textarea:focus {
     top: 0;
     transition: all .5s ease-in-out;
 }
+.margin_container {
+    margin-top: 4rem !important;
+}
 
 @media (max-width: 992px) {
     .overlay.active {
@@ -204,7 +207,6 @@ textarea:focus {
 @media (min-width: 992px) {
     #mySideBar {
         margin-left: 0 !important;
-        margin-top: 4rem;
     }
 }
 

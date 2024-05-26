@@ -150,7 +150,7 @@
                     <h5><b>العملاء {{clients_count}}</b></h5>
                 </div>
                 <div class="py-3 container-fluid bg-white"
-                    style="height: 500px; border-radius: 18px; overflow-x: auto; margin: 0; margin-top: 20px;">
+                    style="border-radius: 18px; overflow-x: auto; margin: 0; margin-top: 20px;">
                     <table class="table table-hover custom-table">
                         <thead>
                             <tr>
@@ -185,7 +185,7 @@
             <div class="bg-white px-1 pb-1"
                 style="border-radius: 10px; margin-top: 56px; box-shadow: 0px 6px 58px 0px rgba(196, 203, 214, 0.10);">
                 {% if request.user|has_permission:'mainapp.view_request' %}
-                <div class="col-md-12" style="height: 500px; overflow: auto;">
+                <div class="col-md-12">
                     <div class="projects-tab p-3">
                         <h4 style="color: #0A1629; font-size: 22px; font-style: normal; font-family: Nunito-Sans-bold; line-height: normal;">
                             الطلبات</h4>
